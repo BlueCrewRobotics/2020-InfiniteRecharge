@@ -1,3 +1,7 @@
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-*/
+/*     Blue Crew Robotics #6153    */
+/*      Ifinite Recharge 2020      */
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-*/
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -9,9 +13,9 @@
 
 #include <frc/commands/Subsystem.h>
 
-class ExampleSubsystem : public frc::Subsystem {
+class SubColorWheel : public frc::Subsystem {
  public:
-  ExampleSubsystem();
+  SubColorWheel();
   void InitDefaultCommand() override;
 
  private:

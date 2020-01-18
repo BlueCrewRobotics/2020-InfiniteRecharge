@@ -19,7 +19,9 @@ void CmdShoot::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdShoot::Execute() {
-    Robot::m_subShooter.Shoot(1, 0.75);
+    double d_topShooter = frc::SmartDashboard::GetNumber("topShooter",0.25);
+    double d_botShooter = frc::SmartDashboard::GetNumber("botShooter",0.25);
+    Robot::m_subShooter.Shoot( d_topShooter, d_botShooter );
 }
 
 // Make this return true when this Command no longer needs to run execute()
