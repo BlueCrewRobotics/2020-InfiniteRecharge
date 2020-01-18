@@ -22,6 +22,8 @@
 #include "subsystems/SubPCM.h"
 #include "networktables/NetworkTableInstance.h"
 #include "networktables/NetworkTableEntry.h"
+#include "subsystems/SubShooter.h"
+#include "commands/CmdShoot.h"
 
 
 class Robot : public frc::TimedRobot {
@@ -30,6 +32,7 @@ class Robot : public frc::TimedRobot {
   static OI m_oi;
   static SubDriveTrain m_subDriveTrain;
 	static SubPCM m_subPCM;
+  static SubShooter m_subShooter;
 
   
   void RobotInit() override;
