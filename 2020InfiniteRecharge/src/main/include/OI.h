@@ -9,6 +9,8 @@
 
 
 #include "commands/CmdSwitchGear.h"
+#include "commands/CmdShoot.h"
+#include "commands/CmdStopShoot.h"
 #include <frc/WPILib.h>
 #include "RobotMap.h"
 

@@ -5,14 +5,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "OI.h"
-#include "Robot.h"
+#pragma once
 
-OI::OI() {
-  // Process operator interface input here.
+#include <frc/commands/Command.h>
 
-  driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
-
-  driverController_button_x->WhenPressed(new CmdShoot());
-  driverController_button_y->WhenPressed(new CmdStopShoot());
-}
+class CmdStopShoot : public frc::Command {
+ public:
+  CmdStopShoot();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
+};

@@ -18,8 +18,7 @@ void SubShooter::InitDefaultCommand() {
 
 void SubShooter::Shoot(double topSpeed, double bottomSpeed) {
   // This might need to be changed on the final robot
-  topSpeed = topSpeed * -1;
-  bottomSpeed = bottomSpeed * -1;
+ 
   topShooterMotor->Set(ControlMode::PercentOutput, topSpeed);
   bottomShooterMotor->Set(ControlMode::PercentOutput, bottomSpeed);
 }

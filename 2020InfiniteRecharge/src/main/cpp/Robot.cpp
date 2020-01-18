@@ -15,6 +15,8 @@ OI Robot::m_oi;
 
 SubDriveTrain Robot::m_subDriveTrain;
 SubPCM Robot::m_subPCM;
+SubShooter Robot::m_subShooter;
+
 
 void Robot::RobotInit() {
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
