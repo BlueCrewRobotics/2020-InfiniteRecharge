@@ -107,3 +107,10 @@ constexpr int PCM_TOP = 8;
 // Solenoid Mappings for bottom PCM
 constexpr int BTM_GEARSHIFT = 0;  // Drive train gear shifter
 
+// Color Sensor Cofiguration
+constexpr int WHEEL_NOMATCH = 0;
+constexpr int WHEEL_BLUE    = 1;
+constexpr int WHEEL_RED     = 2;
+constexpr int WHEEL_GREEN   = 3;
+constexpr int WHEEL_YELLOW  = 4;
+
