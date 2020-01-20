@@ -1,3 +1,7 @@
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
+/*                       Blue Crew Robotics #6153                             */
+/*                        Infinite Recharge 2020                              */
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -16,11 +20,22 @@ void SubShooter::InitDefaultCommand() {
   // SetDefaultCommand(new MySpecialCommand());
 }
 
+void SubShooter::Configure(){
+    frc::SmartDashboard::PutNumber("Shooter/topSpeed",0.0);
+    frc::SmartDashboard::PutNumber("Shooter/botSpeed",0.0);
+    topShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
+    bottomShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
+    
+}
+
 void SubShooter::Shoot(double topSpeed, double bottomSpeed) {
   // This might need to be changed on the final robot
  
   topShooterMotor->Set(ControlMode::PercentOutput, topSpeed);
   bottomShooterMotor->Set(ControlMode::PercentOutput, bottomSpeed);
+  
+  //topShooterMotor->Set(ControlMode::Velocity, topSpeed);
+  //bottomShooterMotor->Set(ControlMode::Velocity, bottomSpeed);
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

@@ -1,3 +1,7 @@
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
+/*                       Blue Crew Robotics #6153                             */
+/*                        Infinite Recharge 2020                              */
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -16,7 +20,7 @@ OI Robot::m_oi;
 SubDriveTrain Robot::m_subDriveTrain;
 SubPCM Robot::m_subPCM;
 SubShooter Robot::m_subShooter;
-
+SubColorWheel Robot::m_subColorWheel;
 
 void Robot::RobotInit() {
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
@@ -25,6 +29,7 @@ void Robot::RobotInit() {
 
   m_subDriveTrain.Configure();
   m_subPCM.Configure();
+  m_subShooter.Configure();
 
 }
 

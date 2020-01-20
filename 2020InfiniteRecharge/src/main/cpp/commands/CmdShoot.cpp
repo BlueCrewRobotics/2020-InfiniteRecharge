@@ -1,3 +1,7 @@
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
+/*                       Blue Crew Robotics #6153                             */
+/*                        Infinite Recharge 2020                              */
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -15,12 +19,15 @@ CmdShoot::CmdShoot() {
 }
 
 // Called just before this Command runs the first time
-void CmdShoot::Initialize() {}
+void CmdShoot::Initialize() {
+
+}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdShoot::Execute() {
-    double d_topShooter = frc::SmartDashboard::GetNumber("topShooter",0.25);
-    double d_botShooter = frc::SmartDashboard::GetNumber("botShooter",0.25);
+
+    double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",0.25);
+    double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",0.25);
     Robot::m_subShooter.Shoot( d_topShooter, d_botShooter );
 }
 

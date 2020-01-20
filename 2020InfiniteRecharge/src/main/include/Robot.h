@@ -1,3 +1,7 @@
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
+/*                       Blue Crew Robotics #6153                             */
+/*                        Infinite Recharge 2020                              */
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -24,6 +28,7 @@
 #include "networktables/NetworkTableEntry.h"
 #include "subsystems/SubShooter.h"
 #include "commands/CmdShoot.h"
+#include "subsystems/SubColorWheel.h"
 
 
 
@@ -34,6 +39,7 @@ class Robot : public frc::TimedRobot {
   static SubDriveTrain m_subDriveTrain;
 	static SubPCM m_subPCM;
   static SubShooter m_subShooter;
+  static SubColorWheel m_subColorWheel;
   
   void RobotInit() override;
   void RobotPeriodic() override;

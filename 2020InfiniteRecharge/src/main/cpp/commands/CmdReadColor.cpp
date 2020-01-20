@@ -9,24 +9,32 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#include "commands/CmdReadColor.h"
 
-#include <frc/commands/Subsystem.h>
-#include <frc/WPILib.h>
-#include "BC_TalonSRX.h"
+#include "Robot.h"
 
-class SubShooter : public frc::Subsystem {
- public:
-  SubShooter();
-  void InitDefaultCommand() override;
-  void Configure();
-  void Shoot(double topSpeed, double bottomSpeed);
+CmdReadColor::CmdReadColor() {
+  // Use Requires() here to declare subsystem dependencies
+  Requires(&Robot::m_subColorWheel);
+}
 
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
+// Called just before this Command runs the first time
+void CmdReadColor::Initialize() {
+  
+}
 
-  TalonSRX *topShooterMotor = new TalonSRX(5);
-  TalonSRX *bottomShooterMotor = new TalonSRX(6);
+// Called repeatedly when this Command is scheduled to run
+void CmdReadColor::Execute() {
+    Robot::m_subColorWheel.ReadColor();
+ 
+}
 
-};
+// Make this return true when this Command no longer needs to run execute()
+bool CmdReadColor::IsFinished() { return false; }
+
+// Called once after isFinished returns true
+void CmdReadColor::End() {}
+
+// Called when another command which requires one or more of the same
+// subsystems is scheduled to run
+void CmdReadColor::Interrupted() {}

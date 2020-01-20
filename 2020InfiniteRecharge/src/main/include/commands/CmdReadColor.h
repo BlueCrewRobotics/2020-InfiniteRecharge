@@ -11,22 +11,17 @@
 
 #pragma once
 
-#include <frc/commands/Subsystem.h>
-#include <frc/WPILib.h>
-#include "BC_TalonSRX.h"
+#include <frc/commands/Command.h>
+#include "subsystems/SubColorWheel.h"
 
-class SubShooter : public frc::Subsystem {
+
+
+class CmdReadColor : public frc::Command {
  public:
-  SubShooter();
-  void InitDefaultCommand() override;
-  void Configure();
-  void Shoot(double topSpeed, double bottomSpeed);
-
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
-
-  TalonSRX *topShooterMotor = new TalonSRX(5);
-  TalonSRX *bottomShooterMotor = new TalonSRX(6);
-
+  CmdReadColor();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
 };
