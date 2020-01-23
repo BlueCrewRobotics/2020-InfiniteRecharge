@@ -110,6 +110,19 @@ constexpr int PCM_TOP = 8;
 // Solenoid Mappings for bottom PCM
 constexpr int BTM_GEARSHIFT = 0;  // Drive train gear shifter
 
+// Shooter Configuration
+// PID constants PID[0] Used for Shooter
+constexpr double SHOOTER_TOP_KF_0 = 0.64; 
+constexpr double SHOOTER_TOP_KP_0 = 0.4;  
+constexpr double SHOOTER_TOP_KI_0 = 0.0;
+constexpr double SHOOTER_TOP_KD_0 = 0.0;
+
+constexpr double SHOOTER_BTM_KF_0 = 0.64; 
+constexpr double SHOOTER_BTM_KP_0 = 0.4;  
+constexpr double SHOOTER_BTM_KI_0 = 0.0;
+constexpr double SHOOTER_BTM_KD_0 = 0.0;
+
+
 // Color Sensor Cofiguration
 constexpr int WHEEL_NOMATCH = 0;
 constexpr int WHEEL_BLUE    = 1;

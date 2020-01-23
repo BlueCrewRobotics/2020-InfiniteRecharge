@@ -21,21 +21,53 @@ void SubShooter::InitDefaultCommand() {
 }
 
 void SubShooter::Configure(){
-    frc::SmartDashboard::PutNumber("Shooter/topSpeed",0.0);
-    frc::SmartDashboard::PutNumber("Shooter/botSpeed",0.0);
+    frc::SmartDashboard::PutNumber("Shooter/topSpeed",40.0);
+    frc::SmartDashboard::PutNumber("Shooter/botSpeed",40.0);
     topShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
     bottomShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
     
+    topShooterMotor->Config_kF(0,SHOOTER_TOP_KF_0, 0);
+    topShooterMotor->Config_kP(0,SHOOTER_TOP_KP_0, 0);
+    topShooterMotor->Config_kI(0,SHOOTER_TOP_KI_0, 0);
+    topShooterMotor->Config_kD(0,SHOOTER_TOP_KD_0, 0);
+
+    bottomShooterMotor->Config_kF(0,SHOOTER_BTM_KF_0, 0);
+    bottomShooterMotor->Config_kP(0,SHOOTER_BTM_KP_0, 0);
+    bottomShooterMotor->Config_kI(0,SHOOTER_BTM_KI_0, 0);
+    bottomShooterMotor->Config_kD(0,SHOOTER_BTM_KD_0, 0);
+
+    topShooterMotor->SelectProfileSlot(0, 0);
+    topShooterMotor->ConfigNominalOutputForward(0, 0);
+    topShooterMotor->ConfigNominalOutputReverse(0, 0);
+    topShooterMotor->ConfigPeakOutputForward(1, 0);
+    topShooterMotor->ConfigPeakOutputReverse(-1, 0);
+
+    bottomShooterMotor->SelectProfileSlot(0, 0);
+    bottomShooterMotor->ConfigNominalOutputForward(0, 0);
+    bottomShooterMotor->ConfigNominalOutputReverse(0, 0);
+    bottomShooterMotor->ConfigPeakOutputForward(1, 0);
+    bottomShooterMotor->ConfigPeakOutputReverse(-1, 0);
+/*    
+    topShooterMotor->Config_kF(0, frc::SmartDashboard::GetNumber("Shooter/TOP_KF_0",SHOOTER_TOP_KF_0), 0);
+    topShooterMotor->Config_kP(0, frc::SmartDashboard::GetNumber("Shooter/TOP_KP_0",SHOOTER_TOP_KP_0), 0);
+    topShooterMotor->Config_kI(0, frc::SmartDashboard::GetNumber("Shooter/TOP_KI_0",SHOOTER_TOP_KI_0), 0);
+    topShooterMotor->Config_kD(0, frc::SmartDashboard::GetNumber("Shooter/TOP_KD_0",SHOOTER_TOP_KD_0), 0);
+
+    bottomShooterMotor->Config_kF(0, frc::SmartDashboard::GetNumber("Shooter/BTM_KF_0",SHOOTER_BTM_KF_0), 0);
+    bottomShooterMotor->Config_kP(0, frc::SmartDashboard::GetNumber("Shooter/BTM_KP_0",SHOOTER_BTM_KP_0), 0);
+    bottomShooterMotor->Config_kI(0, frc::SmartDashboard::GetNumber("Shooter/BTM_KI_0",SHOOTER_BTM_KI_0), 0);
+    bottomShooterMotor->Config_kD(0, frc::SmartDashboard::GetNumber("Shooter/BTM_KD_0",SHOOTER_BTM_KD_0), 0);
+*/
 }
 
 void SubShooter::Shoot(double topSpeed, double bottomSpeed) {
   // This might need to be changed on the final robot
  
-  topShooterMotor->Set(ControlMode::PercentOutput, topSpeed);
-  bottomShooterMotor->Set(ControlMode::PercentOutput, bottomSpeed);
+  //topShooterMotor->Set(ControlMode::PercentOutput, topSpeed);
+  //bottomShooterMotor->Set(ControlMode::PercentOutput, bottomSpeed);
   
-  //topShooterMotor->Set(ControlMode::Velocity, topSpeed);
-  //bottomShooterMotor->Set(ControlMode::Velocity, bottomSpeed);
+  topShooterMotor->Set(ControlMode::Velocity, topSpeed);
+  bottomShooterMotor->Set(ControlMode::Velocity, bottomSpeed);
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

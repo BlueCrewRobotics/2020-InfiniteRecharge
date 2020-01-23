@@ -96,14 +96,14 @@ void SubDriveTrain::Configure() {
   leftDriveMotor->ptr_talonSRX->SelectProfileSlot(0, 0);
   leftDriveMotor->ptr_talonSRX->ConfigNominalOutputForward(0, 0);
   leftDriveMotor->ptr_talonSRX->ConfigNominalOutputReverse(0, 0);
-  leftDriveMotor->ptr_talonSRX->ConfigPeakOutputForward(12, 0);
-  leftDriveMotor->ptr_talonSRX->ConfigPeakOutputReverse(-12, 0);
+  leftDriveMotor->ptr_talonSRX->ConfigPeakOutputForward(1, 0);
+  leftDriveMotor->ptr_talonSRX->ConfigPeakOutputReverse(-1, 0);
 
   rightDriveMotor->ptr_talonSRX->SelectProfileSlot(0, 0);
   rightDriveMotor->ptr_talonSRX->ConfigNominalOutputForward(0, 0);
   rightDriveMotor->ptr_talonSRX->ConfigNominalOutputReverse(0, 0);
-  rightDriveMotor->ptr_talonSRX->ConfigPeakOutputForward(12, 0);
-  rightDriveMotor->ptr_talonSRX->ConfigPeakOutputReverse(-12, 0);
+  rightDriveMotor->ptr_talonSRX->ConfigPeakOutputForward(1, 0);
+  rightDriveMotor->ptr_talonSRX->ConfigPeakOutputReverse(-1, 0);
 
   // PID constants for Profile 0 low gear Profile 1 high gear of Talon left
   frc::SmartDashboard::PutNumber("LEFT_KF_0",LEFT_KF_0);

@@ -26,8 +26,8 @@ void CmdShoot::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CmdShoot::Execute() {
 
-    double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",0.25);
-    double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",0.25);
+    double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",0.0);
+    double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",0.0);
     Robot::m_subShooter.Shoot( d_topShooter, d_botShooter );
 }
 
