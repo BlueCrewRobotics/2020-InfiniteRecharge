@@ -12,12 +12,13 @@
 #include "subsystems/SubNavX.h"
 #include "Robot.h"
 #include "RobotMap.h"
+#include "commands/CmdNavRead.h"
 
 SubNavX::SubNavX() : frc::Subsystem("SubNavX") {}
 
 void SubNavX::InitDefaultCommand() {
   // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
+   SetDefaultCommand(new CmdNavRead());
 }
 void SubNavX::GetNavValues(){
         frc::SmartDashboard::PutBoolean( "IMU_Connected",        ahrs->IsConnected());
