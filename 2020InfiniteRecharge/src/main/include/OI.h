@@ -17,6 +17,8 @@
 #include "commands/CmdStopShoot.h"
 #include <frc/WPILib.h>
 #include "RobotMap.h"
+#include "commands/CmdIntake.h"
+#include "commands/CmdStopIntake.h"
 
 class OI {
  public:

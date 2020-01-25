@@ -9,17 +9,27 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "OI.h"
-#include "Robot.h"
+#include "subsystems/SubIntake.h"
 
-OI::OI() {
-  // Process operator interface input here.
+#include "RobotMap.h"
 
-  driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
+SubIntake::SubIntake() : frc::Subsystem("SubIntake") {}
 
-  driverController_button_x->WhenPressed(new CmdShoot());
-  driverController_button_y->WhenPressed(new CmdStopShoot());
-
-  driverController_button_a->WhenPressed(new CmdIntake());
-  driverController_button_a->WhenReleased(new CmdStopIntake());
+void SubIntake::InitDefaultCommand() {
+  // Set the default command for a subsystem here.
+  // SetDefaultCommand(new MySpecialCommand());
 }
+
+void SubIntake::ExtendIntake(bool Extention) {
+  extendSolenoid->Set(Extention);
+}
+
+
+void SubIntake::RunIntake(double Speed) {
+  intakeMotor->Set(ControlMode::PercentOutput, Speed);
+
+}
+
+
+// Put methods for controlling this subsystem
+// here. Call these from Commands.

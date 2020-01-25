@@ -9,17 +9,34 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "OI.h"
+#include "commands/CmdIntake.h"
+#include "subsystems/SubIntake.h"
+
 #include "Robot.h"
 
-OI::OI() {
-  // Process operator interface input here.
-
-  driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
-
-  driverController_button_x->WhenPressed(new CmdShoot());
-  driverController_button_y->WhenPressed(new CmdStopShoot());
-
-  driverController_button_a->WhenPressed(new CmdIntake());
-  driverController_button_a->WhenReleased(new CmdStopIntake());
+CmdIntake::CmdIntake() {
+  // Use Requires() here to declare subsystem dependencies
+  Requires(&Robot::m_subIntake);
 }
+
+// Called just before this Command runs the first time
+void CmdIntake::Initialize() {
+
+}
+
+// Called repeatedly when this Command is scheduled to run
+void CmdIntake::Execute() {
+  Robot::m_subIntake.RunIntake(.5);
+}
+
+// Make this return true when this Command no longer needs to run execute()
+bool CmdIntake::IsFinished() { return false; }
+
+// Called once after isFinished returns true
+void CmdIntake::End() {
+
+}
+
+// Called when another command which requires one or more of the same
+// subsystems is scheduled to run
+void CmdIntake::Interrupted() {}

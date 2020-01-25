@@ -9,17 +9,23 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "OI.h"
-#include "Robot.h"
 
-OI::OI() {
-  // Process operator interface input here.
+#pragma once
 
-  driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
+#include <frc/commands/Subsystem.h>
+#include <frc/WPILib.h>
+#include "BC_VictorSPX.h"
 
-  driverController_button_x->WhenPressed(new CmdShoot());
-  driverController_button_y->WhenPressed(new CmdStopShoot());
+class SubIntake : public frc::Subsystem {
+ public:
+  SubIntake();
+  void InitDefaultCommand() override;
+  void ExtendIntake(bool Extention);
+  void RunIntake(double Speed);
 
-  driverController_button_a->WhenPressed(new CmdIntake());
-  driverController_button_a->WhenReleased(new CmdStopIntake());
-}
+ private:
+  VictorSPX *intakeMotor = new VictorSPX(7);
+  frc::Solenoid *extendSolenoid = new frc::Solenoid(9, 1);
+  // It's desirable that everything possible under private except
+  // for methods that implement subsystem capabilities
+};
