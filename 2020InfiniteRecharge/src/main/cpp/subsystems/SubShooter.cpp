@@ -47,6 +47,17 @@ void SubShooter::Configure(){
     bottomShooterMotor->ConfigNominalOutputReverse(0, 0);
     bottomShooterMotor->ConfigPeakOutputForward(1, 0);
     bottomShooterMotor->ConfigPeakOutputReverse(-1, 0);
+
+    // Set current limit continuous, peak, and peak duration can only be set on
+    // TalonSRX
+    topShooterMotor->ConfigContinuousCurrentLimit(CONTINUOUS_CURRENT_LIMIT, 0.5);
+    topShooterMotor->ConfigPeakCurrentLimit(PEAK_CURRENT_LIMIT, 0);
+    topShooterMotor->ConfigPeakCurrentDuration(DURATION_CURRENT_LIMIT, 0);
+
+    bottomShooterMotor->ConfigContinuousCurrentLimit(CONTINUOUS_CURRENT_LIMIT, 0.5);
+    bottomShooterMotor->ConfigPeakCurrentLimit(PEAK_CURRENT_LIMIT, 0);
+    bottomShooterMotor->ConfigPeakCurrentDuration(DURATION_CURRENT_LIMIT, 0);
+
 /*    
     topShooterMotor->Config_kF(0, frc::SmartDashboard::GetNumber("Shooter/TOP_KF_0",SHOOTER_TOP_KF_0), 0);
     topShooterMotor->Config_kP(0, frc::SmartDashboard::GetNumber("Shooter/TOP_KP_0",SHOOTER_TOP_KP_0), 0);

@@ -9,39 +9,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdShoot.h"
-#include "subsystems/SubShooter.h"
+#include "commands/CmdNavRead.h"
+
 #include "Robot.h"
 
-CmdShoot::CmdShoot() {
+CmdNavRead::CmdNavRead() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subShooter);
+  Requires(&Robot::m_subNavX);
 }
 
 // Called just before this Command runs the first time
-void CmdShoot::Initialize() {
-
-}
+void CmdNavRead::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdShoot::Execute() {
-
-    //double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
-    //double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
-    double d_topShooter = 40.0;
-    double d_botShooter = 40.0;
-    Robot::m_subShooter.Shoot( d_topShooter, d_botShooter );
+void CmdNavRead::Execute() {
+    Robot::m_subNavX.GetNavValues();
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdShoot::IsFinished() { 
-    return false;
-    
-     }
+bool CmdNavRead::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void CmdShoot::End() {}
+void CmdNavRead::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdShoot::Interrupted() {}
+void CmdNavRead::Interrupted() {}

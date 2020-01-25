@@ -30,7 +30,7 @@
 #include "commands/CmdShoot.h"
 #include "subsystems/SubColorWheel.h"
 #include "subsystems/SubIntake.h"
-
+#include "subsystems/SubNavX.h"
 
 
 class Robot : public frc::TimedRobot {
@@ -42,7 +42,9 @@ class Robot : public frc::TimedRobot {
   static SubShooter m_subShooter;
   static SubColorWheel m_subColorWheel;
   static SubIntake m_subIntake;
-
+  static SubNavX m_subNavX;
+  
+  
   void RobotInit() override;
   void RobotPeriodic() override;
   void DisabledInit() override;

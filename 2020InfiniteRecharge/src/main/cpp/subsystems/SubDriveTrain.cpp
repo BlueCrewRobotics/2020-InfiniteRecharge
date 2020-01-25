@@ -80,17 +80,13 @@ void SubDriveTrain::Configure() {
 
   // Set current limit continuous, peak, and peak duration can only be set on
   // TalonSRX
-  leftDriveMotor->ptr_talonSRX->ConfigContinuousCurrentLimit(
-      CONTINUOUS_CURRENT_LIMIT, 0.5);
+  leftDriveMotor->ptr_talonSRX->ConfigContinuousCurrentLimit(CONTINUOUS_CURRENT_LIMIT, 0.5);
   leftDriveMotor->ptr_talonSRX->ConfigPeakCurrentLimit(PEAK_CURRENT_LIMIT, 0);
-  leftDriveMotor->ptr_talonSRX->ConfigPeakCurrentDuration(
-      DURATION_CURRENT_LIMIT, 0);
+  leftDriveMotor->ptr_talonSRX->ConfigPeakCurrentDuration(DURATION_CURRENT_LIMIT, 0);
 
-  rightDriveMotor->ptr_talonSRX->ConfigContinuousCurrentLimit(
-      CONTINUOUS_CURRENT_LIMIT, 0.5);
+  rightDriveMotor->ptr_talonSRX->ConfigContinuousCurrentLimit(CONTINUOUS_CURRENT_LIMIT, 0.5);
   rightDriveMotor->ptr_talonSRX->ConfigPeakCurrentLimit(PEAK_CURRENT_LIMIT, 0);
-  rightDriveMotor->ptr_talonSRX->ConfigPeakCurrentDuration(
-      DURATION_CURRENT_LIMIT, 0);
+  rightDriveMotor->ptr_talonSRX->ConfigPeakCurrentDuration(DURATION_CURRENT_LIMIT, 0);
 
   // Need to setup velocity PID controls
   leftDriveMotor->ptr_talonSRX->SelectProfileSlot(0, 0);
