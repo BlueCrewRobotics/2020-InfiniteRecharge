@@ -24,7 +24,9 @@ void SubShooter::Configure(){
     frc::SmartDashboard::PutNumber("Shooter/topSpeed",40.0);
     frc::SmartDashboard::PutNumber("Shooter/botSpeed",40.0);
     topShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
+    topShooterMotor->SetSensorPhase(false);
     bottomShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
+    bottomShooterMotor->SetSensorPhase(false);
     
     topShooterMotor->Config_kF(0,SHOOTER_TOP_KF_0, 0);
     topShooterMotor->Config_kP(0,SHOOTER_TOP_KP_0, 0);
