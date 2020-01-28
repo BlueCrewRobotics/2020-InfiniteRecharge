@@ -12,12 +12,13 @@
 #include "subsystems/SubShooter.h"
 
 #include "RobotMap.h"
+#include "commands/CmdShoot.h"
 
 SubShooter::SubShooter() : frc::Subsystem("SubShooter") {}
 
 void SubShooter::InitDefaultCommand() {
   // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
+   SetDefaultCommand(new CmdShoot());
 }
 
 void SubShooter::Configure(){
