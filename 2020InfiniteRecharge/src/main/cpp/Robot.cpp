@@ -102,6 +102,7 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() { 
   frc::Scheduler::GetInstance()->Run();
   //m_oi.PollController();
+  m_subColorWheel.gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
   
    }
 

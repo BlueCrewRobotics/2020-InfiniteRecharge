@@ -17,15 +17,20 @@
 #include "RobotMap.h"
 #include <frc/smartdashboard/SmartDashboard.h>
 
+
 class SubColorWheel : public frc::Subsystem {
  public:
   SubColorWheel();
   void InitDefaultCommand() override;
   void ReadColor();
   frc::Color GetColor();
+  frc::Color WheelColors[4] = {frc::Color(0.1266, 0.4252, 0.4484), frc::Color(0.1661, 0.5790, 0.2550), frc::Color(0.5172, 0.3492, 0.1334), frc::Color(0.3131, 0.5597, 0.1271)};
   void ConfigureTargetColors(frc::Color blue, frc::Color green, frc::Color red, frc::Color yellow);
   int GetColorMatch();
   
+  std::string gameData;
+
+
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
@@ -43,7 +48,7 @@ class SubColorWheel : public frc::Subsystem {
   frc::Color m_detectedColor;
 
   // Confidence of matched value
-  double m_matchConfidence = 0.60;
+  double m_matchConfidence = 0.0005;
   
   // Target Colors
   frc::Color m_BlueTarget = frc::Color(0.1266, 0.4252, 0.4484);

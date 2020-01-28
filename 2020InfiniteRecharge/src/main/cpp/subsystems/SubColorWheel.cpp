@@ -52,19 +52,35 @@ void SubColorWheel::ConfigureTargetColors(frc::Color blue, frc::Color green, frc
 
 int SubColorWheel::GetColorMatch(){
   int returnColor = WHEEL_NOMATCH;
-  m_matchConfidence = 0.60;
+  double MatchedColor = 0;
+  m_matchConfidence = 0.01;
   m_detectedColor = m_colorSensor.GetColor();
-  m_matchedColor = m_colorMatcher.MatchClosestColor(m_detectedColor, m_matchConfidence);
+  
+  if (m_detectedColor.red >= WheelColors[WHEEL_BLUE].red - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_BLUE].red + m_matchConfidence) {
+    if (m_detectedColor.green >= WheelColors[WHEEL_BLUE].green - m_matchConfidence && m_detectedColor.green <= WheelColors[WHEEL_BLUE].green + m_matchConfidence) {
+      if (m_detectedColor.red >= WheelColors[WHEEL_BLUE].red - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_BLUE].red + m_matchConfidence) {
+          returnColor = WHEEL_BLUE;
+  } } }
 
-  if(m_matchedColor == m_BlueTarget){
-    returnColor = WHEEL_BLUE;
-  } else if(m_matchedColor == m_RedTarget){
-    returnColor = WHEEL_RED; 
-  } else if(m_matchedColor == m_GreenTarget){
-    returnColor = WHEEL_GREEN;
-  } else if(m_matchedColor == m_YellowTarget){
-    returnColor = WHEEL_YELLOW;
-  }
+  if (m_detectedColor.blue >= WheelColors[WHEEL_GREEN].blue - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_GREEN].red + m_matchConfidence) {
+    if (m_detectedColor.green >= WheelColors[WHEEL_GREEN].green - m_matchConfidence && m_detectedColor.green <= WheelColors[WHEEL_GREEN].green + m_matchConfidence) {
+      if (m_detectedColor.red >= WheelColors[WHEEL_GREEN].red - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_GREEN].red + m_matchConfidence) {
+          returnColor = WHEEL_GREEN;
+  } } }
+
+  if (m_detectedColor.red >= WheelColors[WHEEL_RED].red - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_RED].red + m_matchConfidence) {
+    if (m_detectedColor.green >= WheelColors[WHEEL_RED].green - m_matchConfidence && m_detectedColor.green <= WheelColors[WHEEL_RED].green + m_matchConfidence) {
+      if (m_detectedColor.red >= WheelColors[WHEEL_RED].red - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_RED].red + m_matchConfidence) {
+          returnColor = WHEEL_RED;
+  } } }
+
+  if (m_detectedColor.red >= WheelColors[WHEEL_YELLOW].red - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_YELLOW].red + m_matchConfidence) {
+    if (m_detectedColor.green >= WheelColors[WHEEL_YELLOW].green - m_matchConfidence && m_detectedColor.green <= WheelColors[WHEEL_YELLOW].green + m_matchConfidence) {
+      if (m_detectedColor.red >= WheelColors[WHEEL_YELLOW].red - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_YELLOW].red + m_matchConfidence) {
+          returnColor = WHEEL_YELLOW;
+  } } }
+
+
   frc::SmartDashboard::PutNumber("SubColorWheel/ColorMatch.red",m_matchedColor.red);
   frc::SmartDashboard::PutNumber("SubColorWheel/ColorMatch.green",m_matchedColor.green);
   frc::SmartDashboard::PutNumber("SubColorWheel/ColorMatch.blue",m_matchedColor.blue);

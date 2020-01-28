@@ -124,9 +124,9 @@ constexpr double SHOOTER_BTM_KD_0 = 0.0;
 
 
 // Color Sensor Cofiguration
-constexpr int WHEEL_NOMATCH = 0;
-constexpr int WHEEL_BLUE    = 1;
-constexpr int WHEEL_RED     = 2;
-constexpr int WHEEL_GREEN   = 3;
-constexpr int WHEEL_YELLOW  = 4;
+constexpr int WHEEL_BLUE    = 0;
+constexpr int WHEEL_RED     = 1;
+constexpr int WHEEL_GREEN   = 2;
+constexpr int WHEEL_YELLOW  = 3;
+constexpr int WHEEL_NOMATCH = -1;
 
