@@ -23,5 +23,5 @@ OI::OI() {
   driverController_button_a->WhenPressed(new CmdIntake());
   driverController_button_a->WhenReleased(new CmdStopIntake());
 
-  driverController_button_a->WhileHeld(new CmdIntakeExtend());
+  driverController_button_a->ToggleWhenPressed(new CmdIntakeExtend());
 }
