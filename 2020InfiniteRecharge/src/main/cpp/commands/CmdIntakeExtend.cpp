@@ -9,29 +9,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "subsystems/SubIntake.h"
+#include "commands/CmdIntakeExtend.h"
 
-#include "RobotMap.h"
+#include "Robot.h"
 
-SubIntake::SubIntake() : frc::Subsystem("SubIntake") {}
-
-void SubIntake::InitDefaultCommand() {
-  // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
+CmdIntakeExtend::CmdIntakeExtend() {
+  // Use Requires() here to declare subsystem dependencies
+  Requires(&Robot::m_subIntake);
 }
 
-void SubIntake::ExtendIntake1(bool Extention) {
-  extendSolenoid->Set(Extention);
+// Called just before this Command runs the first time
+void CmdIntakeExtend::Initialize() {}
+
+// Called repeatedly when this Command is scheduled to run
+void CmdIntakeExtend::Execute() {
+    Robot::m_subIntake.ExtendIntake9(true);
+    Robot::m_subIntake.ExtendIntake9(true);
 }
-void SubIntake::ExtendIntake9(bool Extention) {
-  extendSolenoid->Set(Extention);
-}
+// Make this return true when this Command no longer needs to run execute()
+bool CmdIntakeExtend::IsFinished() { return false; }
 
-void SubIntake::RunIntake(double Speed) {
-  intakeMotor->Set(ControlMode::PercentOutput, Speed);
+// Called once after isFinished returns true
+void CmdIntakeExtend::End() {}
 
-}
-
-
-// Put methods for controlling this subsystem
-// here. Call these from Commands.
+// Called when another command which requires one or more of the same
+// subsystems is scheduled to run
+void CmdIntakeExtend::Interrupted() {}

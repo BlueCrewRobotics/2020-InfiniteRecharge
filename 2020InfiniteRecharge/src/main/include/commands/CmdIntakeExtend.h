@@ -9,29 +9,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "subsystems/SubIntake.h"
+#pragma once
 
-#include "RobotMap.h"
+#include <frc/commands/Command.h>
 
-SubIntake::SubIntake() : frc::Subsystem("SubIntake") {}
-
-void SubIntake::InitDefaultCommand() {
-  // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
-}
-
-void SubIntake::ExtendIntake1(bool Extention) {
-  extendSolenoid->Set(Extention);
-}
-void SubIntake::ExtendIntake9(bool Extention) {
-  extendSolenoid->Set(Extention);
-}
-
-void SubIntake::RunIntake(double Speed) {
-  intakeMotor->Set(ControlMode::PercentOutput, Speed);
-
-}
-
-
-// Put methods for controlling this subsystem
-// here. Call these from Commands.
+class CmdIntakeExtend : public frc::Command {
+ public:
+  CmdIntakeExtend();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
+};

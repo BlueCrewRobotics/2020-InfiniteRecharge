@@ -19,6 +19,7 @@
 #include "RobotMap.h"
 #include "commands/CmdIntake.h"
 #include "commands/CmdStopIntake.h"
+#include "commands/CmdIntakeExtend.h"
 
 class OI {
  public:

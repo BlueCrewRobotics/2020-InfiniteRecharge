@@ -20,7 +20,8 @@ class SubIntake : public frc::Subsystem {
  public:
   SubIntake();
   void InitDefaultCommand() override;
-  void ExtendIntake(bool Extention);
+  void ExtendIntake1(bool Extention);
+  void ExtendIntake9(bool Extention);
   void RunIntake(double Speed);
 
  private:
