@@ -13,7 +13,8 @@
 #include "commands/CmdReadColor.h"
 
 #include "RobotMap.h"
-
+#include <iostream>
+using namespace std;
 
 SubColorWheel::SubColorWheel() : frc::Subsystem("SubColorWheel") {}
 
@@ -32,6 +33,8 @@ void SubColorWheel::ReadColor(){
   frc::SmartDashboard::PutNumber("SubColorWheel/Green", m_detectedColor.green);
   frc::SmartDashboard::PutNumber("SubColorWheel/Blue", m_detectedColor.blue);
   frc::SmartDashboard::PutNumber("SubColorWheel/ColorMatch", this->GetColorMatch());
+  
+  
 
 }
 
@@ -53,7 +56,7 @@ void SubColorWheel::ConfigureTargetColors(frc::Color blue, frc::Color green, frc
 int SubColorWheel::GetColorMatch(){
   int returnColor = WHEEL_NOMATCH;
   double MatchedColor = 0;
-  m_matchConfidence = 0.01;
+  m_matchConfidence = 0.05;
   m_detectedColor = m_colorSensor.GetColor();
   
   if (m_detectedColor.red >= WheelColors[WHEEL_BLUE].red - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_BLUE].red + m_matchConfidence) {
@@ -66,7 +69,7 @@ int SubColorWheel::GetColorMatch(){
     if (m_detectedColor.green >= WheelColors[WHEEL_GREEN].green - m_matchConfidence && m_detectedColor.green <= WheelColors[WHEEL_GREEN].green + m_matchConfidence) {
       if (m_detectedColor.red >= WheelColors[WHEEL_GREEN].red - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_GREEN].red + m_matchConfidence) {
           returnColor = WHEEL_GREEN;
-  } } }
+  } } } 
 
   if (m_detectedColor.red >= WheelColors[WHEEL_RED].red - m_matchConfidence && m_detectedColor.red <= WheelColors[WHEEL_RED].red + m_matchConfidence) {
     if (m_detectedColor.green >= WheelColors[WHEEL_RED].green - m_matchConfidence && m_detectedColor.green <= WheelColors[WHEEL_RED].green + m_matchConfidence) {
@@ -86,6 +89,8 @@ int SubColorWheel::GetColorMatch(){
   frc::SmartDashboard::PutNumber("SubColorWheel/ColorMatch.blue",m_matchedColor.blue);
   frc::SmartDashboard::PutNumber("SubColorWheel/Confidence",m_matchConfidence);
   frc::SmartDashboard::PutNumber("SubColorWheel/ColorSelected",returnColor);
+
+  std::cout << returnColor << std::endl;
 
   return returnColor;
 }

@@ -1,14 +1,33 @@
 # TO DO
 
-- Intake
-- Ball Magazine 
-- Ball Shooter(Velocity and PID)
-- Ball Vision Targeting
-- Color Sensor
-- Color Wheel
-- LimeLight + Turret
-- Make Drive System good
-- NavX
-- Autonomous
-- 
-
+## High Priority
+- Intake(Sol)
+    - Intake Motor
+    - Intake Solenoid(x2?)
+    - Command Group
+- Ball Magazine(Lucien) 
+    - Solenoid
+    - Motor(x2?)
+    - Indexer
+- Ball Shooter Velocity and PID(Cameron)
+    - Change Motor Speed using equation
+    - Vision targeting getting distance(Create Pipeline)
+- Ball Vision Targeting(Cameron) 
+    - Create Pipeline for ball
+    - Switch between pipelines
+- Color Sensor(Lucien) 
+    - Motor
+    - Color Sensor working
+    - Find update speed and how fast the wheel needs to move
+    - Create Equation/Counting for spinning wheel 4 times
+    - Create Equation/Counting for selecting correct color
+- Make Drive System good(Lucien)
+    - PID tuning
+    - Create if statement for auto
+- NavX(Lucien)
+    - Calculate values that need to be used
+- Autonomous(Lucien)
+    - Pass NavX values into Autonomous command
+    - Use NavX to control when commands finish when the robot has traveled a specified distance
+## Low Priority
+- Flashy Lights to communicate if we are alligned
