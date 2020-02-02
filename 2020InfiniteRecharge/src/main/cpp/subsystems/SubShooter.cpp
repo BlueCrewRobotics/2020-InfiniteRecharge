@@ -18,7 +18,7 @@ SubShooter::SubShooter() : frc::Subsystem("SubShooter") {}
 
 void SubShooter::InitDefaultCommand() {
   // Set the default command for a subsystem here.
-   SetDefaultCommand(new CmdShoot());
+  SetDefaultCommand(new CmdShoot());
 }
 
 void SubShooter::Configure(){
@@ -44,7 +44,7 @@ void SubShooter::Configure(){
     topShooterMotor->ConfigNominalOutputReverse(0, 0);
     topShooterMotor->ConfigPeakOutputForward(1, 0);
     topShooterMotor->ConfigPeakOutputReverse(-1, 0);
-
+    
     bottomShooterMotor->SelectProfileSlot(0, 0);
     bottomShooterMotor->ConfigNominalOutputForward(0, 0);
     bottomShooterMotor->ConfigNominalOutputReverse(0, 0);
@@ -53,11 +53,11 @@ void SubShooter::Configure(){
 
     // Set current limit continuous, peak, and peak duration can only be set on
     // TalonSRX
-    topShooterMotor->ConfigContinuousCurrentLimit(CONTINUOUS_CURRENT_LIMIT, 0.5);
+    topShooterMotor->ConfigContinuousCurrentLimit(CONTINUOUS_CURRENT_LIMIT, 0);
     topShooterMotor->ConfigPeakCurrentLimit(PEAK_CURRENT_LIMIT, 0);
     topShooterMotor->ConfigPeakCurrentDuration(DURATION_CURRENT_LIMIT, 0);
 
-    bottomShooterMotor->ConfigContinuousCurrentLimit(CONTINUOUS_CURRENT_LIMIT, 0.5);
+    bottomShooterMotor->ConfigContinuousCurrentLimit(CONTINUOUS_CURRENT_LIMIT, 0);
     bottomShooterMotor->ConfigPeakCurrentLimit(PEAK_CURRENT_LIMIT, 0);
     bottomShooterMotor->ConfigPeakCurrentDuration(DURATION_CURRENT_LIMIT, 0);
 

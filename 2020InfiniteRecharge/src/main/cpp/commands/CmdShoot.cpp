@@ -28,8 +28,8 @@ void CmdShoot::Execute() {
 
     double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
     double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
-    //double d_topShooter = 40.0;
-    //double d_botShooter = 40.0;
+    //double d_topShooter = 40;
+    //double d_botShooter = 40;
     Robot::m_subShooter.Shoot( d_topShooter, d_botShooter );
 }
 

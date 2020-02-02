@@ -15,7 +15,9 @@
 #include "commands/CmdSwitchGear.h"
 #include "commands/CmdShoot.h"
 #include "commands/CmdStopShoot.h"
-#include <frc/WPILib.h>
+#include "frc/buttons/JoystickButton.h"
+#include "frc/Joystick.h"
+//#include <frc/WPILib.h>
 #include "RobotMap.h"
 #include "commands/CmdIntake.h"
 #include "commands/CmdStopIntake.h"

@@ -13,7 +13,8 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-#include <frc/WPILib.h>
+//#include <frc/WPILib.h>
+#include <frc/Solenoid.h>
 #include "BC_VictorSPX.h"
 
 class SubIntake : public frc::Subsystem {

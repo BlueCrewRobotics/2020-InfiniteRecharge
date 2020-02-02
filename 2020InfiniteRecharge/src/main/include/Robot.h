@@ -11,11 +11,12 @@
 
 #pragma once
 
-#include "frc/WPILib.h"
+//#include "frc/WPILib.h"
 #include <ctre/Phoenix.h>
 #include <frc/TimedRobot.h>
 #include <frc/commands/Command.h>
 #include <frc/smartdashboard/SendableChooser.h>
+#include <frc/DriverStation.h>
 
 #include "OI.h"
 #include "commands/ExampleCommand.h"

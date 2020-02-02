@@ -13,7 +13,8 @@
 
 #include "RobotMap.h"
 #include "frc/Compressor.h"
-#include <frc/WPILib.h>
+//#include <frc/WPILib.h>
+#include "frc/Solenoid.h"
 #include <frc/commands/Subsystem.h>
 
 class SubPCM : public frc::Subsystem {

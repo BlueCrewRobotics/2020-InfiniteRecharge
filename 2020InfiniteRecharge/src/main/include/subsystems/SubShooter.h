@@ -12,8 +12,9 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-#include <frc/WPILib.h>
+//#include <frc/WPILib.h>
 #include "BC_TalonSRX.h"
+#include <frc/smartdashboard/SmartDashboard.h>
 
 class SubShooter : public frc::Subsystem {
  public:
