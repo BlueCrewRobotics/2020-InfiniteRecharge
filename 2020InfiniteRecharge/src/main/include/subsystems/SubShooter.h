@@ -27,7 +27,8 @@ class SubShooter : public frc::Subsystem {
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
 
-  TalonSRX *topShooterMotor = new TalonSRX(5);
-  TalonSRX *bottomShooterMotor = new TalonSRX(6);
+  TalonSRX *topShooterMotor = new TalonSRX(SHOOTER_TOP_ADDR);
+  TalonSRX *bottomShooterMotor = new TalonSRX(SHOOTER_BTM_ADDR);
+  TalonSRX *turret = new TalonSRX(SHOOTER_TURRET_ADDR);
 
 };

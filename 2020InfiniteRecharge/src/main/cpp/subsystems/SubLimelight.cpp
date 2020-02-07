@@ -59,7 +59,7 @@ bool SubLimelight::GetTarget() {
 
   }
  
-  /* Get the camera mounting angle
+  /* Get the camera mounting angle THIS IS WRONG! NEEDS WORK ON EQUATION!
      
      d = (h2-h1) / tan(a1+a2)
 
