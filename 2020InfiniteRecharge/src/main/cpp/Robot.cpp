@@ -23,6 +23,7 @@ SubShooter Robot::m_subShooter;
 SubColorWheel Robot::m_subColorWheel;
 SubIntake Robot::m_subIntake;
 SubNavX Robot::m_subNavX;
+SubLimelight Robot::m_subLimelight;
 
 void Robot::RobotInit() {
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);

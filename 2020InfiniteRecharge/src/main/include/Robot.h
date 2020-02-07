@@ -32,6 +32,7 @@
 #include "subsystems/SubColorWheel.h"
 #include "subsystems/SubIntake.h"
 #include "subsystems/SubNavX.h"
+#include "subsystems/SubLimelight.h"
 
 
 class Robot : public frc::TimedRobot {
@@ -44,6 +45,8 @@ class Robot : public frc::TimedRobot {
   static SubColorWheel m_subColorWheel;
   static SubIntake m_subIntake;
   static SubNavX m_subNavX;
+  static SubLimelight m_subLimelight;
+  
   
   
   void RobotInit() override;

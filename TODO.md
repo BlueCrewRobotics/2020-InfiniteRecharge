@@ -1,4 +1,8 @@
 # TO DO
+- Set ip on RoboRio to 10.61.53.2
+- Build Drive station with VS Code, WPIlibs, NavX, Phoenix, etc.
+- Check that all Talons and Victors have latest firmware
+
 
 ## High Priority
 - Intake(Sol)
@@ -31,3 +35,5 @@
     - Use NavX to control when commands finish when the robot has traveled a specified distance
 ## Low Priority
 - Flashy Lights to communicate if we are alligned
+
+

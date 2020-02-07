@@ -13,6 +13,7 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 #include <networktables/NetworkTable.h>
 #include <networktables/NetworkTableInstance.h>
 
@@ -24,9 +25,29 @@ class SubLimelight : public frc::Subsystem {
   // Get whether or not limelight has a target
   bool GetTarget();
 
+  // Get horizontal Offset from Crosshair to target
+  double GetHorizontalOffset();
+
+  // Get the distance from the target
+  double GetDistanceToTarget();
+
+  // Get the camera mounting angle
+  double GetCameraMountAngle(double distance);
+
+  // Set the Limelight LED state
+  void SetLEDState(int mode);
+
+  // Set the Camera mode
+  void SetCameraMode(int mode);
+
+  // Select the pipline to use
+  void SelectPipeline(int pipeline);
   
-
-
+  // Select the limelight streaming mode
+  void SelectStreamMode(int mode);
+  
+  // Select the limelight snapshot mode
+  void SelectSnapshotMode(int mode);
 
  private:
   // It's desirable that everything possible under private except
