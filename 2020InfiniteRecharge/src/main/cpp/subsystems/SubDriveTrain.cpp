@@ -162,8 +162,25 @@ void SubDriveTrain::Drive(double speed, double rotation) {
   driveTrain->ArcadeDrive(speed, rotation, true);
 }
 
-void SubDriveTrain::AutoDrive(double speed, double distance) {
-  // Drive in auto
+void SubDriveTrain::ResetEncoders() {
+  leftDriveMotor->ResetSensorPosition();
+  rightDriveMotor->ResetSensorPosition();
+}
 
+void SubDriveTrain::ConfigureAuto() {
+  leftDriveMotor->ConfigureMotionAcceleration(1500, 10);
+  rightDriveMotor->ConfigureMotionAcceleration(1500, 10);
+  leftDriveMotor->ConfigureMotionVelocity(1500, 10);
+  rightDriveMotor->ConfigureMotionVelocity(1500, 10);
+}
 
+void SubDriveTrain::AutoDrive(double leftrotations, double rightrotations) {
+  leftrotations = leftrotations * 4096; // Set up gear ratio here
+  leftDriveMotor->SetMotionMagic(leftrotations);
+  rightDriveMotor->SetMotionMagic(rightrotations);
+}
+
+void SubDriveTrain::ConfigMotionMagicCurve(int strength) {
+  leftDriveMotor->ConfigureMotionCurveStrength(strength, 0);
+  rightDriveMotor->ConfigureMotionCurveStrength(strength, 0);
 }

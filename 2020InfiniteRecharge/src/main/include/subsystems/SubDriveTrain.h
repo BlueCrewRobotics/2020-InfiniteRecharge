@@ -30,7 +30,10 @@ public:
   void Drive(double speed, double rotation);
   void DriveVelocityControl(double speed, double rotation);
   void SetRamp(double ramp);
-  void AutoDrive(double speed, double distance);
+  void ResetEncoders();
+  void ConfigureAuto();
+  void AutoDrive(double leftrotations, double rightrotations);
+  void ConfigMotionMagicCurve(int strength);
   // void Set(double speed) ;
 
   // private:

@@ -33,7 +33,7 @@ void Robot::RobotInit() {
   m_subDriveTrain.Configure();
   m_subPCM.Configure();
   m_subShooter.Configure();
-
+  m_subDriveTrain.ConfigurePID();
 }
 
 /**
@@ -97,7 +97,7 @@ void Robot::TeleopInit() {
     m_autonomousCommand->Cancel();
     m_autonomousCommand = nullptr;
   }
-  m_subDriveTrain.ConfigurePID();
+  
 }
 
 void Robot::TeleopPeriodic() { 
