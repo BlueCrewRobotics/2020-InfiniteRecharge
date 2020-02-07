@@ -161,3 +161,9 @@ void SubDriveTrain::Drive(double speed, double rotation) {
   driveTrain->SetDeadband(0.02);
   driveTrain->ArcadeDrive(speed, rotation, true);
 }
+
+void SubDriveTrain::AutoDrive(double speed, double distance) {
+  // Drive in auto
+
+
+}

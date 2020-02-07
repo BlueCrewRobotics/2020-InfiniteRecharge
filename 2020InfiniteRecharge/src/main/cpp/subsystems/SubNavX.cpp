@@ -22,10 +22,10 @@ void SubNavX::InitDefaultCommand() {
 }
 void SubNavX::GetNavValues(){
         frc::SmartDashboard::PutBoolean( "IMU_Connected",        ahrs->IsConnected());
-        frc::SmartDashboard::PutNumber(  "IMU_Yaw",              ahrs->GetYaw());
-        frc::SmartDashboard::PutNumber(  "IMU_Pitch",            ahrs->GetPitch());
-        frc::SmartDashboard::PutNumber(  "IMU_Roll",             ahrs->GetRoll());
-        frc::SmartDashboard::PutNumber(  "IMU_CompassHeading",   ahrs->GetCompassHeading());
+        frc::SmartDashboard::PutNumber(  "IMU_Yaw",              ahrs->GetYaw()); // This will give us the Angle
+        //frc::SmartDashboard::PutNumber(  "IMU_Pitch",            ahrs->GetPitch());
+        //frc::SmartDashboard::PutNumber(  "IMU_Roll",             ahrs->GetRoll());
+        //frc::SmartDashboard::PutNumber(  "IMU_CompassHeading",   ahrs->GetCompassHeading());
         frc::SmartDashboard::PutNumber(  "IMU_Update_Count",     ahrs->GetUpdateCount());
         frc::SmartDashboard::PutNumber(  "IMU_Byte_Count",       ahrs->GetByteCount());
         frc::SmartDashboard::PutNumber(  "IMU_Timestamp",        ahrs->GetLastSensorTimestamp());
@@ -34,22 +34,22 @@ void SubNavX::GetNavValues(){
         frc::SmartDashboard::PutNumber(  "IMU_TotalYaw",         ahrs->GetAngle());
         frc::SmartDashboard::PutNumber(  "IMU_YawRateDPS",       ahrs->GetRate());
 
-        frc::SmartDashboard::PutNumber(  "IMU_Accel_X",          ahrs->GetWorldLinearAccelX());
-        frc::SmartDashboard::PutNumber(  "IMU_Accel_Y",          ahrs->GetWorldLinearAccelY());
+        //frc::SmartDashboard::PutNumber(  "IMU_Accel_X",          ahrs->GetWorldLinearAccelX());
+        //frc::SmartDashboard::PutNumber(  "IMU_Accel_Y",          ahrs->GetWorldLinearAccelY());
         frc::SmartDashboard::PutBoolean( "IMU_IsMoving",         ahrs->IsMoving());
-        frc::SmartDashboard::PutNumber(  "IMU_Temp_C",           ahrs->GetTempC());
+        //frc::SmartDashboard::PutNumber(  "IMU_Temp_C",           ahrs->GetTempC());
         frc::SmartDashboard::PutBoolean( "IMU_IsCalibrating",    ahrs->IsCalibrating());
 
-        frc::SmartDashboard::PutNumber(  "Velocity_X",           ahrs->GetVelocityX() );
-        frc::SmartDashboard::PutNumber(  "Velocity_Y",           ahrs->GetVelocityY() );
-        frc::SmartDashboard::PutNumber(  "Displacement_X",       ahrs->GetDisplacementX() );
-        frc::SmartDashboard::PutNumber(  "Displacement_Y",       ahrs->GetDisplacementY() );
+        //frc::SmartDashboard::PutNumber(  "Velocity_X",           ahrs->GetVelocityX() );
+        //frc::SmartDashboard::PutNumber(  "Velocity_Y",           ahrs->GetVelocityY() );
+        //frc::SmartDashboard::PutNumber(  "Displacement_X",       ahrs->GetDisplacementX() ); 
+        //frc::SmartDashboard::PutNumber(  "Displacement_Y",       ahrs->GetDisplacementY() ); 
 
         /* Display Raw Gyro/Accelerometer/Magnetometer Values                       */
         /* NOTE:  These values are not normally necessary, but are made available   */
         /* for advanced users.  Before using this data, please consider whether     */
         /* the processed data (see above) will suit your needs.                     */
-
+        /*
         frc::SmartDashboard::PutNumber(  "RawGyro_X",            ahrs->GetRawGyroX());
         frc::SmartDashboard::PutNumber(  "RawGyro_Y",            ahrs->GetRawGyroY());
         frc::SmartDashboard::PutNumber(  "RawGyro_Z",            ahrs->GetRawGyroZ());
@@ -60,6 +60,7 @@ void SubNavX::GetNavValues(){
         frc::SmartDashboard::PutNumber(  "RawMag_Y",             ahrs->GetRawMagY());
         frc::SmartDashboard::PutNumber(  "RawMag_Z",             ahrs->GetRawMagZ());
         frc::SmartDashboard::PutNumber(  "IMU_Temp_C",           ahrs->GetTempC());
+        */
         /* Omnimount Yaw Axis Information                                           */
         /* For more info, see http://navx-mxp.kauailabs.com/installation/omnimount  */
         AHRS::BoardYawAxis yaw_axis = ahrs->GetBoardYawAxis();
@@ -74,10 +75,10 @@ void SubNavX::GetNavValues(){
         /* orientation data.  All of the Yaw, Pitch and Roll Values can be derived  */
         /* from the Quaternions.  If interested in motion processing, knowledge of  */
         /* Quaternions is highly recommended.                                       */
-        frc::SmartDashboard::PutNumber(  "QuaternionW",          ahrs->GetQuaternionW());
-        frc::SmartDashboard::PutNumber(  "QuaternionX",          ahrs->GetQuaternionX());
-        frc::SmartDashboard::PutNumber(  "QuaternionY",          ahrs->GetQuaternionY());
-        frc::SmartDashboard::PutNumber(  "QuaternionZ",          ahrs->GetQuaternionZ());
+        //frc::SmartDashboard::PutNumber(  "QuaternionW",          ahrs->GetQuaternionW());
+        //frc::SmartDashboard::PutNumber(  "QuaternionX",          ahrs->GetQuaternionX());
+        //frc::SmartDashboard::PutNumber(  "QuaternionY",          ahrs->GetQuaternionY());
+        //frc::SmartDashboard::PutNumber(  "QuaternionZ",          ahrs->GetQuaternionZ());
 
 
 }

@@ -18,7 +18,7 @@ SubShooter::SubShooter() : frc::Subsystem("SubShooter") {}
 
 void SubShooter::InitDefaultCommand() {
   // Set the default command for a subsystem here.
-  SetDefaultCommand(new CmdShoot());
+  // SetDefaultCommand(new CmdShoot());
 }
 
 void SubShooter::Configure(){

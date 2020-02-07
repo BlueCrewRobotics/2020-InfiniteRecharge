@@ -30,6 +30,7 @@ public:
   void Drive(double speed, double rotation);
   void DriveVelocityControl(double speed, double rotation);
   void SetRamp(double ramp);
+  void AutoDrive(double speed, double distance);
   // void Set(double speed) ;
 
   // private:
