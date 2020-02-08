@@ -168,14 +168,15 @@ void SubDriveTrain::ResetEncoders() {
 }
 
 void SubDriveTrain::ConfigureAuto() {
-  leftDriveMotor->ConfigureMotionAcceleration(1500, 10);
-  rightDriveMotor->ConfigureMotionAcceleration(1500, 10);
-  leftDriveMotor->ConfigureMotionVelocity(1500, 10);
-  rightDriveMotor->ConfigureMotionVelocity(1500, 10);
+  leftDriveMotor->ConfigureMotionAcceleration(500, 10);
+  rightDriveMotor->ConfigureMotionAcceleration(500, 10);
+  leftDriveMotor->ConfigureMotionVelocity(500, 10);
+  rightDriveMotor->ConfigureMotionVelocity(500, 10);
 }
 
 void SubDriveTrain::AutoDrive(double leftrotations, double rightrotations) {
   leftrotations = leftrotations * 4096; // Set up gear ratio here
+  rightrotations = rightrotations * 4096 * -1;
   leftDriveMotor->SetMotionMagic(leftrotations);
   rightDriveMotor->SetMotionMagic(rightrotations);
 }

@@ -33,7 +33,7 @@
 #include "subsystems/SubIntake.h"
 #include "subsystems/SubNavX.h"
 #include "subsystems/SubLimelight.h"
-
+#include "autocommands/AutoCmdDrive.h"
 
 class Robot : public frc::TimedRobot {
  public:
