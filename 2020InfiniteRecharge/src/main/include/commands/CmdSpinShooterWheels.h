@@ -9,19 +9,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "OI.h"
-#include "Robot.h"
+#pragma once
 
-OI::OI() {
-  // Process operator interface input here.
+#include <frc/commands/Command.h>
 
-  driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
-
-  driverController_button_x->WhileHeld(new CmdSpinShooterWheels());
-  driverController_button_x->WhenReleased(new CmdStopShoot());
-
-  driverController_button_a->WhenPressed(new CmdIntake());
-  driverController_button_a->WhenReleased(new CmdStopIntake());
-
-  driverController_button_a->ToggleWhenPressed(new CmdIntakeExtend());
-}
+class CmdSpinShooterWheels : public frc::Command {
+ public:
+  CmdSpinShooterWheels();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
+};

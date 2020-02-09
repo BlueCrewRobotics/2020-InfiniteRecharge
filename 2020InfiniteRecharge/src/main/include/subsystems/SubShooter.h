@@ -22,6 +22,8 @@ class SubShooter : public frc::Subsystem {
   void InitDefaultCommand() override;
   void Configure();
   void Shoot(double topSpeed, double bottomSpeed);
+  void SpinUpWheels(double topSpeed, double bottomSpeed);
+  void RotateTurret(double position);
 
  private:
   // It's desirable that everything possible under private except
@@ -29,6 +31,6 @@ class SubShooter : public frc::Subsystem {
 
   TalonSRX *topShooterMotor = new TalonSRX(SHOOTER_TOP_ADDR);
   TalonSRX *bottomShooterMotor = new TalonSRX(SHOOTER_BTM_ADDR);
-  TalonSRX *turret = new TalonSRX(SHOOTER_TURRET_ADDR);
+  TalonSRX *turretMotor = new TalonSRX(SHOOTER_TURRET_ADDR);
 
 };

@@ -13,7 +13,7 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-
+#include "rev/Rev2mDistanceSensor.h"
 
 class SubMagazine : public frc::Subsystem {
  public:
@@ -24,5 +24,5 @@ class SubMagazine : public frc::Subsystem {
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
 
-  
+  rev::Rev2mDistanceSensor *distSensor;
 };

@@ -9,39 +9,39 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdShoot.h"
+#include "commands/CmdSpinShooterWheels.h"
 #include "subsystems/SubShooter.h"
 #include "Robot.h"
 
-CmdShoot::CmdShoot() {
+CmdSpinShooterWheels::CmdSpinShooterWheels() {
   // Use Requires() here to declare subsystem dependencies
   Requires(&Robot::m_subShooter);
 }
 
 // Called just before this Command runs the first time
-void CmdShoot::Initialize() {
+void CmdSpinShooterWheels::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CmdShoot::Execute() {
+void CmdSpinShooterWheels::Execute() {
 
-    //double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
-    //double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
+    double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
+    double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
     //double d_topShooter = 40;
     //double d_botShooter = 40;
-    //Robot::m_subShooter.Shoot( d_topShooter, d_botShooter );
+    Robot::m_subShooter.SpinUpWheels( d_topShooter, d_botShooter );
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdShoot::IsFinished() { 
+bool CmdSpinShooterWheels::IsFinished() { 
     return false;
     
      }
 
 // Called once after isFinished returns true
-void CmdShoot::End() {}
+void CmdSpinShooterWheels::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdShoot::Interrupted() {}
+void CmdSpinShooterWheels::Interrupted() {}

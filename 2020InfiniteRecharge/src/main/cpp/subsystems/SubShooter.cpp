@@ -62,34 +62,29 @@ void SubShooter::Configure(){
     bottomShooterMotor->ConfigPeakCurrentDuration(DURATION_CURRENT_LIMIT, 0);
 
     // Setup Turret Motor
-    turret->Config_kF(0,TURRET_KF_0, 0);
-    turret->Config_kF(0,TURRET_KP_0, 0);
-    turret->Config_kF(0,TURRET_KI_0, 0);
-    turret->Config_kF(0,TURRET_KD_0, 0);
+    turretMotor->Config_kF(0,TURRET_KF_0, 0);
+    turretMotor->Config_kF(0,TURRET_KP_0, 0);
+    turretMotor->Config_kF(0,TURRET_KI_0, 0);
+    turretMotor->Config_kF(0,TURRET_KD_0, 0);
 
-    turret->ConfigMotionAcceleration(TURRET_ACCELERATION,0);
-    turret->ConfigMotionCruiseVelocity(TURRET_CRUISE_VELOCITY,0);
+    turretMotor->ConfigMotionAcceleration(TURRET_ACCELERATION,0);
+    turretMotor->ConfigMotionCruiseVelocity(TURRET_CRUISE_VELOCITY,0);
 
     // Set the talon soft limits and enable limits
-    turret->ConfigForwardSoftLimitThreshold(TURRET_LEFT_SOFT_LIMIT, 0);
-    turret->ConfigReverseSoftLimitThreshold(TURRET_RIGHT_SOFT_LIMIT, 0);
-    turret->ConfigForwardSoftLimitEnable(TURRET_SOFT_LIMITS_ENABLE, 0);
-    turret->ConfigReverseSoftLimitEnable(TURRET_SOFT_LIMITS_ENABLE, 0);
+    turretMotor->ConfigForwardSoftLimitThreshold(TURRET_LEFT_SOFT_LIMIT, 0);
+    turretMotor->ConfigReverseSoftLimitThreshold(TURRET_RIGHT_SOFT_LIMIT, 0);
+    turretMotor->ConfigForwardSoftLimitEnable(TURRET_SOFT_LIMITS_ENABLE, 0);
+    turretMotor->ConfigReverseSoftLimitEnable(TURRET_SOFT_LIMITS_ENABLE, 0);
 
-    turret->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
+    turretMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
   
-    turret->SetSensorPhase(true);
-    turret->SetInverted(InvertType::InvertMotorOutput);
+    turretMotor->SetSensorPhase(true);
+    turretMotor->SetInverted(InvertType::InvertMotorOutput);
 
-    turret->ConfigPeakCurrentDuration(1, 0);
-    turret->ConfigPeakCurrentLimit(15, 0);
-    turret->ConfigContinuousCurrentLimit(15, 0);
-    turret->EnableCurrentLimit(true);
-
-
-
-
-
+    turretMotor->ConfigPeakCurrentDuration(1, 0);
+    turretMotor->ConfigPeakCurrentLimit(15, 0);
+    turretMotor->ConfigContinuousCurrentLimit(15, 0);
+    turretMotor->EnableCurrentLimit(true);
 
 /*    
     topShooterMotor->Config_kF(0, frc::SmartDashboard::GetNumber("Shooter/TOP_KF_0",SHOOTER_TOP_KF_0), 0);
@@ -110,8 +105,26 @@ void SubShooter::Shoot(double topSpeed, double bottomSpeed) {
   //topShooterMotor->Set(ControlMode::PercentOutput, topSpeed);
   //bottomShooterMotor->Set(ControlMode::PercentOutput, bottomSpeed);
   
+  //topShooterMotor->Set(ControlMode::Velocity, topSpeed);
+  //bottomShooterMotor->Set(ControlMode::Velocity, bottomSpeed);
+}
+
+void SubShooter::SpinUpWheels(double topSpeed, double bottomSpeed){
   topShooterMotor->Set(ControlMode::Velocity, topSpeed);
   bottomShooterMotor->Set(ControlMode::Velocity, bottomSpeed);
 }
+
+/**
+ * Set the position to servo too.
+ * 
+ * encoder value 
+ * 
+ * @param position the position to servo too
+**/
+void SubShooter::RotateTurret(double position){
+  turretMotor->Set(ControlMode::Position, position);
+}
+
+
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
