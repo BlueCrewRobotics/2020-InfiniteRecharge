@@ -40,14 +40,15 @@ void DriveWithController::Execute()
 		//auto table = ntinst.GetTable("visionTuning");
 
 
-		double d_targetCenter = frc::SmartDashboard::GetNumber("targetCenter",160);
-		double d_targetAngle = frc::SmartDashboard::GetNumber("targetAngle", 0);
-		double d_gain = .6;
+		double d_targetCenter = 0; // frc::SmartDashboard::GetNumber("targetCenter",160);
+		double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset(); // frc::SmartDashboard::GetNumber("targetAngle", 0);
+		double d_gain = 0.65;
 
 		
 //		double d_targetCenter = nt::NetworkTableEntry::GetDouble("targetCenter");
 
-		rotation = (d_gain*(((160-d_targetCenter)/160) - (d_targetAngle/12.7)));
+		//rotation = (d_gain*(((30-d_targetCenter)/30) - (d_targetAngle/30)));
+		rotation = (-1*(d_targetAngle/27))*d_gain;
 		std::cout << rotation << std::endl;
 
 
