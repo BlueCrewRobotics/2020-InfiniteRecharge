@@ -130,3 +130,4 @@ constexpr int WHEEL_GREEN   = 2;
 constexpr int WHEEL_YELLOW  = 3;
 constexpr int WHEEL_NOMATCH = -1;
 
+constexpr int COLOR_MOTOR = 8;

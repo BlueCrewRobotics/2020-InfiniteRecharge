@@ -22,6 +22,7 @@
 #include "commands/CmdIntake.h"
 #include "commands/CmdStopIntake.h"
 #include "commands/CmdIntakeExtend.h"
+#include "commands/CmdColorSpin.h"
 
 class OI {
  public:

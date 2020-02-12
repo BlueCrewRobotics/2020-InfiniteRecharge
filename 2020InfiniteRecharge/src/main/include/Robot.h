@@ -32,6 +32,7 @@
 #include "subsystems/SubColorWheel.h"
 #include "subsystems/SubIntake.h"
 #include "subsystems/SubNavX.h"
+#include "commands/CmdColorSpin.h"
 
 
 class Robot : public frc::TimedRobot {
