@@ -14,15 +14,22 @@
 
 #include <frc/commands/Subsystem.h>
 #include "rev/Rev2mDistanceSensor.h"
+#include "common/BC_Switch.h"
 
 class SubMagazine : public frc::Subsystem {
  public:
   SubMagazine();
   void InitDefaultCommand() override;
+  void MoveForward(int blocks);
+  void MoveBackward(int blocks);
+  bool GetBreakSwitch();
+  int GetBallCount();
 
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
-
+  int ballCount = 0;
+  bool currentSwitchState = 0;
   rev::Rev2mDistanceSensor *distSensor;
+  BC_Switch* m_intakeSwitch = new BC_Switch(0);
 };

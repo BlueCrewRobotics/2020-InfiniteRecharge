@@ -185,3 +185,7 @@ void SubDriveTrain::ConfigMotionMagicCurve(int strength) {
   leftDriveMotor->ConfigureMotionCurveStrength(strength, 0);
   rightDriveMotor->ConfigureMotionCurveStrength(strength, 0);
 }
+
+void SubDriveTrain::AutoRotate(double degrees) {
+  // turns degrees into encoder values to pass into motion magic
+}

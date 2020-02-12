@@ -20,5 +20,21 @@ void SubMagazine::InitDefaultCommand() {
   // SetDefaultCommand(new MySpecialCommand());
 }
 
+void SubMagazine::MoveForward(int blocks) {
+
+}
+
+void SubMagazine::MoveBackward(int blocks) {
+
+}
+
+bool SubMagazine::GetBreakSwitch() {
+  currentSwitchState = m_intakeSwitch->GetSwitchState();
+  return currentSwitchState;
+}
+
+int SubMagazine::GetBallCount() {
+
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
