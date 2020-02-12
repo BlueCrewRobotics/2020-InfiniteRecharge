@@ -18,7 +18,7 @@ SubShooter::SubShooter() : frc::Subsystem("SubShooter") {}
 
 void SubShooter::InitDefaultCommand() {
   // Set the default command for a subsystem here.
-  SetDefaultCommand(new CmdShoot());
+  // SetDefaultCommand(new CmdShoot());
 }
 
 void SubShooter::Configure(){
@@ -61,6 +61,31 @@ void SubShooter::Configure(){
     bottomShooterMotor->ConfigPeakCurrentLimit(PEAK_CURRENT_LIMIT, 0);
     bottomShooterMotor->ConfigPeakCurrentDuration(DURATION_CURRENT_LIMIT, 0);
 
+    // Setup Turret Motor
+    turretMotor->Config_kF(0,TURRET_KF_0, 0);
+    turretMotor->Config_kF(0,TURRET_KP_0, 0);
+    turretMotor->Config_kF(0,TURRET_KI_0, 0);
+    turretMotor->Config_kF(0,TURRET_KD_0, 0);
+
+    turretMotor->ConfigMotionAcceleration(TURRET_ACCELERATION,0);
+    turretMotor->ConfigMotionCruiseVelocity(TURRET_CRUISE_VELOCITY,0);
+
+    // Set the talon soft limits and enable limits
+    turretMotor->ConfigForwardSoftLimitThreshold(TURRET_LEFT_SOFT_LIMIT, 0);
+    turretMotor->ConfigReverseSoftLimitThreshold(TURRET_RIGHT_SOFT_LIMIT, 0);
+    turretMotor->ConfigForwardSoftLimitEnable(TURRET_SOFT_LIMITS_ENABLE, 0);
+    turretMotor->ConfigReverseSoftLimitEnable(TURRET_SOFT_LIMITS_ENABLE, 0);
+
+    turretMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
+  
+    turretMotor->SetSensorPhase(true);
+    turretMotor->SetInverted(InvertType::InvertMotorOutput);
+
+    turretMotor->ConfigPeakCurrentDuration(1, 0);
+    turretMotor->ConfigPeakCurrentLimit(15, 0);
+    turretMotor->ConfigContinuousCurrentLimit(15, 0);
+    turretMotor->EnableCurrentLimit(true);
+
 /*    
     topShooterMotor->Config_kF(0, frc::SmartDashboard::GetNumber("Shooter/TOP_KF_0",SHOOTER_TOP_KF_0), 0);
     topShooterMotor->Config_kP(0, frc::SmartDashboard::GetNumber("Shooter/TOP_KP_0",SHOOTER_TOP_KP_0), 0);
@@ -80,8 +105,26 @@ void SubShooter::Shoot(double topSpeed, double bottomSpeed) {
   //topShooterMotor->Set(ControlMode::PercentOutput, topSpeed);
   //bottomShooterMotor->Set(ControlMode::PercentOutput, bottomSpeed);
   
+  //topShooterMotor->Set(ControlMode::Velocity, topSpeed);
+  //bottomShooterMotor->Set(ControlMode::Velocity, bottomSpeed);
+}
+
+void SubShooter::SpinUpWheels(double topSpeed, double bottomSpeed){
   topShooterMotor->Set(ControlMode::Velocity, topSpeed);
   bottomShooterMotor->Set(ControlMode::Velocity, bottomSpeed);
 }
+
+/**
+ * Set the position to servo too.
+ * 
+ * encoder value 
+ * 
+ * @param position the position to servo too
+**/
+void SubShooter::RotateTurret(double position){
+  turretMotor->Set(ControlMode::Position, position);
+}
+
+
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

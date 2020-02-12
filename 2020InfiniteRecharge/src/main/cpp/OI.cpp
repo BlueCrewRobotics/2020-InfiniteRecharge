@@ -17,7 +17,7 @@ OI::OI() {
 
   driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
 
-  driverController_button_x->WhileHeld(new CmdShoot());
+  driverController_button_x->WhenPressed(new CmdSpinShooterWheels());
   driverController_button_x->WhenReleased(new CmdStopShoot());
 
   driverController_button_a->WhenPressed(new CmdIntake());

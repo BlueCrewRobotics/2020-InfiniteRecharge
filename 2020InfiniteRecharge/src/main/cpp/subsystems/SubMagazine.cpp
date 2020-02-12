@@ -9,28 +9,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#include "subsystems/SubMagazine.h"
 
-#include <frc/commands/Subsystem.h>
-//#include <frc/WPILib.h>
-#include "BC_TalonSRX.h"
-#include <frc/smartdashboard/SmartDashboard.h>
+#include "RobotMap.h"
 
-class SubShooter : public frc::Subsystem {
- public:
-  SubShooter();
-  void InitDefaultCommand() override;
-  void Configure();
-  void Shoot(double topSpeed, double bottomSpeed);
-  void SpinUpWheels(double topSpeed, double bottomSpeed);
-  void RotateTurret(double position);
+SubMagazine::SubMagazine() : frc::Subsystem("SubMagazine") {}
 
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
+void SubMagazine::InitDefaultCommand() {
+  // Set the default command for a subsystem here.
+  // SetDefaultCommand(new MySpecialCommand());
+}
 
-  TalonSRX *topShooterMotor = new TalonSRX(SHOOTER_TOP_ADDR);
-  TalonSRX *bottomShooterMotor = new TalonSRX(SHOOTER_BTM_ADDR);
-  TalonSRX *turretMotor = new TalonSRX(SHOOTER_TURRET_ADDR);
-
-};
+// Put methods for controlling this subsystem
+// here. Call these from Commands.

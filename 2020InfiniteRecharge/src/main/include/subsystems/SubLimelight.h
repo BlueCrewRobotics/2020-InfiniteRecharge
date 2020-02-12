@@ -9,28 +9,51 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-//#include <frc/WPILib.h>
-#include "BC_TalonSRX.h"
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <networktables/NetworkTable.h>
+#include <networktables/NetworkTableInstance.h>
 
-class SubShooter : public frc::Subsystem {
+class SubLimelight : public frc::Subsystem {
  public:
-  SubShooter();
+  SubLimelight();
   void InitDefaultCommand() override;
-  void Configure();
-  void Shoot(double topSpeed, double bottomSpeed);
-  void SpinUpWheels(double topSpeed, double bottomSpeed);
-  void RotateTurret(double position);
+  
+  // Get whether or not limelight has a target
+  bool GetTarget();
+
+  // Get horizontal Offset from Crosshair to target
+  double GetHorizontalOffset();
+
+  // Get the distance from the target
+  double GetDistanceToTarget();
+
+  // Get the camera mounting angle
+  double GetCameraMountAngle(double distance);
+
+  // Set the Limelight LED state
+  void SetLEDState(int mode);
+
+  // Set the Camera mode
+  void SetCameraMode(int mode);
+
+  // Select the pipline to use
+  void SelectPipeline(int pipeline);
+  
+  // Select the limelight streaming mode
+  void SelectStreamMode(int mode);
+  
+  // Select the limelight snapshot mode
+  void SelectSnapshotMode(int mode);
 
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
+  
+  //nt::NetworkTableInstance::GetDefault().GetTable("limelight")->GetNumber("<variablename>",0.0);
 
-  TalonSRX *topShooterMotor = new TalonSRX(SHOOTER_TOP_ADDR);
-  TalonSRX *bottomShooterMotor = new TalonSRX(SHOOTER_BTM_ADDR);
-  TalonSRX *turretMotor = new TalonSRX(SHOOTER_TURRET_ADDR);
-
+  std::shared_ptr<NetworkTable> tblLimelight = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
 };

@@ -9,28 +9,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
 #pragma once
 
 #include <frc/commands/Subsystem.h>
-//#include <frc/WPILib.h>
-#include "BC_TalonSRX.h"
-#include <frc/smartdashboard/SmartDashboard.h>
+//#include "rev/Rev2mDistanceSensor.h"
 
-class SubShooter : public frc::Subsystem {
+class SubMagazine : public frc::Subsystem {
  public:
-  SubShooter();
+  SubMagazine();
   void InitDefaultCommand() override;
-  void Configure();
-  void Shoot(double topSpeed, double bottomSpeed);
-  void SpinUpWheels(double topSpeed, double bottomSpeed);
-  void RotateTurret(double position);
 
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
 
-  TalonSRX *topShooterMotor = new TalonSRX(SHOOTER_TOP_ADDR);
-  TalonSRX *bottomShooterMotor = new TalonSRX(SHOOTER_BTM_ADDR);
-  TalonSRX *turretMotor = new TalonSRX(SHOOTER_TURRET_ADDR);
-
+  //rev::Rev2mDistanceSensor *distSensor = new rev::Rev2mDistanceSensor(rev::Rev2mDistanceSensor::Port::kMXP,rev::Rev2mDistanceSensor::DistanceUnit::kInches,rev::Rev2mDistanceSensor::RangeProfile::kHighSpeed);
 };

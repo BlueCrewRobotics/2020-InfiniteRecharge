@@ -23,15 +23,19 @@ SubShooter Robot::m_subShooter;
 SubColorWheel Robot::m_subColorWheel;
 SubIntake Robot::m_subIntake;
 SubNavX Robot::m_subNavX;
+SubLimelight Robot::m_subLimelight;
 
 void Robot::RobotInit() {
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
   m_chooser.AddOption("My Auto", &m_myAuto);
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
-
+  
   m_subDriveTrain.Configure();
   m_subPCM.Configure();
   m_subShooter.Configure();
+  m_subDriveTrain.ConfigurePID();
+  m_subDriveTrain.ConfigMotionMagicCurve(4);
+  m_subDriveTrain.ConfigureAuto();
 
 }
 
@@ -74,8 +78,9 @@ void Robot::AutonomousInit() {
   //   m_autonomousCommand = &m_defaultAuto;
   // }
 
-  m_autonomousCommand = m_chooser.GetSelected();
-
+  //m_autonomousCommand = m_chooser.GetSelected();
+  m_subDriveTrain.ResetEncoders();
+  m_autonomousCommand = new AutoCmdDrive();
   if (m_autonomousCommand != nullptr) {
     m_autonomousCommand->Start();
   }
@@ -96,7 +101,7 @@ void Robot::TeleopInit() {
     m_autonomousCommand->Cancel();
     m_autonomousCommand = nullptr;
   }
-  m_subDriveTrain.ConfigurePID();
+  
 }
 
 void Robot::TeleopPeriodic() { 

@@ -111,6 +111,10 @@ constexpr int PCM_TOP = 8;
 constexpr int BTM_GEARSHIFT = 0;  // Drive train gear shifter
 
 // Shooter Configuration
+constexpr int SHOOTER_TOP_ADDR = 5;
+constexpr int SHOOTER_BTM_ADDR = 6;
+constexpr int SHOOTER_TURRET_ADDR = 7;
+
 // PID constants PID[0] Used for Shooter
 constexpr double SHOOTER_TOP_KF_0 = 3.0; 
 constexpr double SHOOTER_TOP_KP_0 = 2.4;  
@@ -121,6 +125,18 @@ constexpr double SHOOTER_BTM_KF_0 = 3.0;
 constexpr double SHOOTER_BTM_KP_0 = 2.4;  
 constexpr double SHOOTER_BTM_KI_0 = 0.0;
 constexpr double SHOOTER_BTM_KD_0 = 0.0;
+
+constexpr double TURRET_KF_0 = 3.0;
+constexpr double TURRET_KP_0 = 1.0;
+constexpr double TURRET_KI_0 = 0.0;
+constexpr double TURRET_KD_0 = 0.0;
+
+constexpr int TURRET_CRUISE_VELOCITY = 1000;
+constexpr int TURRET_ACCELERATION = 1000;
+
+constexpr bool TURRET_SOFT_LIMITS_ENABLE = true;  // Disable/Enable of soft limits
+constexpr int TURRET_LEFT_SOFT_LIMIT = -200;      // Set the soft left limit
+constexpr int TURRET_RIGHT_SOFT_LIMIT = 200;      // Set the soft right limit
 
 
 // Color Sensor Cofiguration

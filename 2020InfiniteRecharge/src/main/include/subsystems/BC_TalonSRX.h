@@ -14,6 +14,7 @@ class BC_TalonSRX : public virtual frc::SpeedController {
 
 		// Overides for the SpeedController class
 		void Set(double speed);
+		void SetMotionMagic(double position);
 		void PIDWrite(double output);
 		double Get() const;
 		void SetInverted(bool isInverted);
@@ -24,10 +25,13 @@ class BC_TalonSRX : public virtual frc::SpeedController {
 		bool GetGear() const;
 		void SetMaxSpeed(double maxSpeed);
 		double GetMaxSpeed();
-
+		void ResetSensorPosition();
 		// Added calls
 		int GetCtrlLoopError();
 		double GetCtrlLoopTarget();
+		void ConfigureMotionVelocity(int velocity, int timeout);
+		void ConfigureMotionAcceleration(int acceleration, int timeout);
+		void ConfigureMotionCurveStrength(int curveStrength, int timeout);
 
 
 		TalonSRX* ptr_talonSRX = nullptr;  

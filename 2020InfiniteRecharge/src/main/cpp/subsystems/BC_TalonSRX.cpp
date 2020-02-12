@@ -34,6 +34,10 @@ void BC_TalonSRX::Set(double speed) {
 
 }
 
+void BC_TalonSRX::SetMotionMagic(double position){
+	ptr_talonSRX->Set(ControlMode::MotionMagic, position);
+}
+
 void BC_TalonSRX::PIDWrite(double output) {}
 
 double BC_TalonSRX::Get() const { return m_dSpeed; }
@@ -71,4 +75,18 @@ void BC_TalonSRX::SetMaxSpeed(double maxSpeed) {
 }
 double BC_TalonSRX::GetMaxSpeed() {
 	return m_dMaxSpeed;
+}
+void BC_TalonSRX::ResetSensorPosition() {
+	ptr_talonSRX->SetSelectedSensorPosition(0, 0, 0);
+}
+
+void BC_TalonSRX::ConfigureMotionVelocity(int velocity, int timeout) {
+	ptr_talonSRX->ConfigMotionCruiseVelocity(velocity, timeout);
+}
+
+void BC_TalonSRX::ConfigureMotionAcceleration(int acceleration, int timeout) {
+	ptr_talonSRX->ConfigMotionAcceleration(acceleration, timeout);
+}
+void BC_TalonSRX::ConfigureMotionCurveStrength(int curveStrength, int timeout) {
+	ptr_talonSRX->ConfigMotionSCurveStrength(curveStrength, timeout);
 }

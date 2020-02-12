@@ -11,26 +11,15 @@
 
 #pragma once
 
-#include <frc/commands/Subsystem.h>
-//#include <frc/WPILib.h>
-#include "BC_TalonSRX.h"
-#include <frc/smartdashboard/SmartDashboard.h>
+#include <frc/commands/Command.h>
 
-class SubShooter : public frc::Subsystem {
+
+class AutoCmdDrive : public frc::Command {
  public:
-  SubShooter();
-  void InitDefaultCommand() override;
-  void Configure();
-  void Shoot(double topSpeed, double bottomSpeed);
-  void SpinUpWheels(double topSpeed, double bottomSpeed);
-  void RotateTurret(double position);
-
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
-
-  TalonSRX *topShooterMotor = new TalonSRX(SHOOTER_TOP_ADDR);
-  TalonSRX *bottomShooterMotor = new TalonSRX(SHOOTER_BTM_ADDR);
-  TalonSRX *turretMotor = new TalonSRX(SHOOTER_TURRET_ADDR);
-
+  AutoCmdDrive();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
 };

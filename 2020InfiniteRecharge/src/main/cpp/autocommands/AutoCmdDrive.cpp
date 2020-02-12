@@ -9,39 +9,31 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdShoot.h"
-#include "subsystems/SubShooter.h"
+#include "autocommands/AutoCmdDrive.h"
+
+#include "subsystems/SubDriveTrain.h"
+
 #include "Robot.h"
 
-CmdShoot::CmdShoot() {
+AutoCmdDrive::AutoCmdDrive() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subShooter);
+  Requires(&Robot::m_subDriveTrain);
 }
 
 // Called just before this Command runs the first time
-void CmdShoot::Initialize() {
-
-}
+void AutoCmdDrive::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdShoot::Execute() {
-
-    //double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
-    //double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
-    //double d_topShooter = 40;
-    //double d_botShooter = 40;
-    //Robot::m_subShooter.Shoot( d_topShooter, d_botShooter );
+void AutoCmdDrive::Execute() {
+  Robot::m_subDriveTrain.AutoDrive(3, 3);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdShoot::IsFinished() { 
-    return false;
-    
-     }
+bool AutoCmdDrive::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void CmdShoot::End() {}
+void AutoCmdDrive::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdShoot::Interrupted() {}
+void AutoCmdDrive::Interrupted() {}
