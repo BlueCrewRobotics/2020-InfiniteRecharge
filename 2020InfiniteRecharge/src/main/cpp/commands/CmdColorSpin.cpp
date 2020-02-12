@@ -9,28 +9,27 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+#include "commands/CmdColorSpin.h"
 
-#pragma once
+#include "Robot.h"
 
-#include <frc/commands/Subsystem.h>
-#include "common/BC_Switch.h"
-//#include "rev/Rev2mDistanceSensor.h"
+CmdColorSpin::CmdColorSpin() {
+  // Use Requires() here to declare subsystem dependencies
+  Requires(&Robot::m_subsystem);
+}
 
-class SubMagazine : public frc::Subsystem {
- public:
-  SubMagazine();
-  void InitDefaultCommand() override;
-  void MoveForward(int blocks);
-  void MoveBackward(int blocks);
-  bool GetBreakSwitch();
-  int GetBallCount();
+// Called just before this Command runs the first time
+void CmdColorSpin::Initialize() {}
 
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
-  int ballCount = 0;
-  bool currentSwitchState = 0;
-  BC_Switch* m_intakeSwitch = new BC_Switch(0);
+// Called repeatedly when this Command is scheduled to run
+void CmdColorSpin::Execute() {}
 
-  //rev::Rev2mDistanceSensor *distSensor = new rev::Rev2mDistanceSensor(rev::Rev2mDistanceSensor::Port::kMXP,rev::Rev2mDistanceSensor::DistanceUnit::kInches,rev::Rev2mDistanceSensor::RangeProfile::kHighSpeed);
-};
+// Make this return true when this Command no longer needs to run execute()
+bool CmdColorSpin::IsFinished() { return false; }
+
+// Called once after isFinished returns true
+void CmdColorSpin::End() {}
+
+// Called when another command which requires one or more of the same
+// subsystems is scheduled to run
+void CmdColorSpin::Interrupted() {}

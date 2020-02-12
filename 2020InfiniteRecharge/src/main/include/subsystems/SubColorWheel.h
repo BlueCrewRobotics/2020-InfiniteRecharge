@@ -16,6 +16,7 @@
 #include "rev/ColorMatch.h"
 #include "RobotMap.h"
 #include <frc/smartdashboard/SmartDashboard.h>
+#include "BC_VictorSPX.h"
 
 
 class SubColorWheel : public frc::Subsystem {
@@ -27,6 +28,7 @@ class SubColorWheel : public frc::Subsystem {
   frc::Color WheelColors[4] = {frc::Color(0.1266, 0.4252, 0.4484), frc::Color(0.1661, 0.5790, 0.2550), frc::Color(0.5172, 0.3492, 0.1334), frc::Color(0.3131, 0.5597, 0.1271)};
   void ConfigureTargetColors(frc::Color blue, frc::Color green, frc::Color red, frc::Color yellow);
   int GetColorMatch();
+  void RunColor(double speed);
   
   std::string gameData;
 
@@ -56,6 +58,6 @@ class SubColorWheel : public frc::Subsystem {
   frc::Color m_RedTarget = frc::Color(0.5172, 0.3492, 0.1334);
   frc::Color m_YellowTarget = frc::Color(0.3131, 0.5597, 0.1271);
 
- 
+  VictorSPX *colorMotor = new VictorSPX(COLOR_MOTOR);
 
 };

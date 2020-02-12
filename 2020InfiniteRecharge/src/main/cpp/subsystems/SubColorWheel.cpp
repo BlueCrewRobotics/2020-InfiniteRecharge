@@ -95,3 +95,6 @@ int SubColorWheel::GetColorMatch(){
   return returnColor;
 }
 
+void SubColorWheel::RunColor(double speed){
+    colorMotor->Set(ControlMode::PercentOutput, speed);
+}
