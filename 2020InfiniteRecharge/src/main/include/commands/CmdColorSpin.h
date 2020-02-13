@@ -12,6 +12,7 @@
 #pragma once
 
 #include <frc/commands/Command.h>
+#include "subsystems/SubColorWheel.h"
 
 class CmdColorSpin : public frc::Command {
  public:

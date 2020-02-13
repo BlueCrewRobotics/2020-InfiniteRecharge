@@ -26,6 +26,7 @@ void SubIntake::ExtendIntake1(bool Extention) {
 void SubIntake::ExtendIntake9(bool Extention) {
   extendSolenoid->Set(Extention);
 }
+//Remove on if these if we only use one Solenoid
 
 void SubIntake::RunIntake(double Speed) {
   intakeMotor->Set(ControlMode::PercentOutput, Speed);

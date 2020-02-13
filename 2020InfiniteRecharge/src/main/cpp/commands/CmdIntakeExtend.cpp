@@ -25,6 +25,7 @@ void CmdIntakeExtend::Initialize() {}
 void CmdIntakeExtend::Execute() {
     Robot::m_subIntake.ExtendIntake9(true);
     Robot::m_subIntake.ExtendIntake1(true);
+    //This is for if we have two Solenoids 
 }
 // Make this return true when this Command no longer needs to run execute()
 bool CmdIntakeExtend::IsFinished() { return false; }
