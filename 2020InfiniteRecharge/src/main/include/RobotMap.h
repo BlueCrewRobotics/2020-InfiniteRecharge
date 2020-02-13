@@ -80,25 +80,25 @@ constexpr int VELOCITY_SP_MAX_LL = 3000;   // Maximum velocity in low low virtua
 
 
 // PID constants PID[0] Used for low speed right side
-constexpr double RIGHT_KF_0 = 0.6; // 0.6576
-constexpr double RIGHT_KP_0 = 0.4;  // 0.73
+constexpr double RIGHT_KF_0 = 0.06;  // Kf = ((percent of output used for control)*1023) / (max encoder units)/100ms
+constexpr double RIGHT_KP_0 = 0.26;  // Kp = ((percent of output used for control)*1023) / Error
 constexpr double RIGHT_KI_0 = 0.0;
 constexpr double RIGHT_KD_0 = 0.0;
 
 // PID constants PID[1] uesd for high speed left side
-constexpr double RIGHT_KF_1 = 0.3; // 0.296
+constexpr double RIGHT_KF_1 = 0.03; // 0.296
 constexpr double RIGHT_KP_1 = 0;
 constexpr double RIGHT_KI_1 = 0;
 constexpr double RIGHT_KD_1 = 0;
 
 // PID constants PID[0] Used for low speed right side
-constexpr double LEFT_KF_0 = 0.6; // 0.6941
-constexpr double LEFT_KP_0 = 0.4; // 0.73
+constexpr double LEFT_KF_0 = 0.06; // Kf = ((percent of output used for control)*1023) / (max encoder units)/100ms
+constexpr double LEFT_KP_0 = 0.26; // Kp = ((percent of output used for control)*1023) / Error
 constexpr double LEFT_KI_0 = 0.0;
 constexpr double LEFT_KD_0 = 0;
 
 // PID constants PID[1] uesd for high speed left side
-constexpr double LEFT_KF_1 = 0.3; // 0.32
+constexpr double LEFT_KF_1 = 0.03; // 0.32
 constexpr double LEFT_KP_1 = 0;
 constexpr double LEFT_KI_1 = 0;
 constexpr double LEFT_KD_1 = 0;
