@@ -9,28 +9,17 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdColorSpin.h"
+#pragma once
 
-#include "Robot.h"
+#include <frc/commands/Command.h>
+#include "subsystems/SubColorWheel.h"
 
-CmdColorSpin::CmdColorSpin() {
-  // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subColorWheel);
-}
-
-// Called just before this Command runs the first time
-void CmdColorSpin::Initialize() {}
-
-// Called repeatedly when this Command is scheduled to run
-void CmdColorSpin::Execute() {
-}
-
-// Make this return true when this Command no longer needs to run execute()
-bool CmdColorSpin::IsFinished() { return false; }
-
-// Called once after isFinished returns true
-void CmdColorSpin::End() {}
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdColorSpin::Interrupted() {}
+class CmdNumberSpin : public frc::Command {
+ public:
+  CmdNumberSpin();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
+};
