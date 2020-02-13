@@ -21,32 +21,54 @@ CmdNumberSpin::CmdNumberSpin() {
 }
 
 // Called just before this Command runs the first time
-void CmdNumberSpin::Initialize() {}
+void CmdNumberSpin::Initialize() {
+  
+  // Sets Lock to false and counter to 0 so that this command can function again if something happens
+  Robot::m_subColorWheel.Lock = false;
+  Robot::m_subColorWheel.counter = 0;
+}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdNumberSpin::Execute() {
+
+// Gets the color detected from the sensor
 Robot::m_subColorWheel.ColorMatch = Robot::m_subColorWheel.GetColorMatch();
+
+// This if statement locks this system if it is Lock is turned to true
 if (Robot::m_subColorWheel.Lock == false) {
 
+  // Prints out the color for debugging purposes
   std::cout << Robot::m_subColorWheel.ColorMatch << std::endl;
   
+  // This if statement interlocks between the blue color and the green color after they have been detected
   if (Robot::m_subColorWheel.ColorLock == false) {
+
+    // Tests to see if the color from the sensor is blue(0 is the value of blue)
     if (Robot::m_subColorWheel.ColorMatch == 0){
-      //0 = Blue
+
+      // Switches ColorLock to true so this if statement isn't run again
       Robot::m_subColorWheel.ColorLock = true;
 
     }
-  }
-  if (Robot::m_subColorWheel.ColorLock == true){
+    // This if statement interlocks between the blue color and the green color after they have been detected
+  } else if (Robot::m_subColorWheel.ColorLock == true){
+
+      // Tests to see if the color from the sensor is green(1 is the value of green)
       if (Robot::m_subColorWheel.ColorMatch == 1){
-      //1 = Green
-      Robot::m_subColorWheel.ColorLock = true;
+      
+      // Switches ColorLock to true so this if statement isn't run again
+      Robot::m_subColorWheel.ColorLock = false;
+      // Increases the counter by 1
       Robot::m_subColorWheel.counter++;
       }
   }
+  // Checks to see if the counter is at 8
   if (Robot::m_subColorWheel.counter == 8){
+    // Changes Lock to true to prevent all previous if statements from running
     Robot::m_subColorWheel.Lock = true;
+    
   }
+  
 }
 }
 
@@ -54,7 +76,8 @@ if (Robot::m_subColorWheel.Lock == false) {
 bool CmdNumberSpin::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void CmdNumberSpin::End() {}
+void CmdNumberSpin::End() {
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
