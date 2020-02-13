@@ -31,7 +31,10 @@ class SubColorWheel : public frc::Subsystem {
   void RunColor(double speed);
   
   std::string gameData;
-
+  int counter = 0;
+  bool ColorLock = false;
+  bool Lock = false;
+  int ColorMatch = -1;
 
  private:
   // It's desirable that everything possible under private except
@@ -59,5 +62,6 @@ class SubColorWheel : public frc::Subsystem {
   frc::Color m_YellowTarget = frc::Color(0.3131, 0.5597, 0.1271);
 
   VictorSPX *colorMotor = new VictorSPX(COLOR_MOTOR);
+
 
 };

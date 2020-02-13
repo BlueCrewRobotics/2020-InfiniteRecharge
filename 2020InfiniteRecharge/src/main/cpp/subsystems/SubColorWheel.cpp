@@ -90,10 +90,12 @@ int SubColorWheel::GetColorMatch(){
   frc::SmartDashboard::PutNumber("SubColorWheel/Confidence",m_matchConfidence);
   frc::SmartDashboard::PutNumber("SubColorWheel/ColorSelected",returnColor);
 
-  std::cout << returnColor << std::endl;
+  // std::cout << returnColor << std::endl;
 
   return returnColor;
 }
+
+
 
 void SubColorWheel::RunColor(double speed){
     colorMotor->Set(ControlMode::PercentOutput, speed);
