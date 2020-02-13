@@ -161,12 +161,12 @@ void SubDriveTrain::Drive(double speed, double rotation) {
   driveTrain->SetDeadband(0.02);
   driveTrain->ArcadeDrive(speed, rotation, true);
 }
-
+// Resets the drive encoders to 0
 void SubDriveTrain::ResetEncoders() {
   leftDriveMotor->ResetSensorPosition();
   rightDriveMotor->ResetSensorPosition();
 }
-
+// Configures Motion Magic Acceleration and Velocity for Autonomous
 void SubDriveTrain::ConfigureAuto() {
   leftDriveMotor->ConfigureMotionAcceleration(500, 10);
   rightDriveMotor->ConfigureMotionAcceleration(500, 10);
@@ -174,18 +174,21 @@ void SubDriveTrain::ConfigureAuto() {
   rightDriveMotor->ConfigureMotionVelocity(500, 10);
 }
 
-void SubDriveTrain::AutoDrive(double leftrotations, double rightrotations) {
+// Drives forward or backward in autonomous using MotionMagic
+void SubDriveTrain::AutoDrive(double leftrotations, double rightrotations) { // This will be changed to distance and the fuction will convert it to rotations
   leftrotations = leftrotations * 4096; // Set up gear ratio here
-  rightrotations = rightrotations * 4096 * -1;
+  rightrotations = rightrotations * 4096 * -1; // Set up gear ratio here
   leftDriveMotor->SetMotionMagic(leftrotations);
   rightDriveMotor->SetMotionMagic(rightrotations);
 }
 
+// Configures Magic S Curve
 void SubDriveTrain::ConfigMotionMagicCurve(int strength) {
   leftDriveMotor->ConfigureMotionCurveStrength(strength, 0);
   rightDriveMotor->ConfigureMotionCurveStrength(strength, 0);
 }
 
+// Rotates robot to a specified degree
 void SubDriveTrain::AutoRotate(double degrees) {
   // turns degrees into encoder values to pass into motion magic
 }
