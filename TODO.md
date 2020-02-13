@@ -20,7 +20,7 @@
         Gateway: “10.61.53.1”
 
 ## High Priority
-- Intake(Sol)
+- Intake(Sol) COMPLETE?????
     - Intake Motor
     - Intake Solenoid(x2?)
     - Command Group
@@ -34,11 +34,11 @@
 - Ball Vision Targeting(Cameron) 
     - Create Pipeline for ball
     - Switch between pipelines
-- Color Sensor(Lucien) 
+- Color Sensor(Sol)
     - Motor
-    - Color Sensor working
+    ~~- Get Color Sensor working~~
     - Find update speed and how fast the wheel needs to move
-    - Create Equation/Counting for spinning wheel 4 times
+    ~~- Create Equation/Counting for spinning wheel 4 times~~
     - Create Equation/Counting for selecting correct color
 - Make Drive System good(Lucien)
     - PID tuning
@@ -47,7 +47,8 @@
     - Calculate values that need to be used
 - Autonomous(Lucien)
     - Pass NavX values into Autonomous command
-    - Use NavX to control when commands finish when the robot has traveled a specified distance
+    ~~- Use motion magic to move the robot forward a specific distance~~
+    - Use motion magic or NavX to turn the robot to a specific degree
 ## Low Priority
 - Flashy Lights to communicate if we are alligned
 
