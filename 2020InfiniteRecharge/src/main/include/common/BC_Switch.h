@@ -1,9 +1,10 @@
-/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-*/
-/*     Blue Crew Robotics #6153    */
-/*         Deep Space 2019         */
-/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-*/
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
+/*                       Blue Crew Robotics #6153                             */
+/*                        Infinite Recharge 2020                              */
+/*-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=-=+=*/
 
-#include "frc/WPILib.h"// CHANGE THIS TO THE CLASS THAT NEEDS TO BE INCLUDED TO REDUCE COMPILE TIMES
+#include "frc/DigitalInput.h"
+#include "frc/Counter.h"
 
 class BC_Switch {
 

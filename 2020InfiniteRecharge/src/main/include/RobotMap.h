@@ -73,14 +73,14 @@ constexpr int DURATION_CURRENT_LIMIT = 30;
 constexpr double DRIVE_RAMP_TIME = 0.2;
 
 // Maximum velocity in units/100ms
-constexpr int VELOCITY_MAX = 3000;
-constexpr int VELOCITY_SP_MAX_HG = 3000;  // Maximum velocity in actual high gear
-constexpr int VELOCITY_SP_MAX_LG = 1400;  // Maximum velocity in actual low gear
-constexpr int VELOCITY_SP_MAX_LL = 700;   // Maximum velocity in low low virtual gear
+constexpr int VELOCITY_MAX = 12000;
+constexpr int VELOCITY_SP_MAX_HG = 12000;  // Maximum velocity in actual high gear
+constexpr int VELOCITY_SP_MAX_LG = 6000;  // Maximum velocity in actual low gear
+constexpr int VELOCITY_SP_MAX_LL = 3000;   // Maximum velocity in low low virtual gear
 
 
 // PID constants PID[0] Used for low speed right side
-constexpr double RIGHT_KF_0 = 0.64; // 0.6576
+constexpr double RIGHT_KF_0 = 0.6; // 0.6576
 constexpr double RIGHT_KP_0 = 0.4;  // 0.73
 constexpr double RIGHT_KI_0 = 0.0;
 constexpr double RIGHT_KD_0 = 0.0;
