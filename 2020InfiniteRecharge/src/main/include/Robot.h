@@ -36,6 +36,7 @@
 #include "commands/CmdColorSpin.h"
 #include "subsystems/SubLimelight.h"
 #include "autocommands/AutoCmdDrive.h"
+#include "commands/CmdNumberSpin.h"
 
 class Robot : public frc::TimedRobot {
  public:
