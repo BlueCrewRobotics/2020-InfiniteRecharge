@@ -151,8 +151,8 @@ constexpr int TURRET_RIGHT_SOFT_LIMIT = 200;      // Set the soft right limit
 
 // Color Sensor Cofiguration
 constexpr int WHEEL_BLUE    = 0;
-constexpr int WHEEL_RED     = 1;
-constexpr int WHEEL_GREEN   = 2;
+constexpr int WHEEL_RED     = 2;
+constexpr int WHEEL_GREEN   = 1;
 constexpr int WHEEL_YELLOW  = 3;
 constexpr int WHEEL_NOMATCH = -1;
 

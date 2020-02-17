@@ -38,6 +38,7 @@
 #include "autocommands/AutoCmdDrive.h"
 #include "subsystems/SubMagazine.h"
 #include "commands/CmdMagazine.h"
+#include "commands/CmdNumberSpin.h"
 
 class Robot : public frc::TimedRobot {
  public:

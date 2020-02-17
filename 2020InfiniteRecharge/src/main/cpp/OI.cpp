@@ -26,4 +26,5 @@ OI::OI() {
 
   driverController_button_a->ToggleWhenPressed(new CmdIntakeExtend());
   driverController_button_start->WhileHeld(new CmdNumberSpin());
+  driverController_button_b->WhileHeld(new CmdColorSpin());
 }

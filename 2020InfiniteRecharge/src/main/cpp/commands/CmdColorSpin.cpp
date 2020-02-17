@@ -24,6 +24,7 @@ void CmdColorSpin::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdColorSpin::Execute() {
+Robot::m_subColorWheel.ColorMatch = Robot::m_subColorWheel.GetColorMatch();
 std::string gameData;
 gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
 if(gameData.length() > 0)
@@ -31,30 +32,23 @@ if(gameData.length() > 0)
   switch (gameData[0])
   {
     case 'B' :
-      do{
-         Robot::m_subColorWheel.RunColor(.5);
-         
-            
-      } while (Robot::m_subColorWheel.ColorMatch != 2);
+    if (Robot::m_subColorWheel.ColorMatch != 2)
+      Robot::m_subColorWheel.RunColor(.5);
       //Blue case code
       break;
     case 'G' :
-      do{
-        Robot::m_subColorWheel.RunColor(.5);
-        
-      }while (Robot::m_subColorWheel.ColorMatch != 3);
+    if (Robot::m_subColorWheel.ColorMatch != 3)
+      Robot::m_subColorWheel.RunColor(.5);
       //Green case code
       break;
     case 'R' :
-      do{
-        Robot::m_subColorWheel.RunColor(.5);
-      }while (Robot::m_subColorWheel.ColorMatch != 0);
+    if (Robot::m_subColorWheel.ColorMatch != 0)
+      Robot::m_subColorWheel.RunColor(.5);
       //Red case code
       break;
     case 'Y' :
-      do{
-        Robot::m_subColorWheel.RunColor(.5);
-      }while (Robot::m_subColorWheel.ColorMatch != 1);
+    if (Robot::m_subColorWheel.ColorMatch != 1)
+      Robot::m_subColorWheel.RunColor(.5);
       //Yellow case code
       break;
     default :
