@@ -16,6 +16,7 @@
 //#include <frc/WPILib.h>
 #include <frc/Solenoid.h>
 #include "BC_VictorSPX.h"
+#include "RobotMap.h"
 
 class SubIntake : public frc::Subsystem {
  public:
@@ -26,7 +27,7 @@ class SubIntake : public frc::Subsystem {
   void RunIntake(double Speed);
 
  private:
-  VictorSPX *intakeMotor = new VictorSPX(7);
+  VictorSPX *intakeMotor = new VictorSPX(INTAKE_MOTOR);
   frc::Solenoid *extendSolenoid = new frc::Solenoid(9, 1);
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities

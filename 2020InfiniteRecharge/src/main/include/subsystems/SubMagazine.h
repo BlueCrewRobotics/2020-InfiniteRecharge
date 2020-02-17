@@ -12,25 +12,47 @@
 
 #pragma once
 
+#include "RobotMap.h"
 #include <frc/commands/Subsystem.h>
 #include "common/BC_Switch.h"
+#include <ctre/Phoenix.h>
+#include "commands/CmdMagazine.h"
 //#include "rev/Rev2mDistanceSensor.h"
 
 class SubMagazine : public frc::Subsystem {
  public:
   SubMagazine();
   void InitDefaultCommand() override;
-  void MoveForward(int blocks);
-  void MoveBackward(int blocks);
-  bool GetBreakSwitch();
+  void MoveToPosition(int blocks);
+  bool GetBallDetector();
+  void UpdateSensors();
+  int GetCurrentPosition();
+  void Configure();
   int GetBallCount();
+  int GetMotorVelocity();
+
+  bool intakeShootMode = true;
+  bool sensors[5] = {false, false, false, false, false};
+  double positions[5] = {0, 100, 200, 300, 400};
+  int ballsShot = 0;
 
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
+  
+  int encoderPosition = 0;
+  int currentPosition = 0;
   int ballCount = 0;
-  bool currentSwitchState = 0;
-  BC_Switch* m_intakeSwitch = new BC_Switch(0);
+
+
+  // Sets up break sensors
+  BC_Switch* m_ballDetector = new BC_Switch(BALL_DETECTOR);
+  BC_Switch* m_ballPosition1 = new BC_Switch(BALL_POS_1);
+  BC_Switch* m_ballPosition2 = new BC_Switch(BALL_POS_2);
+  BC_Switch* m_ballPosition3 = new BC_Switch(BALL_POS_3);
+  BC_Switch* m_ballPosition4 = new BC_Switch(BALL_POS_4); 
+
+  TalonSRX *magazineMotor = new TalonSRX(MAGAZINE_MOTOR);
 
   //rev::Rev2mDistanceSensor *distSensor = new rev::Rev2mDistanceSensor(rev::Rev2mDistanceSensor::Port::kMXP,rev::Rev2mDistanceSensor::DistanceUnit::kInches,rev::Rev2mDistanceSensor::RangeProfile::kHighSpeed);
 };

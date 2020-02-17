@@ -36,6 +36,8 @@
 #include "commands/CmdColorSpin.h"
 #include "subsystems/SubLimelight.h"
 #include "autocommands/AutoCmdDrive.h"
+#include "subsystems/SubMagazine.h"
+#include "commands/CmdMagazine.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -48,7 +50,7 @@ class Robot : public frc::TimedRobot {
   static SubIntake m_subIntake;
   static SubNavX m_subNavX;
   static SubLimelight m_subLimelight;
-  
+  static SubMagazine m_subMagazine;
   
   
   void RobotInit() override;

@@ -110,10 +110,20 @@ constexpr int PCM_TOP = 8;
 // Solenoid Mappings for bottom PCM
 constexpr int BTM_GEARSHIFT = 0;  // Drive train gear shifter
 
+
 // Shooter Configuration
 constexpr int SHOOTER_TOP_ADDR = 5;
 constexpr int SHOOTER_BTM_ADDR = 6;
 constexpr int SHOOTER_TURRET_ADDR = 7;
+
+// Motor for the color wheel
+constexpr int COLOR_MOTOR = 8;
+
+// Motor for the Magazine
+constexpr int MAGAZINE_MOTOR = 9;
+
+// Motor for the Intake
+constexpr int INTAKE_MOTOR = 13;
 
 // PID constants PID[0] Used for Shooter
 constexpr double SHOOTER_TOP_KF_0 = 3.0; 
@@ -146,4 +156,12 @@ constexpr int WHEEL_GREEN   = 2;
 constexpr int WHEEL_YELLOW  = 3;
 constexpr int WHEEL_NOMATCH = -1;
 
-constexpr int COLOR_MOTOR = 8;
+
+
+// IO values for the break switches
+constexpr int BALL_DETECTOR = 0;
+constexpr int BALL_POS_1 = 1;
+constexpr int BALL_POS_2 = 2;
+constexpr int BALL_POS_3 = 3;
+constexpr int BALL_POS_4 = 4;
+

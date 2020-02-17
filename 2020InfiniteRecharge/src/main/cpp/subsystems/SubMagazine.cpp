@@ -17,24 +17,49 @@ SubMagazine::SubMagazine() : frc::Subsystem("SubMagazine") {}
 
 void SubMagazine::InitDefaultCommand() {
   // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
+  SetDefaultCommand(new CmdMagazine());
 }
 
-void SubMagazine::MoveForward(int blocks) {
-
-}
-
-void SubMagazine::MoveBackward(int blocks) {
+void SubMagazine::Configure() {
 
 }
 
-bool SubMagazine::GetBreakSwitch() {
-  currentSwitchState = m_intakeSwitch->GetSwitchState();
-  return currentSwitchState;
+// Moves the magazine to a specified servo position(blocks are equal to approx. 7 inches)
+void SubMagazine::MoveToPosition(int blocks) {
+  encoderPosition = blocks * 100; // CHANGE 100 TO VALUE OF ENCODER MOVING 7 - 8 INCHES
+  magazineMotor->Set(ControlMode::Position, encoderPosition);
+  currentPosition = blocks;
+}
+
+int SubMagazine::GetCurrentPosition() {
+
+}
+
+
+
+// Gets the current value of the break switch in the front of the intake
+bool SubMagazine::GetBallDetector() {
+
+}
+
+void SubMagazine::UpdateSensors() {
+  sensors[0] = m_ballDetector->GetSwitchState();
+  sensors[1] = m_ballPosition1->GetSwitchState();
+  sensors[2] = m_ballPosition2->GetSwitchState();
+  sensors[3] = m_ballPosition3->GetSwitchState();
+  sensors[4] = m_ballPosition4->GetSwitchState();
 }
 
 int SubMagazine::GetBallCount() {
+  ballCount = ballCount + sensors[1];
+  ballCount = ballCount + sensors[2];
+  ballCount = ballCount + sensors[3];
+  ballCount = ballCount + sensors[4];
+  return ballCount;
+}
 
+int SubMagazine::GetMotorVelocity() {
+  return magazineMotor->GetSelectedSensorVelocity();
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

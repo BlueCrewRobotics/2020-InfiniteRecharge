@@ -31,6 +31,7 @@ void CmdSpinShooterWheels::Execute() {
     //double d_topShooter = 40;
     //double d_botShooter = 40;
     Robot::m_subShooter.SpinUpWheels( d_topShooter, d_botShooter );
+    Robot::m_subMagazine.intakeShootMode = 1;
 }
 
 // Make this return true when this Command no longer needs to run execute()
