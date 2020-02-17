@@ -36,6 +36,11 @@ void CmdMagazine::Execute() {
   if (isMoving == false) {
     Robot::m_subMagazine.UpdateSensors();
     ballCount = Robot::m_subMagazine.GetBallCount();
+    if (ballCount = 4) {
+      Robot::m_subMagazine.intakeLock = true;
+    } else {
+      Robot::m_subMagazine.intakeLock = false;
+    }
   
 
 
@@ -59,15 +64,15 @@ void CmdMagazine::Execute() {
 
     if (Robot::m_subMagazine.sensors[0] == true) {
       if (ballCount == 0) {
-        Robot::m_subMagazine.MoveToPosition(1);
+        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
       } else if (ballCount == 1) {
-        Robot::m_subMagazine.MoveToPosition(2);
+        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
       } else if (ballCount == 2) {
-        Robot::m_subMagazine.MoveToPosition(3);
+        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
       } else if (ballCount == 3) {
-        Robot::m_subMagazine.MoveToPosition(4);
+        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
       } /*else if (ballCount == 4) {
-        Robot::m_subMagazine.MoveToPosition(5);
+        Robot::m_subMagazine.intakeLock = true; 
       }*/
     }
 

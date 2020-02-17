@@ -26,8 +26,11 @@ void CmdIntake::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void CmdIntake::Execute() {
-  Robot::m_subIntake.RunIntake(.5);
-  Robot::m_subMagazine.intakeShootMode = 0;
+  if (Robot::m_subMagazine.intakeLock == false) {
+    Robot::m_subIntake.RunIntake(.5);
+    Robot::m_subMagazine.intakeShootMode = 0;
+  }
+  
   //Runs
 }
 

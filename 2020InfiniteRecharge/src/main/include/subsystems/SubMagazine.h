@@ -37,6 +37,7 @@ class SubMagazine : public frc::Subsystem {
   int ballsShot = 0;
   bool intakeShootModeLock = false;
   int currentPosition = 0;
+  bool intakeLock = false;
   
  private:
   // It's desirable that everything possible under private except
