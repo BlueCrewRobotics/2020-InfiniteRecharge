@@ -40,11 +40,22 @@ void CmdMagazine::Execute() {
 
 
   if (Robot::m_subMagazine.intakeShootMode == 0) {
-    // THIS IS NEEDED IF WE WANT TO TRY FOR 5 BALLS
-    /*if (Robot::m_subMagazine.sensors[0] == true && ballCount == 4) {
-      Robot::m_subMagazine.MoveToPosition(5);
+    
+    // Put code here for shooter to intake mode switch
+    if (Robot::m_subMagazine.intakeShootModeLock == true) {
+      if (Robot::m_subMagazine.sensors[1] == true) {
+        // do nothing
+      } else if (Robot::m_subMagazine.sensors[2] == true) {
+        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition - 1);
+      } else if (Robot::m_subMagazine.sensors[3] == true) {
+        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition - 2);
+      } else {
+        // do nothing
+      }
+
+
+      Robot::m_subMagazine.intakeShootModeLock = false;
     }
-    */
 
     if (Robot::m_subMagazine.sensors[0] == true) {
       if (ballCount == 0) {
@@ -62,29 +73,31 @@ void CmdMagazine::Execute() {
 
   } else if (Robot::m_subMagazine.intakeShootMode == 1) {
 
-    if (Robot::m_subMagazine.ballsShot == 1) {
+    if (Robot::m_subMagazine.intakeShootModeLock == false) {
+      Robot::m_subMagazine.MoveToPosition(4);
+      Robot::m_subMagazine.intakeShootModeLock = true;
+
+    } else if (Robot::m_subMagazine.ballsShot == 1 && ballCount != 0) {
+      Robot::m_subMagazine.MoveToPosition(5);
+
+    } else if (Robot::m_subMagazine.ballsShot == 2 && ballCount != 0) {
+      Robot::m_subMagazine.MoveToPosition(6);
+
+    } else if (Robot::m_subMagazine.ballsShot >= 3 && ballCount != 0) {
+      Robot::m_subMagazine.MoveToPosition(7);
+      }
       
 
-
-      Robot::m_subMagazine.ballsShot = 0;
+      if (Robot::m_subMagazine.sensors[1] == false && Robot::m_subMagazine.sensors[2] == false && Robot::m_subMagazine.sensors[3] == false) {
+        Robot::m_subMagazine.ResetEncoderPosition();
     }
-
-    // Move to stage 4 if not already at stage 4
-    // When ball is fired move to stage 5 if there is that amount of balls
-    // When next ball is fired move to stage 6 if there is that amount of balls
-    // When next ball is fired move to stage 7 if there is that amount of balls
-    // When ball count = 0 then reset encoder to stage 0
     
-    if (ballCount == 1) {
-      if (Robot::m_subMagazine.ballsShot == 0) {
-      Robot::m_subMagazine.MoveToPosition(4);
-    } else if (Robot::m_subMagazine.ballsShot == 1) {
-      Robot::m_subMagazine.MoveToPosition(5);
-    }
 
-    } else if (ballCount == 2) {
+    
 
-    }
+
+
+
     
 
 

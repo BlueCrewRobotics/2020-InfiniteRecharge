@@ -25,6 +25,16 @@ void CmdShoot::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void CmdShoot::Execute() {
+    // THIS IS TO LOAD A BALL INTO THE SHOOTER USING A PISTON
+
+    // This should be called whenever a ball is shot out of the turret
+
+    Robot::m_subMagazine.ballsShot++;
+    if (Robot::m_subMagazine.ballsShot >= 4) {
+      Robot::m_subMagazine.ballsShot = 0;
+    }
+    
+
 
     //double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
     //double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);

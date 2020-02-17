@@ -26,4 +26,5 @@ class CmdMagazine : public frc::Command {
   int ballCount = 0;
   int velocity = 0;
   bool isMoving = false;
+  int ballCounter = 0;
 };

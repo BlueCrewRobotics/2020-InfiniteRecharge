@@ -37,10 +37,7 @@ int SubMagazine::GetCurrentPosition() {
 
 
 
-// Gets the current value of the break switch in the front of the intake
-bool SubMagazine::GetBallDetector() {
 
-}
 
 void SubMagazine::UpdateSensors() {
   sensors[0] = m_ballDetector->GetSwitchState();
@@ -60,6 +57,11 @@ int SubMagazine::GetBallCount() {
 
 int SubMagazine::GetMotorVelocity() {
   return magazineMotor->GetSelectedSensorVelocity();
+}
+
+void SubMagazine::ResetEncoderPosition() {
+  magazineMotor->SetSelectedSensorPosition(0,0,0);
+  currentPosition = 0;
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
