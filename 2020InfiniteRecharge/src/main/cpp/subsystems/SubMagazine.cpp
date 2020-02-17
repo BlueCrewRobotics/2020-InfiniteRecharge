@@ -21,6 +21,28 @@ void SubMagazine::InitDefaultCommand() {
 }
 
 void SubMagazine::Configure() {
+  // Configure the setting for the PID etc.
+  magazineMotor->Config_kF(0, 0, 0);
+  magazineMotor->Config_kP(0, 0, 0);
+  magazineMotor->Config_kI(0, 0, 0);
+  magazineMotor->Config_kD(0, 0, 0);
+
+  // Configure the cruise velocity and the acceleration
+  magazineMotor->ConfigMotionCruiseVelocity(1000, 0);
+  magazineMotor->ConfigMotionAcceleration(1000, 0);
+
+  magazineMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
+  magazineMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 1);
+  magazineMotor->SetSensorPhase(true);
+  // magazineMotor->SetInverted(InvertType::InvertMotorOutput);
+
+  magazineMotor->ConfigPeakCurrentDuration(1, 0);
+  magazineMotor->ConfigPeakCurrentLimit(15, 0);
+  magazineMotor->ConfigContinuousCurrentLimit(15, 0);
+  magazineMotor->EnableCurrentLimit(true);
+
+  magazineMotor->ConfigOpenloopRamp(0.25, 0);
+  magazineMotor->ConfigClosedloopRamp(0.25, 0);
 
 }
 

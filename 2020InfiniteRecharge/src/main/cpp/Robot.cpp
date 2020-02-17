@@ -37,6 +37,7 @@ void Robot::RobotInit() {
   m_subDriveTrain.ConfigurePID();
   m_subDriveTrain.ConfigMotionMagicCurve(4);
   m_subDriveTrain.ConfigureAuto();
+  m_subMagazine.Configure();
 
 }
 
