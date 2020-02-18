@@ -9,43 +9,59 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdSpinShooterWheels.h"
+#include "commands/CmdAcquireTarget.h"
 #include "subsystems/SubShooter.h"
 #include "Robot.h"
 
-CmdSpinShooterWheels::CmdSpinShooterWheels() {
+CmdAcquireTarget::CmdAcquireTarget() {
   // Use Requires() here to declare subsystem dependencies
   Requires(&Robot::m_subShooter);
 }
 
 // Called just before this Command runs the first time
-void CmdSpinShooterWheels::Initialize() {
+void CmdAcquireTarget::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CmdSpinShooterWheels::Execute() {
+void CmdAcquireTarget::Execute() {
 
-    double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
-    double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
+    double rotation;
+		double d_gain = 0.65;
 
+    // Check to see if limelight has a target
+    if(Robot::m_subLimelight.GetTarget()==true){
 
-    //double d_topShooter = 40;
-    //double d_botShooter = 40;
+		double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset(); 
 
-    Robot::m_subShooter.SpinUpWheels( d_topShooter, d_botShooter );
+		//rotation = (d_gain*(((30-d_targetCenter)/30) - (d_targetAngle/30)));
+		rotation = (-1*(d_targetAngle/27))*d_gain;
+
+    Robot::m_subShooter.RotateTurret(rotation);
+    
+    
     Robot::m_subMagazine.intakeShootMode = 1;
+    }
+    // If limelight doesn't have a target send turret to default locations
+    // If this is the case the driver must turn the robot toward the target to acquire the target
+    else
+    {
+      rotation = 0;
+      Robot::m_subShooter.RotateTurret(rotation);
+    }
+    
+    
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdSpinShooterWheels::IsFinished() { 
+bool CmdAcquireTarget::IsFinished() { 
     return false;
     
      }
 
 // Called once after isFinished returns true
-void CmdSpinShooterWheels::End() {}
+void CmdAcquireTarget::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdSpinShooterWheels::Interrupted() {}
+void CmdAcquireTarget::Interrupted() {}

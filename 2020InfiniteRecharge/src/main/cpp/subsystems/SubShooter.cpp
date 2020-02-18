@@ -76,6 +76,10 @@ void SubShooter::Configure(){
     turretMotor->ConfigForwardSoftLimitEnable(TURRET_SOFT_LIMITS_ENABLE, 0);
     turretMotor->ConfigReverseSoftLimitEnable(TURRET_SOFT_LIMITS_ENABLE, 0);
 
+    // Configure the hard limit switches of the talon
+    turretMotor->ConfigReverseLimitSwitchSource(LimitSwitchSource_FeedbackConnector, LimitSwitchNormal_NormallyOpen, 0);
+    turretMotor->ConfigForwardLimitSwitchSource(LimitSwitchSource_FeedbackConnector, LimitSwitchNormal_NormallyOpen, 0);
+
     turretMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
   
     turretMotor->SetSensorPhase(true);
