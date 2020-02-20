@@ -17,14 +17,13 @@ OI::OI() {
 
   driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
 
-  driverController_button_x->WhenPressed(new CmdSpinShooterWheels());
-  
-  driverController_button_x->WhenReleased(new CmdStopShoot());
+  driverController_button_a->WhenPressed(new CmdSpinShooterWheels());
+  driverController_button_a->WhenReleased(new CmdStopShoot());
 
-  driverController_button_a->WhenPressed(new CmdIntake());
-  driverController_button_a->WhenReleased(new CmdStopIntake());
+  driverController_button_y->WhenPressed(new CmdIntake());
+  driverController_button_y->WhenReleased(new CmdStopIntake());
+  //driverController_button_y->ToggleWhenPressed(new CmdIntakeExtend()); CHANGE THIS TO WHEN PRESSED AND WHEN RELEASED EXTEND AND RETRACT
 
-  driverController_button_a->ToggleWhenPressed(new CmdIntakeExtend());
-  driverController_button_start->WhileHeld(new CmdNumberSpin());
-  driverController_button_b->WhileHeld(new CmdColorSpin());
+  auxController_button_b->WhileHeld(new CmdNumberSpin());
+  auxController_button_a->WhileHeld(new CmdColorSpin());
 }

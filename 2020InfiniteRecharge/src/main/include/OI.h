@@ -60,5 +60,17 @@ class OI {
   // LEFT STICK LEFT // Turn Left
   // LEFT STICK RIGHT // Turn Right
 
-  
+  // Setup aux controller
+  frc::Joystick *auxController = new frc::Joystick(AUX_CONTROLLER);
+  // Setup buttons on the aux controller, change the names to fit the command
+  frc::JoystickButton *auxController_button_a = new frc::JoystickButton(auxController, BUTTON_A); 
+  frc::JoystickButton *auxController_button_b = new frc::JoystickButton(auxController, BUTTON_B); 
+  frc::JoystickButton *auxController_button_x = new frc::JoystickButton(auxController, BUTTON_X); 
+  frc::JoystickButton *auxController_button_y = new frc::JoystickButton(auxController, BUTTON_Y); 
+  frc::JoystickButton *auxController_button_lbump = new frc::JoystickButton(auxController, BUTTON_L_BUMP); 
+  frc::JoystickButton *auxController_button_rbump = new frc::JoystickButton(auxController, BUTTON_R_BUMP); 
+  frc::JoystickButton *auxController_button_select = new frc::JoystickButton(auxController, BUTTON_SELECT); 
+  frc::JoystickButton *auxController_button_start = new frc::JoystickButton(auxController, BUTTON_START); 
+  frc::JoystickButton *auxController_button_l3 = new frc::JoystickButton(auxController, BUTTON_L3); 
+  frc::JoystickButton *auxController_button_r3 = new frc::JoystickButton(auxController, BUTTON_R3); 
 };

@@ -33,11 +33,12 @@ class SubMagazine : public frc::Subsystem {
 
   bool intakeShootMode = true;
   bool sensors[5] = {false, false, false, false, false};
-  double positions[5] = {0, 100, 200, 300, 400};
   int ballsShot = 0;
   bool intakeShootModeLock = false;
   int currentPosition = 0;
   bool intakeLock = false;
+  int ballsShotCompare = 0;
+
   
  private:
   // It's desirable that everything possible under private except
