@@ -39,6 +39,8 @@
 #include "subsystems/SubMagazine.h"
 #include "commands/CmdMagazine.h"
 #include "commands/CmdNumberSpin.h"
+#include "commands/CmdIntakeExtend.h"
+#include "commands/CmdIntakeRetract.h"
 
 class Robot : public frc::TimedRobot {
  public:

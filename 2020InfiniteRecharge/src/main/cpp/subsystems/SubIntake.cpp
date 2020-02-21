@@ -20,10 +20,7 @@ void SubIntake::InitDefaultCommand() {
   // SetDefaultCommand(new MySpecialCommand());
 }
 
-void SubIntake::ExtendIntake1(bool Extention) {
-  extendSolenoid->Set(Extention);
-}
-void SubIntake::ExtendIntake9(bool Extention) {
+void SubIntake::ExtendIntake(bool Extention) {
   extendSolenoid->Set(Extention);
 }
 //Remove on if these if we only use one Solenoid

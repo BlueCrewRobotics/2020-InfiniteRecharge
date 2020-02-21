@@ -124,6 +124,8 @@ constexpr int MAGAZINE_MOTOR = 9;
 
 // Motor for the Intake
 constexpr int INTAKE_MOTOR = 13;
+// Solenoid for IntakeExtend
+constexpr int INTAKE_SOLENOID = 1;
 
 // PID constants PID[0] Used for Shooter
 constexpr double SHOOTER_TOP_KF_0 = 3.0; 
