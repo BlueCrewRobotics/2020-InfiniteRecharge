@@ -9,25 +9,28 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+#include "commands/CmdIntakeRetract.h"
 
-#pragma once
+#include "Robot.h"
 
-#include <frc/commands/Subsystem.h>
-//#include <frc/WPILib.h>
-#include <frc/Solenoid.h>
-#include "BC_VictorSPX.h"
-#include "RobotMap.h"
+CmdIntakeRetract::CmdIntakeRetract() {
+  // Use Requires() here to declare subsystem dependencies
+  Requires(&Robot::m_subIntake);
+}
 
-class SubIntake : public frc::Subsystem {
- public:
-  SubIntake();
-  void InitDefaultCommand() override;
-  void ExtendIntake(bool Extention);
-  void RunIntake(double Speed);
+// Called just before this Command runs the first time
+void CmdIntakeRetract::Initialize() {}
 
- private:
-  VictorSPX *intakeMotor = new VictorSPX(INTAKE_MOTOR);
-  frc::Solenoid *extendSolenoid = new frc::Solenoid(INTAKE_SOLENOID);
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
-};
+// Called repeatedly when this Command is scheduled to run
+void CmdIntakeRetract::Execute() {
+    Robot::m_subIntake.ExtendIntake(false);
+}
+// Make this return true when this Command no longer needs to run execute()
+bool CmdIntakeRetract::IsFinished() { return false; }
+
+// Called once after isFinished returns true
+void CmdIntakeRetract::End() {}
+
+// Called when another command which requires one or more of the same
+// subsystems is scheduled to run
+void CmdIntakeRetract::Interrupted() {}
