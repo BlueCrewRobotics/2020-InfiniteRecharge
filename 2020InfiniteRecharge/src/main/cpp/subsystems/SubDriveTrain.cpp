@@ -59,16 +59,16 @@ void SubDriveTrain::Configure() {
   rightDriveMotor->ptr_talonSRX->ClearStickyFaults(30);
 
   // Setup followers
-  // leftFollowMotor->ptr_VictorSPX->Follow(*leftDriveMotor->ptr_talonSRX);
-  // leftFollowMotor->ptr_VictorSPX->SetInverted(InvertType::FollowMaster);
-  // rightFollowMotor->ptr_VictorSPX->Follow(*rightDriveMotor->ptr_talonSRX);
-  // rightFollowMotor->ptr_VictorSPX->SetInverted(InvertType::FollowMaster);
+  leftFollowMotor->ptr_VictorSPX->Follow(*leftDriveMotor->ptr_talonSRX);
+  leftFollowMotor->ptr_VictorSPX->SetInverted(InvertType::FollowMaster);
+  rightFollowMotor->ptr_VictorSPX->Follow(*rightDriveMotor->ptr_talonSRX);
+  rightFollowMotor->ptr_VictorSPX->SetInverted(InvertType::FollowMaster);
 
   // Setup followers
-  leftFollowMotor->ptr_talonSRX->Follow(*leftDriveMotor->ptr_talonSRX);
-  leftFollowMotor->ptr_talonSRX->SetInverted(InvertType::FollowMaster);
-  rightFollowMotor->ptr_talonSRX->Follow(*rightDriveMotor->ptr_talonSRX);
-  rightFollowMotor->ptr_talonSRX->SetInverted(InvertType::FollowMaster);
+  //leftFollowMotor->ptr_talonSRX->Follow(*leftDriveMotor->ptr_talonSRX);
+  //leftFollowMotor->ptr_talonSRX->SetInverted(InvertType::FollowMaster);
+  //rightFollowMotor->ptr_talonSRX->Follow(*rightDriveMotor->ptr_talonSRX);
+  //rightFollowMotor->ptr_talonSRX->SetInverted(InvertType::FollowMaster);
 
   // Setup encoder
   leftDriveMotor->ptr_talonSRX->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);

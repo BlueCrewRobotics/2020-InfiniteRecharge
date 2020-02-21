@@ -30,7 +30,7 @@ class SubMagazine : public frc::Subsystem {
   int GetBallCount();
   int GetMotorVelocity();
   void ResetEncoderPosition();
-
+  void Test();
   bool intakeShootMode = true;
   bool sensors[5] = {false, false, false, false, false};
   int ballsShot = 0;
@@ -50,7 +50,10 @@ class SubMagazine : public frc::Subsystem {
 
 
   // Sets up break sensors
-  BC_Switch* m_ballDetector = new BC_Switch(BALL_DETECTOR);
+  frc::DigitalInput* m_ballDetector = new frc::DigitalInput(0);
+  
+
+  //BC_Switch* m_ballDetector = new BC_Switch(BALL_DETECTOR);
   BC_Switch* m_ballPosition1 = new BC_Switch(BALL_POS_1);
   BC_Switch* m_ballPosition2 = new BC_Switch(BALL_POS_2);
   BC_Switch* m_ballPosition3 = new BC_Switch(BALL_POS_3);

@@ -21,7 +21,7 @@ SubColorWheel::SubColorWheel() : frc::Subsystem("SubColorWheel") {}
 void SubColorWheel::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
-  SetDefaultCommand(new CmdReadColor());
+  //SetDefaultCommand(new CmdReadColor());
 }
 
 // Put methods for controlling this subsystem
