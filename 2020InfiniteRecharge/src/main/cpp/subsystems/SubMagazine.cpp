@@ -20,13 +20,13 @@ SubMagazine::SubMagazine() : frc::Subsystem("SubMagazine") {}
 
 void SubMagazine::InitDefaultCommand() {
   // Set the default command for a subsystem here.
-  //SetDefaultCommand(new CmdMagazine());
+  SetDefaultCommand(new CmdMagazine());
 }
 
 void SubMagazine::Configure() {
   // Configure the setting for the PID etc.
   magazineMotor->Config_kF(0, 0, 0);
-  magazineMotor->Config_kP(0, 0, 0);
+  magazineMotor->Config_kP(0, 0.2, 0);
   magazineMotor->Config_kI(0, 0, 0);
   magazineMotor->Config_kD(0, 0, 0);
 
@@ -51,7 +51,7 @@ void SubMagazine::Configure() {
 
 // Moves the magazine to a specified servo position(blocks are equal to approx. 7 inches)
 void SubMagazine::MoveToPosition(int blocks) {
-  encoderPosition = blocks * 100; // CHANGE 100 TO VALUE OF ENCODER MOVING 7 - 8 INCHES
+  encoderPosition = blocks * -4362; 
   magazineMotor->Set(ControlMode::Position, encoderPosition);
   currentPosition = blocks;
 }
@@ -69,18 +69,24 @@ void SubMagazine::Test() {
 
 
 void SubMagazine::UpdateSensors() {
-  //sensors[0] = m_ballDetector->GetSwitchState();
-  sensors[1] = m_ballPosition1->GetSwitchState();
-  sensors[2] = m_ballPosition2->GetSwitchState();
-  sensors[3] = m_ballPosition3->GetSwitchState();
-  sensors[4] = m_ballPosition4->GetSwitchState();
+  sensors[0] = m_ballDetector->Get();
+  sensors[0] = !sensors[0];
+  
 }
 
 int SubMagazine::GetBallCount() {
-  ballCount = ballCount + sensors[1];
-  ballCount = ballCount + sensors[2];
-  ballCount = ballCount + sensors[3];
-  ballCount = ballCount + sensors[4];
+  if (ballCount < 4) {
+    if (intakeBreakSensorLock == false){
+      if (sensors[0] == true) {
+        intakeBreakSensorLock = true;
+  }
+    } else {
+      if (sensors[0] == false) {
+        ballCount = ballCount + 1;
+        intakeBreakSensorLock = false;
+    }
+  }
+  }
   return ballCount;
 }
 

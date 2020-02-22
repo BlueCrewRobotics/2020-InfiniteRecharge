@@ -17,8 +17,8 @@ OI::OI() {
 
   driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
 
-  driverController_button_a->WhenPressed(new CmdSpinShooterWheels());
-  driverController_button_a->WhenReleased(new CmdStopShoot());
+  spinShooter->WhenPressed(new CmdSpinShooterWheels());
+  stopShooter->WhenPressed(new CmdStopShoot());
 
 
   
@@ -32,7 +32,7 @@ OI::OI() {
 }
 
 void OI::PollController() {
-
+  
   if(driverController_button_y->Get() == 1) {
     runIntake->SetPressed(true);
     stopIntake->SetPressed(false);
@@ -41,4 +41,24 @@ void OI::PollController() {
     stopIntake->SetPressed(true);
   }
     
+  if(driverController_button_a->Get() == 1) {
+    spinShooter->SetPressed(true);
+    stopShooter->SetPressed(false);
+  } else {
+    spinShooter->SetPressed(false);
+    stopShooter->SetPressed(true);
+  }
+
+  if(driverController_button_lbump->Get() == 1) {
+    if (testShootLock == false) {
+      Robot::m_subMagazine.ballsShot++;
+      testShootLock = true;
+    }
+    }
+  
+  if(driverController_button_lbump->Get() == 0) {
+    if (testShootLock == true) {
+      testShootLock = false;
+    }
+  }
 }

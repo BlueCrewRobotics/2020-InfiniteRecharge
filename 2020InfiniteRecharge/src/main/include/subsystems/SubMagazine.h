@@ -31,7 +31,7 @@ class SubMagazine : public frc::Subsystem {
   int GetMotorVelocity();
   void ResetEncoderPosition();
   void Test();
-  bool intakeShootMode = true;
+  bool intakeShootMode = false;
   bool sensors[5] = {false, false, false, false, false};
   int ballsShot = 0;
   bool intakeShootModeLock = false;
@@ -45,8 +45,8 @@ class SubMagazine : public frc::Subsystem {
   // for methods that implement subsystem capabilities
   
   int encoderPosition = 0;
-  
   int ballCount = 0;
+  bool intakeBreakSensorLock = false;
 
 
   // Sets up break sensors

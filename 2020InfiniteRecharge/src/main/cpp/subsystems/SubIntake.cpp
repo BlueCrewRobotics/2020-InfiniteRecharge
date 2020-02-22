@@ -23,7 +23,7 @@ void SubIntake::InitDefaultCommand() {
 void SubIntake::ExtendIntake(bool Extention) {
   extendSolenoid->Set(Extention);
 }
-//Remove on if these if we only use one Solenoid
+
 
 void SubIntake::RunIntake(double Speed) {
   Speed = Speed * -1;

@@ -35,7 +35,7 @@ void CmdIntake::Execute() {
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdIntake::IsFinished() { return false; }
+bool CmdIntake::IsFinished() { return true; }
 
 // Called once after isFinished returns true
 void CmdIntake::End() {

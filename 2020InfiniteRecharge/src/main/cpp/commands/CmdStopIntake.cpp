@@ -16,7 +16,7 @@
 
 CmdStopIntake::CmdStopIntake() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subsystem);
+  Requires(&Robot::m_subIntake);
 }
 
 // Called just before this Command runs the first time
@@ -27,7 +27,7 @@ void CmdStopIntake::Execute() {
     Robot::m_subIntake.RunIntake(0);
 }
 // Make this return true when this Command no longer needs to run execute()
-bool CmdStopIntake::IsFinished() { return false; }
+bool CmdStopIntake::IsFinished() { return true; }
 
 // Called once after isFinished returns true
 void CmdStopIntake::End() {}
