@@ -20,5 +20,35 @@ void SubLifter::InitDefaultCommand() {
   // SetDefaultCommand(new MySpecialCommand());
 }
 
+void SubLifter::ConfigureMotors() {
+
+    double kP = 0.1, kI = 1e-4, kD = 1, kIz = 0, kFF = 0, kMaxOutput = 1, kMinOutput = -1;
+
+    lifterEngageMotor.RestoreFactoryDefaults();
+    
+    // set PID coefficients
+    pidController.SetP(kP);
+    pidController.SetI(kI);
+    pidController.SetD(kD);
+    pidController.SetIZone(kIz);
+    pidController.SetFF(kFF);
+    pidController.SetOutputRange(kMinOutput, kMaxOutput);
+}
+
+void SubLifter::EngageLifter() {
+    pidController.SetReference(1, rev::ControlType::kPosition); // 1 is rotations
+}
+
+void SubLifter::LifterUp() {
+
+}
+
+void SubLifter::LifterDown() {
+
+}
+
+void SubLifter::DisengageLifter() {
+    pidController.SetReference(0, rev::ControlType::kPosition); // 1 is rotations
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

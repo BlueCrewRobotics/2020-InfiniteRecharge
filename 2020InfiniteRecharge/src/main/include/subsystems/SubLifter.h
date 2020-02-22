@@ -13,14 +13,24 @@
 #pragma once
 
 #include <frc/commands/Subsystem.h>
+#include "rev/CANSparkMax.h"
 
 class SubLifter : public frc::Subsystem {
  public:
   SubLifter();
   void InitDefaultCommand() override;
-  
+  void ConfigureMotors();
+  void EngageLifter();
+  void LifterUp();
+  void LifterDown();
+  void DisengageLifter();
 
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
+
+  rev::CANSparkMax lifterEngageMotor{0, rev::CANSparkMax::MotorType::kBrushless}; // Change the zero to an address in robotmap
+  rev::CANPIDController pidController = lifterEngageMotor.GetPIDController();
+  rev::CANEncoder lifterEngageEncoder = lifterEngageMotor.GetEncoder();
+
 };

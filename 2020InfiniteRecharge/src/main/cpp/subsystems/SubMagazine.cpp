@@ -13,11 +13,14 @@
 
 #include "RobotMap.h"
 
+#include <iostream>
+using namespace std;
+
 SubMagazine::SubMagazine() : frc::Subsystem("SubMagazine") {}
 
 void SubMagazine::InitDefaultCommand() {
   // Set the default command for a subsystem here.
-  SetDefaultCommand(new CmdMagazine());
+  //SetDefaultCommand(new CmdMagazine());
 }
 
 void SubMagazine::Configure() {
@@ -57,12 +60,16 @@ int SubMagazine::GetCurrentPosition() {
 
 }
 
+void SubMagazine::Test() {
+  sensors[0] = m_ballDetector->Get();
+  std::cout << sensors[0] << std::endl;
+}
 
 
 
 
 void SubMagazine::UpdateSensors() {
-  sensors[0] = m_ballDetector->GetSwitchState();
+  //sensors[0] = m_ballDetector->GetSwitchState();
   sensors[1] = m_ballPosition1->GetSwitchState();
   sensors[2] = m_ballPosition2->GetSwitchState();
   sensors[3] = m_ballPosition3->GetSwitchState();

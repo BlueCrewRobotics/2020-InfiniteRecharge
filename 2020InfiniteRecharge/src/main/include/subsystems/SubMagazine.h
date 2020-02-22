@@ -30,14 +30,15 @@ class SubMagazine : public frc::Subsystem {
   int GetBallCount();
   int GetMotorVelocity();
   void ResetEncoderPosition();
-
+  void Test();
   bool intakeShootMode = true;
   bool sensors[5] = {false, false, false, false, false};
-  double positions[5] = {0, 100, 200, 300, 400};
   int ballsShot = 0;
   bool intakeShootModeLock = false;
   int currentPosition = 0;
   bool intakeLock = false;
+  int ballsShotCompare = 0;
+
   
  private:
   // It's desirable that everything possible under private except
@@ -49,7 +50,10 @@ class SubMagazine : public frc::Subsystem {
 
 
   // Sets up break sensors
-  BC_Switch* m_ballDetector = new BC_Switch(BALL_DETECTOR);
+  frc::DigitalInput* m_ballDetector = new frc::DigitalInput(0);
+  
+
+  //BC_Switch* m_ballDetector = new BC_Switch(BALL_DETECTOR);
   BC_Switch* m_ballPosition1 = new BC_Switch(BALL_POS_1);
   BC_Switch* m_ballPosition2 = new BC_Switch(BALL_POS_2);
   BC_Switch* m_ballPosition3 = new BC_Switch(BALL_POS_3);

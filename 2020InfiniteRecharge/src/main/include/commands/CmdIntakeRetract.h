@@ -9,25 +9,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
 #pragma once
 
-#include <frc/commands/Subsystem.h>
-//#include <frc/WPILib.h>
-#include <frc/Solenoid.h>
-#include "BC_VictorSPX.h"
-#include "RobotMap.h"
+#include <frc/commands/Command.h>
 
-class SubIntake : public frc::Subsystem {
+class CmdIntakeRetract : public frc::Command {
  public:
-  SubIntake();
-  void InitDefaultCommand() override;
-  void ExtendIntake(bool Extention);
-  void RunIntake(double Speed);
-
- private:
-  VictorSPX *intakeMotor = new VictorSPX(INTAKE_MOTOR);
-  frc::Solenoid *extendSolenoid = new frc::Solenoid(INTAKE_SOLENOID);
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
+  CmdIntakeRetract();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
 };
