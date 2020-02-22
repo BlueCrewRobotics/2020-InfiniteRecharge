@@ -128,13 +128,13 @@ constexpr int INTAKE_MOTOR = 13;
 constexpr int INTAKE_SOLENOID = 1;
 
 // PID constants PID[0] Used for Shooter
-constexpr double SHOOTER_TOP_KF_0 = 3.0; 
-constexpr double SHOOTER_TOP_KP_0 = 2.4;  
+constexpr double SHOOTER_TOP_KF_0 = 0.015345; 
+constexpr double SHOOTER_TOP_KP_0 = 0.044;  
 constexpr double SHOOTER_TOP_KI_0 = 0.0;
 constexpr double SHOOTER_TOP_KD_0 = 0.0;
 
-constexpr double SHOOTER_BTM_KF_0 = 3.0; 
-constexpr double SHOOTER_BTM_KP_0 = 2.4;  
+constexpr double SHOOTER_BTM_KF_0 = 0.015345; 
+constexpr double SHOOTER_BTM_KP_0 = 0.044;  
 constexpr double SHOOTER_BTM_KI_0 = 0.0;
 constexpr double SHOOTER_BTM_KD_0 = 0.0;
 

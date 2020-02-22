@@ -22,10 +22,14 @@ void SubShooter::InitDefaultCommand() {
 }
 
 void SubShooter::Configure(){
-    frc::SmartDashboard::PutNumber("Shooter/topSpeed",40.0);
-    frc::SmartDashboard::PutNumber("Shooter/botSpeed",40.0);
+    frc::SmartDashboard::PutNumber("Shooter/topSpeed",25000.0);
+    frc::SmartDashboard::PutNumber("Shooter/botSpeed",25000.0);
+
+    topShooterMotor->SetInverted(true);
     topShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
     topShooterMotor->SetSensorPhase(false);
+
+    bottomShooterMotor->SetInverted(true);
     bottomShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
     bottomShooterMotor->SetSensorPhase(false);
     
