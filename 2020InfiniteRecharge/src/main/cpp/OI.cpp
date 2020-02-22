@@ -20,10 +20,25 @@ OI::OI() {
   driverController_button_a->WhenPressed(new CmdSpinShooterWheels());
   driverController_button_a->WhenReleased(new CmdStopShoot());
 
-  driverController_button_y->WhenPressed(new CmdIntake());
-  driverController_button_y->WhenReleased(new CmdStopIntake());
+
+  
+  runIntake->WhenPressed(new CmdIntake());
+  stopIntake->WhenPressed(new CmdStopIntake());
+
   //driverController_button_y->ToggleWhenPressed(new CmdIntakeExtend()); CHANGE THIS TO WHEN PRESSED AND WHEN RELEASED EXTEND AND RETRACT
 
   auxController_button_b->WhileHeld(new CmdNumberSpin());
   auxController_button_a->WhileHeld(new CmdColorSpin());
+}
+
+void OI::PollController() {
+
+  if(driverController_button_y->Get() == 1) {
+    runIntake->SetPressed(true);
+    stopIntake->SetPressed(false);
+  } else {
+    runIntake->SetPressed(false);
+    stopIntake->SetPressed(true);
+  }
+    
 }

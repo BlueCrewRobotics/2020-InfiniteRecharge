@@ -90,6 +90,7 @@ void Robot::AutonomousInit() {
 
 void Robot::AutonomousPeriodic() { 
   frc::Scheduler::GetInstance()->Run();
+  m_oi.PollController(); // DO I NEED THIS HERE?
   //m_oi.PollController();
 
    }
@@ -111,7 +112,7 @@ void Robot::TeleopPeriodic() {
   //m_oi.PollController();
   m_subColorWheel.gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
   m_subMagazine.Test();
-  
+  m_oi.PollController();
    }
 
 void Robot::TestPeriodic() {}

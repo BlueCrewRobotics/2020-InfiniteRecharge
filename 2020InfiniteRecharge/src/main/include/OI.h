@@ -17,6 +17,9 @@
 #include "commands/CmdStopShoot.h"
 #include "frc/buttons/JoystickButton.h"
 #include "frc/Joystick.h"
+#include "frc/DigitalInput.h"
+#include "frc/buttons/InternalButton.h"
+
 //#include <frc/WPILib.h>
 #include "RobotMap.h"
 #include "commands/CmdIntake.h"
@@ -28,6 +31,7 @@
 class OI {
  public:
   OI();
+  void PollController();
 
   //void PollController();
   bool m_bSelector = false;
@@ -73,4 +77,11 @@ class OI {
   frc::JoystickButton *auxController_button_start = new frc::JoystickButton(auxController, BUTTON_START); 
   frc::JoystickButton *auxController_button_l3 = new frc::JoystickButton(auxController, BUTTON_L3); 
   frc::JoystickButton *auxController_button_r3 = new frc::JoystickButton(auxController, BUTTON_R3); 
+
+
+  // Internal buttons used as triggers for automation.  See OI::Checker for
+  // pressing and releasing buttons
+    frc::InternalButton *runIntake = new frc::InternalButton();
+    frc::InternalButton *stopIntake = new frc::InternalButton();
+
 };

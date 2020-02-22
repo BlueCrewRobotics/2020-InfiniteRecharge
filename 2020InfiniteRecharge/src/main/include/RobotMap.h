@@ -120,7 +120,7 @@ constexpr int SHOOTER_TURRET_ADDR = 7;
 constexpr int COLOR_MOTOR = 8;
 
 // Motor for the Magazine
-constexpr int MAGAZINE_MOTOR = 9;
+constexpr int MAGAZINE_MOTOR = 12;
 
 // Motor for the Intake
 constexpr int INTAKE_MOTOR = 13;
