@@ -29,7 +29,7 @@
 #include "networktables/NetworkTableEntry.h"
 #include "subsystems/SubShooter.h"
 #include "commands/CmdSpinShooterWheels.h"
-#include "commands/CmdShoot.h"
+#include "commands/CmdIndexToShooter.h"
 #include "subsystems/SubColorWheel.h"
 #include "subsystems/SubIntake.h"
 #include "subsystems/SubNavX.h"

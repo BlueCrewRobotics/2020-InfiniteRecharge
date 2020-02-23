@@ -13,9 +13,9 @@
 
 #include <frc/commands/Command.h>
 
-class CmdShoot : public frc::Command {
+class CmdIndexToShooter : public frc::Command {
  public:
-  CmdShoot();
+  CmdIndexToShooter();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;

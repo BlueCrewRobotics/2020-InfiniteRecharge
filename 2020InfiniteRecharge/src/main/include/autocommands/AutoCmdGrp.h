@@ -5,7 +5,7 @@
 
 #pragma once
 #include <frc/commands/CommandGroup.h>
-#include "commands/CmdShoot.h"
+#include "commands/CmdIndexToShooter.h"
 
 class AutoCmdGrp : public frc::CommandGroup {
 public:

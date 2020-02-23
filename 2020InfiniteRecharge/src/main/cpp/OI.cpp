@@ -33,7 +33,7 @@ OI::OI() {
   switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
   switchToIntakeMode->WhenPressed(new CmdMagazineSwitchIntake());
   indexMagazine->WhenPressed(new CmdMagazineIndexBall());
-  shootBall->WhenPressed(new CmdShoot());
+  shootBall->WhenPressed(new CmdIndexToShooter());
 
 
 }

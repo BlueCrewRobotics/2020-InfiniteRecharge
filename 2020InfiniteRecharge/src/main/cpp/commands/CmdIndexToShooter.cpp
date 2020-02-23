@@ -9,22 +9,22 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdShoot.h"
+#include "commands/CmdIndexToShooter.h"
 #include "subsystems/SubShooter.h"
 #include "Robot.h"
 
-CmdShoot::CmdShoot() {
+CmdIndexToShooter::CmdIndexToShooter() {
   // Use Requires() here to declare subsystem dependencies
   Requires(&Robot::m_subShooter);
 }
 
 // Called just before this Command runs the first time
-void CmdShoot::Initialize() {
+void CmdIndexToShooter::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CmdShoot::Execute() {
+void CmdIndexToShooter::Execute() {
 
 
     Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
@@ -42,14 +42,14 @@ void CmdShoot::Execute() {
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdShoot::IsFinished() { 
+bool CmdIndexToShooter::IsFinished() { 
     return true;
     
      }
 
 // Called once after isFinished returns true
-void CmdShoot::End() {}
+void CmdIndexToShooter::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdShoot::Interrupted() {}
+void CmdIndexToShooter::Interrupted() {}

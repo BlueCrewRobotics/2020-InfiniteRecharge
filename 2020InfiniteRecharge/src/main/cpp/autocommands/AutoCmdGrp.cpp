@@ -7,5 +7,5 @@
 
 AutoCmdGrp::AutoCmdGrp() {
   // CommandGroup::AddSequential(new CmdCargoTilt(true));
-  CommandGroup::AddSequential(new CmdShoot());
+  CommandGroup::AddSequential(new CmdIndexToShooter());
 }

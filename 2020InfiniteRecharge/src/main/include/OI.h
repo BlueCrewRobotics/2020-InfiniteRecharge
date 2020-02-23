@@ -13,7 +13,7 @@
 
 
 #include "commands/CmdSwitchGear.h"
-#include "commands/CmdShoot.h"
+#include "commands/CmdIndexToShooter.h"
 #include "commands/CmdStopShoot.h"
 #include "frc/buttons/JoystickButton.h"
 #include "frc/Joystick.h"
@@ -29,7 +29,7 @@
 #include "commands/CmdNumberSpin.h"
 #include "commands/CmdMagazineSwitchShooter.h"
 #include "commands/CmdMagazineSwitchIntake.h"
-#include "commands/CmdShoot.h"
+#include "commands/CmdIndexToShooter.h"
 #include "commands/CmdMagazineIndexBall.h"
 
 class OI {
