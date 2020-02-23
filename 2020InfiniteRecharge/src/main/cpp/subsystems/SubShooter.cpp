@@ -28,10 +28,15 @@ void SubShooter::Configure(){
     topShooterMotor->SetInverted(true);
     topShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
     topShooterMotor->SetSensorPhase(false);
+    topShooterMotor->ConfigClosedloopRamp(0.25, 0);
+
 
     bottomShooterMotor->SetInverted(true);
     bottomShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
     bottomShooterMotor->SetSensorPhase(false);
+    bottomShooterMotor->ConfigClosedloopRamp(0.25, 0);
+
+    
     
     topShooterMotor->Config_kF(0,SHOOTER_TOP_KF_0, 0);
     topShooterMotor->Config_kP(0,SHOOTER_TOP_KP_0, 0);

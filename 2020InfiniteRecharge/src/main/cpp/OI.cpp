@@ -23,7 +23,9 @@ OI::OI() {
 
   
   runIntake->WhenPressed(new CmdIntake());
+  //runIntake->WhenPressed(new CmdIntakeExtend());
   stopIntake->WhenPressed(new CmdStopIntake());
+  //stopIntake->WhenPressed(new CmdIntakeRetract());
 
   //driverController_button_y->ToggleWhenPressed(new CmdIntakeExtend()); CHANGE THIS TO WHEN PRESSED AND WHEN RELEASED EXTEND AND RETRACT
 
@@ -61,14 +63,24 @@ void OI::PollController() {
 }
 
 void OI::PollMagazine() {
+  if (Robot::m_subMagazine.ballCount == 0) {
+    Robot::m_subMagazine.ResetEncoderPosition();
+  }
+  
   if (driverController_button_a->Get() == 1) {
     Robot::m_subMagazine.intakeShootMode = 1;
+    if (Robot::m_subMagazine.ballCount > 0) {
     switchToShooterMode->SetPressed(false);
     switchToIntakeMode->SetPressed(true);
+    }
+
   } else if (driverController_button_y->Get() == 1) {
     Robot::m_subMagazine.intakeShootMode = 0;
-    switchToShooterMode->SetPressed(true);
-    switchToIntakeMode->SetPressed(false);
+    if (Robot::m_subMagazine.ballCount > 0) {
+      switchToShooterMode->SetPressed(true);
+      switchToIntakeMode->SetPressed(false);
+    }
+    
   }
 
   if (Robot::m_subMagazine.intakeShootMode == 0) {
@@ -79,10 +91,19 @@ void OI::PollMagazine() {
     }
 
   } else {
-    if (driverController_button_x->Get() == 1) {
+    if (driverController_button_a->Get() == 1) {
+      if (driverController_button_x->Get() == 1) {
       shootBall->SetPressed(true);
     } else {
       shootBall->SetPressed(false);
     }
+    }
   }
+
+  if (driverController_button_lbump->Get() == 1) {
+    Robot::m_subMagazine.ResetEncoderPosition();
+  }
+
+
+
 }

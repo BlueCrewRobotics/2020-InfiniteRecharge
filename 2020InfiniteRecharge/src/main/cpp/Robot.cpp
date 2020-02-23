@@ -105,6 +105,8 @@ void Robot::TeleopInit() {
     m_autonomousCommand->Cancel();
     m_autonomousCommand = nullptr;
   }
+  Robot::m_subMagazine.ResetEncoderPosition();;
+  Robot::m_subMagazine.MoveToPosition(0);
   
 }
 
@@ -112,7 +114,8 @@ void Robot::TeleopPeriodic() {
   frc::Scheduler::GetInstance()->Run();
   //m_oi.PollController();
   m_subColorWheel.gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
-  //m_subMagazine.Test();
+  m_subMagazine.Test();
+  m_subMagazine.UpdateSensors();
   m_oi.PollController();
   m_oi.PollMagazine();
    }

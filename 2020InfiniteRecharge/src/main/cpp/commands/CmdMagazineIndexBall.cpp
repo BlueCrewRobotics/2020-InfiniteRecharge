@@ -23,6 +23,7 @@ void CmdMagazineIndexBall::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdMagazineIndexBall::Execute() {
+    
     Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
     if(Robot::m_subMagazine.ballCount <= 4) {
       Robot::m_subMagazine.ballCount = Robot::m_subMagazine.ballCount + 1;  

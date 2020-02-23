@@ -23,12 +23,12 @@ void CmdStopShoot::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdStopShoot::Execute() {
-    Robot::m_subShooter.Shoot(0, 0);
+    Robot::m_subShooter.SpinUpWheels(0, 0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool CmdStopShoot::IsFinished() { 
-    return false;
+    return true;
     
      }
 

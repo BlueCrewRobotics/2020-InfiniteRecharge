@@ -51,7 +51,7 @@ void SubMagazine::Configure() {
 
 // Moves the magazine to a specified servo position(blocks are equal to approx. 7 inches)
 void SubMagazine::MoveToPosition(int blocks) {
-  encoderPosition = blocks * -4362; 
+  encoderPosition = blocks * -5500; 
   //encoderPosition = encoderPosition + -4362;
   magazineMotor->Set(ControlMode::Position, encoderPosition);
   currentPosition = blocks;
@@ -62,8 +62,8 @@ int SubMagazine::GetCurrentPosition() {
 }
 
 void SubMagazine::Test() {
-  sensors[0] = m_ballDetector->Get();
-  std::cout << sensors[0] << std::endl;
+  //sensors[0] = m_ballDetector->Get();
+  std::cout << ballCount << std::endl;
 }
 
 
@@ -99,6 +99,7 @@ int SubMagazine::GetMotorVelocity() {
 void SubMagazine::ResetEncoderPosition() {
   magazineMotor->SetSelectedSensorPosition(0,0,0);
   currentPosition = 0;
+  MoveToPosition(0);
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

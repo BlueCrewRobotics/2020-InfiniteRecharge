@@ -32,7 +32,7 @@ class SubMagazine : public frc::Subsystem {
   void ResetEncoderPosition();
   void Test();
 
-  bool intakeShootMode = false;
+  bool intakeShootMode = 0;
   bool sensors[5] = {false, false, false, false, false};
   
 

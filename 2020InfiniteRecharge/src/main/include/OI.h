@@ -25,6 +25,7 @@
 #include "commands/CmdIntake.h"
 #include "commands/CmdStopIntake.h"
 #include "commands/CmdIntakeExtend.h"
+#include "commands/CmdIntakeRetract.h"
 #include "commands/CmdColorSpin.h"
 #include "commands/CmdNumberSpin.h"
 #include "commands/CmdMagazineSwitchShooter.h"
