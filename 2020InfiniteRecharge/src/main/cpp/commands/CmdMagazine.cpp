@@ -78,7 +78,16 @@ void CmdMagazine::Execute() {
     // Checks to see if there is a ball coming into the magazine and indexes it
 
     if (Robot::m_subMagazine.sensors[0] == true) {
+      if (intakeDetectorLock == false) {
         Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
+        intakeDetectorLock = true;
+      }
+    if (Robot::m_subMagazine.sensors[0] == false) {
+      if (intakeDetectorLock == true) {
+        intakeDetectorLock = false;
+      }
+    }  
+        
 
     }
 

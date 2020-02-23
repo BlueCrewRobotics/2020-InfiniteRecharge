@@ -27,4 +27,5 @@ class CmdMagazine : public frc::Command {
   int velocity = 0;
   bool isMoving = false;
   int ballCounter = 0;
+  bool intakeDetectorLock = false;
 };

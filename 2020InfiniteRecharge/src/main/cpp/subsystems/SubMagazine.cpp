@@ -44,14 +44,15 @@ void SubMagazine::Configure() {
   magazineMotor->ConfigContinuousCurrentLimit(15, 0);
   magazineMotor->EnableCurrentLimit(true);
 
-  magazineMotor->ConfigOpenloopRamp(0.25, 0);
-  magazineMotor->ConfigClosedloopRamp(0.25, 0);
+  //magazineMotor->ConfigOpenloopRamp(0.25, 0);
+  //magazineMotor->ConfigClosedloopRamp(0.25, 0);
 
 }
 
 // Moves the magazine to a specified servo position(blocks are equal to approx. 7 inches)
 void SubMagazine::MoveToPosition(int blocks) {
   encoderPosition = blocks * -4362; 
+  //encoderPosition = encoderPosition + -4362;
   magazineMotor->Set(ControlMode::Position, encoderPosition);
   currentPosition = blocks;
 }

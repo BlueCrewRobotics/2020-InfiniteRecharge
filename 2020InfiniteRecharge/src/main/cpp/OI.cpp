@@ -61,4 +61,10 @@ void OI::PollController() {
       testShootLock = false;
     }
   }
+
+  if(driverController_button_l3->Get() == 0) {
+    Robot::m_subMagazine.ResetEncoderPosition();
+  }
+
+
 }
