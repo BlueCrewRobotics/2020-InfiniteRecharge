@@ -147,8 +147,12 @@ constexpr int TURRET_CRUISE_VELOCITY = 1000;
 constexpr int TURRET_ACCELERATION = 1000;
 
 constexpr bool TURRET_SOFT_LIMITS_ENABLE = true;  // Disable/Enable of soft limits
-constexpr int TURRET_LEFT_SOFT_LIMIT = -200;      // Set the soft left limit
-constexpr int TURRET_RIGHT_SOFT_LIMIT = 200;      // Set the soft right limit
+constexpr int TURRET_LEFT_SOFT_LIMIT = -1050;      // Set the soft left limit
+constexpr int TURRET_RIGHT_SOFT_LIMIT = 1050;      // Set the soft right limit
+
+constexpr int TURRET_MAX_ENCODER = 1024;          // The max the turret will turn in encoder values
+constexpr int TURRET_MIN_ENCODER = -1024;          // The min the turret will turn in encoder values
+constexpr int TURRET_ZERO_POSITION = 0;
 
 
 // Color Sensor Cofiguration

@@ -31,6 +31,9 @@ class SubLimelight : public frc::Subsystem {
   // Get the distance from the target
   double GetDistanceToTarget();
 
+  // Get the skew of the target
+  double GetSkew();
+
   // Get the camera mounting angle
   double GetCameraMountAngle(double distance);
 

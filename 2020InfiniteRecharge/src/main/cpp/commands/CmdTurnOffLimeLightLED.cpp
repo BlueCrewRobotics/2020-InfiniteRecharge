@@ -9,61 +9,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdAcquireTarget.h"
-#include "subsystems/SubShooter.h"
+#include "commands/CmdTurnOffLimeLightLED.h"
+
 #include "Robot.h"
 
-CmdAcquireTarget::CmdAcquireTarget() {
+CmdTurnOffLimeLightLED::CmdTurnOffLimeLightLED() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subShooter);
+  Requires(&Robot::m_subsystem);
 }
 
 // Called just before this Command runs the first time
-void CmdAcquireTarget::Initialize() {
-
-}
+void CmdTurnOffLimeLightLED::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdAcquireTarget::Execute() {
-
-    double position;
-		double d_gain = 0.65;
-
-    
-    // Check to see if limelight has a target
-    if(Robot::m_subLimelight.GetTarget()==true){
-
-		double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset(); 
-
-		//rotation = (d_gain*(((30-d_targetCenter)/30) - (d_targetAngle/30)));
-		position = (-1*(d_targetAngle/29.8))*d_gain;
-
-
-    Robot::m_subShooter.RotateTurret(position);
-    
-    
-    Robot::m_subMagazine.intakeShootMode = 1;
-    }
-    // If limelight doesn't have a target send turret to default locations
-    // If this is the case the driver must turn the robot toward the target to acquire the target
-    else
-    {
-      position = 0;
-      Robot::m_subShooter.RotateTurret(position);
-    }
-    
-    
+void CmdTurnOffLimeLightLED::Execute() {
+  Robot::m_subLimelight.SetLEDState(1);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdAcquireTarget::IsFinished() { 
-    return false;
-    
-     }
+bool CmdTurnOffLimeLightLED::IsFinished() { return true; }
 
 // Called once after isFinished returns true
-void CmdAcquireTarget::End() {}
+void CmdTurnOffLimeLightLED::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdAcquireTarget::Interrupted() {}
+void CmdTurnOffLimeLightLED::Interrupted() {}

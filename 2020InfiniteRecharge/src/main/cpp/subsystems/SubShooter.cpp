@@ -130,7 +130,11 @@ void SubShooter::SpinUpWheels(double topSpeed, double bottomSpeed){
  * @param position the position to servo too
 **/
 void SubShooter::RotateTurret(double position){
-  turretMotor->Set(ControlMode::Position, position);
+  
+  double y;
+  y = TURRET_MAX_ENCODER * position + TURRET_ZERO_POSITION;
+
+  turretMotor->Set(ControlMode::Position, y);
 }
 
 

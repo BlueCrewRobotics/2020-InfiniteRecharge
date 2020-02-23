@@ -59,6 +59,12 @@ bool SubLimelight::GetTarget() {
 
   }
  
+   // Get the skew of the target
+  double SubLimelight::GetSkew(){
+    return tblLimelight->GetNumber("ts",0.0);
+
+  }
+  
   /* Get the camera mounting angle THIS IS WRONG! NEEDS WORK ON EQUATION!
      
      d = (h2-h1) / tan(a1+a2)

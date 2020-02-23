@@ -37,6 +37,8 @@
 #include "subsystems/SubLimelight.h"
 #include "autocommands/AutoCmdDrive.h"
 #include "subsystems/SubMagazine.h"
+#include "commands/CmdTurnOnLimeLightLED.h"
+#include "commands/CmdTurnOffLimeLightLED.h"
 
 #include "commands/CmdNumberSpin.h"
 #include "commands/CmdIntakeExtend.h"
