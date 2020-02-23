@@ -9,47 +9,37 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdShoot.h"
-#include "subsystems/SubShooter.h"
+#include "commands/CmdMagazineSwitchShooter.h"
+
 #include "Robot.h"
 
-CmdShoot::CmdShoot() {
+CmdMagazineSwitchShooter::CmdMagazineSwitchShooter() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subShooter);
+  Requires(&Robot::m_subsystem);
 }
 
 // Called just before this Command runs the first time
-void CmdShoot::Initialize() {
-
-}
+void CmdMagazineSwitchShooter::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdShoot::Execute() {
-
-
-    Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
-    if (Robot::m_subMagazine.ballCount >= 0) {
-      Robot::m_subMagazine.ballCount = Robot::m_subMagazine.ballCount - 1;
-    }
-    
-
-
-    //double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
-    //double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
-    //double d_topShooter = 40;
-    //double d_botShooter = 40;
-    //Robot::m_subShooter.Shoot( d_topShooter, d_botShooter );
+void CmdMagazineSwitchShooter::Execute() {
+        if (Robot::m_subMagazine.ballCount == 4) {
+        // do nothing
+      } else if (Robot::m_subMagazine.ballCount == 3) {
+        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
+      } else if (Robot::m_subMagazine.ballCount == 2) {
+        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 2);
+      } else if (Robot::m_subMagazine.ballCount == 1) {
+        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 3);
+      }
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdShoot::IsFinished() { 
-    return true;
-    
-     }
+bool CmdMagazineSwitchShooter::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void CmdShoot::End() {}
+void CmdMagazineSwitchShooter::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdShoot::Interrupted() {}
+void CmdMagazineSwitchShooter::Interrupted() {}

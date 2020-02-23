@@ -12,20 +12,13 @@
 #pragma once
 
 #include <frc/commands/Command.h>
-#include "subsystems/SubMagazine.h"
 
-class CmdMagazine : public frc::Command {
+class CmdMagazineIndexBall : public frc::Command {
  public:
-  CmdMagazine();
+  CmdMagazineIndexBall();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
- private:
-  int ballCount = 0;
-  int velocity = 0;
-  bool isMoving = false;
-  int ballCounter = 0;
-  bool intakeDetectorLock = false;
 };

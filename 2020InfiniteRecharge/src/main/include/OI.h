@@ -27,11 +27,16 @@
 #include "commands/CmdIntakeExtend.h"
 #include "commands/CmdColorSpin.h"
 #include "commands/CmdNumberSpin.h"
+#include "commands/CmdMagazineSwitchShooter.h"
+#include "commands/CmdMagazineSwitchIntake.h"
+#include "commands/CmdShoot.h"
+#include "commands/CmdMagazineIndexBall.h"
 
 class OI {
  public:
   OI();
   void PollController();
+  void PollMagazine();
 
   //void PollController();
   bool m_bSelector = false;
@@ -75,6 +80,13 @@ class OI {
     frc::InternalButton *stopIntake = new frc::InternalButton();
     frc::InternalButton *spinShooter = new frc::InternalButton();
     frc::InternalButton *stopShooter = new frc::InternalButton();
+
+
+
+    frc::InternalButton *indexMagazine = new frc::InternalButton();
+    frc::InternalButton *shootBall = new frc::InternalButton();
+    frc::InternalButton *switchToIntakeMode = new frc::InternalButton();
+    frc::InternalButton *switchToShooterMode = new frc::InternalButton();
 
     private:
         bool testShootLock = false;

@@ -29,6 +29,13 @@ OI::OI() {
 
   auxController_button_b->WhileHeld(new CmdNumberSpin());
   auxController_button_a->WhileHeld(new CmdColorSpin());
+
+  switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
+  switchToIntakeMode->WhenPressed(new CmdMagazineSwitchIntake());
+  indexMagazine->WhenPressed(new CmdMagazineIndexBall());
+  shootBall->WhenPressed(new CmdShoot());
+
+
 }
 
 void OI::PollController() {
@@ -49,22 +56,33 @@ void OI::PollController() {
     stopShooter->SetPressed(true);
   }
 
-  if(driverController_button_lbump->Get() == 1) {
-    if (testShootLock == false) {
-      Robot::m_subMagazine.ballsShot++;
-      testShootLock = true;
-    }
-    }
-  
-  if(driverController_button_lbump->Get() == 0) {
-    if (testShootLock == true) {
-      testShootLock = false;
-    }
+
+
+}
+
+void OI::PollMagazine() {
+  if (driverController_button_a->Get() == 1) {
+    Robot::m_subMagazine.intakeShootMode = 1;
+    switchToShooterMode->SetPressed(false);
+    switchToIntakeMode->SetPressed(true);
+  } else if (driverController_button_y->Get() == 1) {
+    Robot::m_subMagazine.intakeShootMode = 0;
+    switchToShooterMode->SetPressed(true);
+    switchToIntakeMode->SetPressed(false);
   }
 
-  if(driverController_button_l3->Get() == 0) {
-    Robot::m_subMagazine.ResetEncoderPosition();
+  if (Robot::m_subMagazine.intakeShootMode == 0) {
+    if (Robot::m_subMagazine.sensors[0] == true) {
+      indexMagazine->SetPressed(true);
+    } else {
+      indexMagazine->SetPressed(false);
+    }
+
+  } else {
+    if (driverController_button_x->Get() == 1) {
+      shootBall->SetPressed(true);
+    } else {
+      shootBall->SetPressed(false);
+    }
   }
-
-
 }

@@ -20,7 +20,7 @@ SubMagazine::SubMagazine() : frc::Subsystem("SubMagazine") {}
 
 void SubMagazine::InitDefaultCommand() {
   // Set the default command for a subsystem here.
-  SetDefaultCommand(new CmdMagazine());
+  //SetDefaultCommand(new CmdMagazine());
 }
 
 void SubMagazine::Configure() {
@@ -74,7 +74,7 @@ void SubMagazine::UpdateSensors() {
   sensors[0] = !sensors[0];
   
 }
-
+/*
 int SubMagazine::GetBallCount() {
   if (ballCount < 4) {
     if (intakeBreakSensorLock == false){
@@ -89,12 +89,13 @@ int SubMagazine::GetBallCount() {
   }
   }
   return ballCount;
-}
+}*/
 
+/*
 int SubMagazine::GetMotorVelocity() {
   return magazineMotor->GetSelectedSensorVelocity();
 }
-
+*/
 void SubMagazine::ResetEncoderPosition() {
   magazineMotor->SetSelectedSensorPosition(0,0,0);
   currentPosition = 0;

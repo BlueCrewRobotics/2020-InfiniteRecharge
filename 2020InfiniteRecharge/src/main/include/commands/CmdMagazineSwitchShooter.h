@@ -9,30 +9,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdIntakeExtend.h"
+#pragma once
 
-#include "Robot.h"
+#include <frc/commands/Command.h>
 
-CmdIntakeExtend::CmdIntakeExtend() {
-  // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subIntake);
-}
-
-// Called just before this Command runs the first time
-void CmdIntakeExtend::Initialize() {}
-
-// Called repeatedly when this Command is scheduled to run
-void CmdIntakeExtend::Execute() {
-  
-    Robot::m_subIntake.ExtendIntake(true);
-  
-}
-// Make this return true when this Command no longer needs to run execute()
-bool CmdIntakeExtend::IsFinished() { return false; }
-
-// Called once after isFinished returns true
-void CmdIntakeExtend::End() {}
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void CmdIntakeExtend::Interrupted() {}
+class CmdMagazineSwitchShooter : public frc::Command {
+ public:
+  CmdMagazineSwitchShooter();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
+};

@@ -16,7 +16,7 @@
 #include <frc/commands/Subsystem.h>
 #include "common/BC_Switch.h"
 #include <ctre/Phoenix.h>
-#include "commands/CmdMagazine.h"
+
 //#include "rev/Rev2mDistanceSensor.h"
 
 class SubMagazine : public frc::Subsystem {
@@ -27,25 +27,24 @@ class SubMagazine : public frc::Subsystem {
   void UpdateSensors();
   int GetCurrentPosition();
   void Configure();
-  int GetBallCount();
-  int GetMotorVelocity();
+  //int GetBallCount();
+  //int GetMotorVelocity();
   void ResetEncoderPosition();
   void Test();
+
   bool intakeShootMode = false;
   bool sensors[5] = {false, false, false, false, false};
-  int ballsShot = 0;
-  bool intakeShootModeLock = true;
-  int currentPosition = 0;
-  bool intakeLock = false;
-  int ballsShotCompare = 0;
+  
 
+  int currentPosition = 0;
+  int ballCount = 0;
   
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
   
   int encoderPosition = 0;
-  int ballCount = 0;
+  
   bool intakeBreakSensorLock = false;
 
 
