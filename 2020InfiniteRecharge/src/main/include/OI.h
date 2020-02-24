@@ -80,6 +80,8 @@ class OI {
   // pressing and releasing buttons
     frc::InternalButton *runIntake = new frc::InternalButton();
     frc::InternalButton *stopIntake = new frc::InternalButton();
+    
+
     frc::InternalButton *spinShooter = new frc::InternalButton();
     frc::InternalButton *stopShooter = new frc::InternalButton();
 

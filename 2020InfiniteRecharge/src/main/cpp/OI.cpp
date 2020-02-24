@@ -24,11 +24,12 @@ OI::OI() {
 
 
   
-  runIntake->WhenPressed(new CmdIntake());
+  driverController_button_y->WhenPressed(new CmdIntake());
+  //runIntake->WhenPressed(new CmdIntakeExtend());
   runIntake->WhenPressed(new CmdIntakeExtend());
-  
-  stopIntake->WhenPressed(new CmdStopIntake());
-  stopIntake->WhenPressed(new CmdIntakeRetract());
+  runIntake->WhenReleased(new CmdIntakeRetract());
+  driverController_button_y->WhenReleased(new CmdStopIntake());
+  //stopIntake->WhenPressed(new CmdIntakeRetract());
 
   //driverController_button_y->ToggleWhenPressed(new CmdIntakeExtend()); CHANGE THIS TO WHEN PRESSED AND WHEN RELEASED EXTEND AND RETRACT
 
@@ -47,10 +48,10 @@ void OI::PollController() {
   
   if(driverController_button_y->Get() == 1) {
     runIntake->SetPressed(true);
-    stopIntake->SetPressed(false);
+    //stopIntake->SetPressed(false);
   } else {
     runIntake->SetPressed(false);
-    stopIntake->SetPressed(true);
+    //stopIntake->SetPressed(true);
   }
     
   if(driverController_button_a->Get() == 1) {
