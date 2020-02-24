@@ -15,7 +15,7 @@
 
 CmdIndexToShooter::CmdIndexToShooter() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subShooter);
+  Requires(&Robot::m_subMagazine);
 }
 
 // Called just before this Command runs the first time
@@ -28,7 +28,7 @@ void CmdIndexToShooter::Execute() {
 
 
     Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
-    if (Robot::m_subMagazine.ballCount >= 0) {
+    if (Robot::m_subMagazine.ballCount > 0) {
       Robot::m_subMagazine.ballCount = Robot::m_subMagazine.ballCount - 1;
     }
     

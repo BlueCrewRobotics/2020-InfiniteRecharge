@@ -17,6 +17,8 @@ OI::OI() {
 
   driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
 
+  driverController_button_lbump->WhenPressed(new CmdMagazineDump());
+
   spinShooter->WhenPressed(new CmdSpinShooterWheels());
   stopShooter->WhenPressed(new CmdStopShoot());
 
@@ -64,10 +66,11 @@ void OI::PollController() {
 }
 
 void OI::PollMagazine() {
+  /*
   if (Robot::m_subMagazine.ballCount == 0) {
     Robot::m_subMagazine.ResetEncoderPosition();
   }
-  
+*/
   if (driverController_button_a->Get() == 1) {
     Robot::m_subMagazine.intakeShootMode = 1;
     if (Robot::m_subMagazine.ballCount > 0) {
@@ -101,9 +104,7 @@ void OI::PollMagazine() {
     }
   }
 
-  if (driverController_button_lbump->Get() == 1) {
-    Robot::m_subMagazine.ResetEncoderPosition();
-  }
+
 
 
 

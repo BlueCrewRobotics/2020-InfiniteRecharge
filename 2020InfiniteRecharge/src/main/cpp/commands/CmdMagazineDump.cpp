@@ -9,34 +9,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdMagazineIndexBall.h"
+#include "commands/CmdMagazineDump.h"
 
 #include "Robot.h"
 
-CmdMagazineIndexBall::CmdMagazineIndexBall() {
+CmdMagazineDump::CmdMagazineDump() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subMagazine);
+  Requires(&Robot::m_subsystem);
 }
 
 // Called just before this Command runs the first time
-void CmdMagazineIndexBall::Initialize() {}
+void CmdMagazineDump::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdMagazineIndexBall::Execute() {
-    
-    Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
-    if(Robot::m_subMagazine.ballCount <= 4) {
-      Robot::m_subMagazine.ballCount = Robot::m_subMagazine.ballCount + 1;  
-    }
-    
+void CmdMagazineDump::Execute() {
+    Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition - 6);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdMagazineIndexBall::IsFinished() { return true; }
+bool CmdMagazineDump::IsFinished() { return true; }
 
 // Called once after isFinished returns true
-void CmdMagazineIndexBall::End() {}
+void CmdMagazineDump::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdMagazineIndexBall::Interrupted() {}
+void CmdMagazineDump::Interrupted() {}

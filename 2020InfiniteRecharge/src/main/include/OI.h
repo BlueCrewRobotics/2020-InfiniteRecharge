@@ -32,6 +32,7 @@
 #include "commands/CmdMagazineSwitchIntake.h"
 #include "commands/CmdIndexToShooter.h"
 #include "commands/CmdMagazineIndexBall.h"
+#include "commands/CmdMagazineDump.h"
 
 class OI {
  public:
