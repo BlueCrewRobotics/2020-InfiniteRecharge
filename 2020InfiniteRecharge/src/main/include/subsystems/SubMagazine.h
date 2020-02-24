@@ -25,17 +25,12 @@ class SubMagazine : public frc::Subsystem {
   void InitDefaultCommand() override;
   void MoveToPosition(int blocks);
   void UpdateSensors();
-  int GetCurrentPosition();
   void Configure();
-  //int GetBallCount();
-  //int GetMotorVelocity();
   void ResetEncoderPosition();
   void Test();
 
   bool intakeShootMode = 0;
   bool sensors[5] = {false, false, false, false, false};
-  
-
   int currentPosition = 0;
   int ballCount = 0;
   
@@ -44,19 +39,17 @@ class SubMagazine : public frc::Subsystem {
   // for methods that implement subsystem capabilities
   
   int encoderPosition = 0;
-  
   bool intakeBreakSensorLock = false;
-
 
   // Sets up break sensors
   frc::DigitalInput* m_ballDetector = new frc::DigitalInput(0);
   
 
   //BC_Switch* m_ballDetector = new BC_Switch(BALL_DETECTOR);
-  BC_Switch* m_ballPosition1 = new BC_Switch(BALL_POS_1);
-  BC_Switch* m_ballPosition2 = new BC_Switch(BALL_POS_2);
-  BC_Switch* m_ballPosition3 = new BC_Switch(BALL_POS_3);
-  BC_Switch* m_ballPosition4 = new BC_Switch(BALL_POS_4); 
+  //BC_Switch* m_ballPosition1 = new BC_Switch(BALL_POS_1);
+  //BC_Switch* m_ballPosition2 = new BC_Switch(BALL_POS_2);
+  //BC_Switch* m_ballPosition3 = new BC_Switch(BALL_POS_3);
+  //BC_Switch* m_ballPosition4 = new BC_Switch(BALL_POS_4); 
 
   TalonSRX *magazineMotor = new TalonSRX(MAGAZINE_MOTOR);
 

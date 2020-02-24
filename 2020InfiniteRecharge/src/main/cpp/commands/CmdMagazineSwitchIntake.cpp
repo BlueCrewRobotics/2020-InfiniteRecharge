@@ -23,6 +23,7 @@ void CmdMagazineSwitchIntake::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdMagazineSwitchIntake::Execute() {
+  // Depending on the ball count it moves the balls from shooting mode to the front of the magazine so another ball can be indexed
         if (Robot::m_subMagazine.ballCount == 4) {
         // do nothing
       } else if (Robot::m_subMagazine.ballCount == 3) {

@@ -22,7 +22,7 @@ void SubMagazine::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   //SetDefaultCommand(new CmdMagazine());
 }
-
+// Configures Magazine Motor
 void SubMagazine::Configure() {
   // Configure the setting for the PID etc.
   magazineMotor->Config_kF(0, 0, 0);
@@ -57,45 +57,19 @@ void SubMagazine::MoveToPosition(int blocks) {
   currentPosition = blocks;
 }
 
-int SubMagazine::GetCurrentPosition() {
-
-}
-
+// Used for testing 
 void SubMagazine::Test() {
   //sensors[0] = m_ballDetector->Get();
   std::cout << currentPosition << std::endl;
 }
 
-
-
-
+// Updates break sensor
 void SubMagazine::UpdateSensors() {
   sensors[0] = m_ballDetector->Get();
   sensors[0] = !sensors[0];
   
 }
-/*
-int SubMagazine::GetBallCount() {
-  if (ballCount < 4) {
-    if (intakeBreakSensorLock == false){
-      if (sensors[0] == true) {
-        intakeBreakSensorLock = true;
-  }
-    } else {
-      if (sensors[0] == false) {
-        ballCount = ballCount + 1;
-        intakeBreakSensorLock = false;
-    }
-  }
-  }
-  return ballCount;
-}*/
-
-/*
-int SubMagazine::GetMotorVelocity() {
-  return magazineMotor->GetSelectedSensorVelocity();
-}
-*/
+// Resets encoder position of the magazine
 void SubMagazine::ResetEncoderPosition() {
   magazineMotor->SetSelectedSensorPosition(0,0,0);
   currentPosition = 0;

@@ -23,8 +23,9 @@ void CmdMagazineIndexBall::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdMagazineIndexBall::Execute() {
-    
+    // Indexes ball into Magazine
     Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
+    // Increases ballCount if ball count is less than 4(So we dont have more than 4 balls in the intake)
     if(Robot::m_subMagazine.ballCount <= 4) {
       Robot::m_subMagazine.ballCount = Robot::m_subMagazine.ballCount + 1;  
     }

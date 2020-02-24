@@ -23,6 +23,7 @@ void CmdIntakeRetract::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdIntakeRetract::Execute() {
+  // Retracts intake
     Robot::m_subIntake.ExtendIntake(false);
 }
 // Make this return true when this Command no longer needs to run execute()

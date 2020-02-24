@@ -26,12 +26,12 @@ void CmdIntake::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void CmdIntake::Execute() {
-  //if (Robot::m_subMagazine.intakeLock == false) {
+    // Runs intake at 50% and changes intakeShootMode
     Robot::m_subIntake.RunIntake(0.5);
     Robot::m_subMagazine.intakeShootMode = 0;
-  //}
   
-  //Runs
+  
+  
 }
 
 // Make this return true when this Command no longer needs to run execute()

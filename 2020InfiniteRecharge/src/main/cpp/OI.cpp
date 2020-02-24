@@ -15,27 +15,29 @@
 OI::OI() {
   // Process operator interface input here.
 
+  // Drive Train buttons
   driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
+  
+  
 
-  driverController_button_lbump->WhenPressed(new CmdMagazineDump());
-
+  // Shooter buttons
   spinShooter->WhenPressed(new CmdSpinShooterWheels());
   stopShooter->WhenPressed(new CmdStopShoot());
 
 
-  
+  // Intake buttons
   driverController_button_y->WhenPressed(new CmdIntake());
-  //runIntake->WhenPressed(new CmdIntakeExtend());
   runIntake->WhenPressed(new CmdIntakeExtend());
   runIntake->WhenReleased(new CmdIntakeRetract());
   driverController_button_y->WhenReleased(new CmdStopIntake());
-  //stopIntake->WhenPressed(new CmdIntakeRetract());
 
-  //driverController_button_y->ToggleWhenPressed(new CmdIntakeExtend()); CHANGE THIS TO WHEN PRESSED AND WHEN RELEASED EXTEND AND RETRACT
 
+  // Color Wheel Buttons
   auxController_button_b->WhileHeld(new CmdNumberSpin());
   auxController_button_a->WhileHeld(new CmdColorSpin());
 
+  // Magazine buttons
+  driverController_button_lbump->WhenPressed(new CmdMagazineDump());
   switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
   switchToIntakeMode->WhenPressed(new CmdMagazineSwitchIntake());
   indexMagazine->WhenPressed(new CmdMagazineIndexBall());
@@ -46,14 +48,14 @@ OI::OI() {
 
 void OI::PollController() {
   
+  // Extends and retracts intake
   if(driverController_button_y->Get() == 1) {
     runIntake->SetPressed(true);
-    //stopIntake->SetPressed(false);
   } else {
     runIntake->SetPressed(false);
-    //stopIntake->SetPressed(true);
   }
     
+    // Spins shooter and stops shooter
   if(driverController_button_a->Get() == 1) {
     spinShooter->SetPressed(true);
     stopShooter->SetPressed(false);
@@ -66,12 +68,9 @@ void OI::PollController() {
 
 }
 
+// Checks break sensor and changes internal buttons to control Magazine
 void OI::PollMagazine() {
-  /*
-  if (Robot::m_subMagazine.ballCount == 0) {
-    Robot::m_subMagazine.ResetEncoderPosition();
-  }
-*/
+
   if (driverController_button_a->Get() == 1) {
     Robot::m_subMagazine.intakeShootMode = 1;
     if (Robot::m_subMagazine.ballCount > 0) {

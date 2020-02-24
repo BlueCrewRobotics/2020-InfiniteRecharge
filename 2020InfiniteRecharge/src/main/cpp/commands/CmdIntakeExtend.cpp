@@ -24,6 +24,7 @@ void CmdIntakeExtend::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void CmdIntakeExtend::Execute() {
   
+  // Extends intake
     Robot::m_subIntake.ExtendIntake(true);
   
 }

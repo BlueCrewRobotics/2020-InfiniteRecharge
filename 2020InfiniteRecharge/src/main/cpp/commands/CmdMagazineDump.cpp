@@ -23,6 +23,7 @@ void CmdMagazineDump::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void CmdMagazineDump::Execute() {
+  // Dumps all balls in the magazine out the intake
     Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition - 6);
 }
 

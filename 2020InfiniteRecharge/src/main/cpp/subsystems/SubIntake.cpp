@@ -20,11 +20,12 @@ void SubIntake::InitDefaultCommand() {
   // SetDefaultCommand(new MySpecialCommand());
 }
 
+// Extends and retracts piston on intake
 void SubIntake::ExtendIntake(bool Extention) {
   extendSolenoid->Set(Extention);
 }
 
-
+// Runs intake motor
 void SubIntake::RunIntake(double Speed) {
   Speed = Speed * -1;
   intakeMotor->Set(ControlMode::PercentOutput, Speed);
