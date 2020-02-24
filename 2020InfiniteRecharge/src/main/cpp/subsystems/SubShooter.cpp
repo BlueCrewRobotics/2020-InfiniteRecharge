@@ -22,8 +22,8 @@ void SubShooter::InitDefaultCommand() {
 }
 
 void SubShooter::Configure(){
-    frc::SmartDashboard::PutNumber("Shooter/topSpeed",25000.0);
-    frc::SmartDashboard::PutNumber("Shooter/botSpeed",25000.0);
+    frc::SmartDashboard::PutNumber("Shooter/topSpeed",45000.0);
+    frc::SmartDashboard::PutNumber("Shooter/botSpeed",45000.0);
 
     topShooterMotor->SetInverted(true);
     topShooterMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
@@ -82,15 +82,16 @@ void SubShooter::Configure(){
     // Set the talon soft limits and enable limits
     turretMotor->ConfigForwardSoftLimitThreshold(TURRET_LEFT_SOFT_LIMIT, 0);
     turretMotor->ConfigReverseSoftLimitThreshold(TURRET_RIGHT_SOFT_LIMIT, 0);
-    turretMotor->ConfigForwardSoftLimitEnable(TURRET_SOFT_LIMITS_ENABLE, 0);
-    turretMotor->ConfigReverseSoftLimitEnable(TURRET_SOFT_LIMITS_ENABLE, 0);
+    turretMotor->ConfigForwardSoftLimitEnable(false /*TURRET_SOFT_LIMITS_ENABLE*/, 0);
+    turretMotor->ConfigReverseSoftLimitEnable(false /*TURRET_SOFT_LIMITS_ENABLE*/, 0);
 
     // Configure the hard limit switches of the talon
     turretMotor->ConfigReverseLimitSwitchSource(LimitSwitchSource_FeedbackConnector, LimitSwitchNormal_NormallyOpen, 0);
     turretMotor->ConfigForwardLimitSwitchSource(LimitSwitchSource_FeedbackConnector, LimitSwitchNormal_NormallyOpen, 0);
 
-    turretMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
+    turretMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::PulseWidthEncodedPosition, 0, 0);
   
+    
     turretMotor->SetSensorPhase(true);
     turretMotor->SetInverted(InvertType::InvertMotorOutput);
 
@@ -98,6 +99,8 @@ void SubShooter::Configure(){
     turretMotor->ConfigPeakCurrentLimit(15, 0);
     turretMotor->ConfigContinuousCurrentLimit(15, 0);
     turretMotor->EnableCurrentLimit(true);
+
+    turretMotor->SetSelectedSensorPosition(0,0,0);
 
 /*    
     topShooterMotor->Config_kF(0, frc::SmartDashboard::GetNumber("Shooter/TOP_KF_0",SHOOTER_TOP_KF_0), 0);

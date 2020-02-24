@@ -40,38 +40,38 @@ void DriveWithController::Execute()
 		//auto table = ntinst.GetTable("visionTuning");
 
 
-		double d_targetCenter = 0; // frc::SmartDashboard::GetNumber("targetCenter",160);
-		double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset(); // frc::SmartDashboard::GetNumber("targetAngle", 0);
-		double d_gain = 0.65;
+		//double d_targetCenter = 0; // frc::SmartDashboard::GetNumber("targetCenter",160);
+		//double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset(); // frc::SmartDashboard::GetNumber("targetAngle", 0);
+		//double d_gain = 0.65;
 
 		
 //		double d_targetCenter = nt::NetworkTableEntry::GetDouble("targetCenter");
 
 		//rotation = (d_gain*(((30-d_targetCenter)/30) - (d_targetAngle/30)));
-		rotation = (-1*(d_targetAngle/27))*d_gain;
-		std::cout << rotation << std::endl;
+		//rotation = (-1*(d_targetAngle/27))*d_gain;
+		//std::cout << rotation << std::endl;
 
 
-		if(rotation > 0){
-			rotation = m_rotationTriggerCalLeft->GetCalibratedTrigger(rotation, 0.2, 0.01);
-		} 
-		if(rotation < 0){
-			rotation = m_rotationTriggerCalRight->GetCalibratedTrigger(rotation*-1, 0.2, 0.01);
-		}
+		//if(rotation > 0){
+		//	rotation = m_rotationTriggerCalLeft->GetCalibratedTrigger(rotation, 0.2, 0.01);
+		//} 
+		//if(rotation < 0){
+		//	rotation = m_rotationTriggerCalRight->GetCalibratedTrigger(rotation*-1, 0.2, 0.01);
+		//}
 		//double vtape_offset = frc::SmartDashboard::GetNumber("VTape_Offset", 0.0);
 		//double cameraWidth = frc::SmartDashboard::GetNumber("cameraWidth", 400);
 
 		//rotation = (vtape_offset/2)/cameraWidth;
 	} else {
 	  if( Robot::m_subDriveTrain.leftDriveMotor->GetGear() == false) {
-		  rotation = Robot::m_oi.driverController->GetRawAxis(AXIS_LX)*-0.75;         
+		  rotation = Robot::m_oi.driverController->GetRawAxis(AXIS_LX)*1;         
 	  }else{
-		rotation = Robot::m_oi.driverController->GetRawAxis(AXIS_LX)*-0.5;
+		rotation = Robot::m_oi.driverController->GetRawAxis(AXIS_LX)*1;
 	  }
 	}
 
 
-	if (Robot::m_oi.driverController_button_b->Get()==1 || Robot::m_oi.driverController_button_x->Get()==1){
+	if (Robot::m_oi.driverController_button_b->Get()==1 /*|| Robot::m_oi.driverController_button_x->Get()==1*/){
 		Robot::m_subDriveTrain.leftDriveMotor->SetMaxSpeed(VELOCITY_SP_MAX_LL);
 		Robot::m_subDriveTrain.rightDriveMotor->SetMaxSpeed(VELOCITY_SP_MAX_LL);
 	}

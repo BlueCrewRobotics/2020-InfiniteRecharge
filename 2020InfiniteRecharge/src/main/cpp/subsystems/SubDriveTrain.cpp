@@ -74,9 +74,12 @@ void SubDriveTrain::Configure() {
   leftDriveMotor->ptr_talonSRX->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
   leftDriveMotor->ptr_talonSRX->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 1);
   leftDriveMotor->ptr_talonSRX->SetSensorPhase(false);
+  //leftDriveMotor->ptr_talonSRX->SetInverted(InvertType::InvertMotorOutput);
+
   rightDriveMotor->ptr_talonSRX->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
   rightDriveMotor->ptr_talonSRX->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 1);
   rightDriveMotor->ptr_talonSRX->SetSensorPhase(false);
+  //leftDriveMotor->ptr_talonSRX->SetInverted(InvertType::InvertMotorOutput);
 
   // Set current limit continuous, peak, and peak duration can only be set on
   // TalonSRX

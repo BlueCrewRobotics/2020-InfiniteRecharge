@@ -23,9 +23,10 @@ OI::OI() {
 
   
   runIntake->WhenPressed(new CmdIntake());
-  //runIntake->WhenPressed(new CmdIntakeExtend());
+  runIntake->WhenPressed(new CmdIntakeExtend());
+  
   stopIntake->WhenPressed(new CmdStopIntake());
-  //stopIntake->WhenPressed(new CmdIntakeRetract());
+  stopIntake->WhenPressed(new CmdIntakeRetract());
 
   //driverController_button_y->ToggleWhenPressed(new CmdIntakeExtend()); CHANGE THIS TO WHEN PRESSED AND WHEN RELEASED EXTEND AND RETRACT
 

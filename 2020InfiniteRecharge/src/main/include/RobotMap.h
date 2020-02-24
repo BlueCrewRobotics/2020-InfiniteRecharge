@@ -70,13 +70,13 @@ constexpr int PEAK_CURRENT_LIMIT = 150;
 constexpr int DURATION_CURRENT_LIMIT = 30;
 
 // Ramp Times for drive starting and stopping
-constexpr double DRIVE_RAMP_TIME = 0.2;
+constexpr double DRIVE_RAMP_TIME = 0;
 
 // Maximum velocity in units/100ms
 constexpr int VELOCITY_MAX = 12000;
 constexpr int VELOCITY_SP_MAX_HG = 12000;  // Maximum velocity in actual high gear
-constexpr int VELOCITY_SP_MAX_LG = 6000;  // Maximum velocity in actual low gear
-constexpr int VELOCITY_SP_MAX_LL = 3000;   // Maximum velocity in low low virtual gear
+constexpr int VELOCITY_SP_MAX_LG = 12000;  // Maximum velocity in actual low gear
+constexpr int VELOCITY_SP_MAX_LL = 6000;   // Maximum velocity in low low virtual gear
 
 
 // PID constants PID[0] Used for low speed right side
@@ -86,8 +86,8 @@ constexpr double RIGHT_KI_0 = 0.0;
 constexpr double RIGHT_KD_0 = 0.0;
 
 // PID constants PID[1] uesd for high speed left side
-constexpr double RIGHT_KF_1 = 0.03; // 0.296
-constexpr double RIGHT_KP_1 = 0;
+constexpr double RIGHT_KF_1 = 0.06; // 0.296
+constexpr double RIGHT_KP_1 = 0.13;
 constexpr double RIGHT_KI_1 = 0;
 constexpr double RIGHT_KD_1 = 0;
 
@@ -98,8 +98,8 @@ constexpr double LEFT_KI_0 = 0.0;
 constexpr double LEFT_KD_0 = 0;
 
 // PID constants PID[1] uesd for high speed left side
-constexpr double LEFT_KF_1 = 0.03; // 0.32
-constexpr double LEFT_KP_1 = 0;
+constexpr double LEFT_KF_1 = 0.06; // 0.32
+constexpr double LEFT_KP_1 = 0.13;
 constexpr double LEFT_KI_1 = 0;
 constexpr double LEFT_KD_1 = 0;
 
@@ -128,13 +128,13 @@ constexpr int INTAKE_MOTOR = 13;
 constexpr int INTAKE_SOLENOID = 1;
 
 // PID constants PID[0] Used for Shooter
-constexpr double SHOOTER_TOP_KF_0 = 0.015345; 
-constexpr double SHOOTER_TOP_KP_0 = 0.044;  
+constexpr double SHOOTER_TOP_KF_0 = 0.01704; 
+constexpr double SHOOTER_TOP_KP_0 = 0.0191;  
 constexpr double SHOOTER_TOP_KI_0 = 0.0;
 constexpr double SHOOTER_TOP_KD_0 = 0.0;
 
-constexpr double SHOOTER_BTM_KF_0 = 0.015345; 
-constexpr double SHOOTER_BTM_KP_0 = 0.044;  
+constexpr double SHOOTER_BTM_KF_0 = 0.01704; 
+constexpr double SHOOTER_BTM_KP_0 = 0.0191;  
 constexpr double SHOOTER_BTM_KI_0 = 0.0;
 constexpr double SHOOTER_BTM_KD_0 = 0.0;
 

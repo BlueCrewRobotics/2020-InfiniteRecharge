@@ -39,6 +39,7 @@
 #include "subsystems/SubMagazine.h"
 #include "commands/CmdTurnOnLimeLightLED.h"
 #include "commands/CmdTurnOffLimeLightLED.h"
+#include "commands/CmdAcquireTarget.h"
 
 #include "commands/CmdNumberSpin.h"
 #include "commands/CmdIntakeExtend.h"
