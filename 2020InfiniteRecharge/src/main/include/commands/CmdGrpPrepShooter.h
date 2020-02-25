@@ -13,7 +13,7 @@
 
 #include <frc/commands/CommandGroup.h>
 
-class CmdGrpShoot : public frc::CommandGroup {
+class CmdGrpPrepShooter : public frc::CommandGroup {
  public:
-  CmdGrpShoot();
+  CmdGrpPrepShooter();
 };

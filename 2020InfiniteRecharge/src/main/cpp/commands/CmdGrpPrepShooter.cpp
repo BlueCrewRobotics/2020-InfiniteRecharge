@@ -9,14 +9,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdGrpShoot.h"
+#include "commands/CmdGrpPrepShooter.h"
 
 #include "Robot.h"
 
-CmdGrpShoot::CmdGrpShoot() {
+CmdGrpPrepShooter::CmdGrpPrepShooter() {
   
   CommandGroup::AddSequential(new CmdTurnOnLimeLightLED());
-  CommandGroup::AddSequential(new CmdSpinShooterWheels());
   //CommandGroup::AddSequential(new CmdAcquireTarget());
+  CommandGroup::AddSequential(new CmdSpinShooterWheels());
+ 
   
 }

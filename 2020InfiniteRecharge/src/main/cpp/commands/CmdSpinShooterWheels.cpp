@@ -26,13 +26,31 @@ void CmdSpinShooterWheels::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CmdSpinShooterWheels::Execute() {
 
-    double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
-    double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
+    //double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
+    //double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
 
+    // Velocity of the shooter wheels
+    double d_topShooter = 35000;
+    double d_botShooter = 35000;
 
-    //double d_topShooter = 40;
-    //double d_botShooter = 40;
+    // Distance to the target in ft
+    double distance = 15;
 
+    if(Robot::m_subLimelight.GetTarget()){
+       distance = Robot::m_subLimelight.GetDistanceToTarget();
+       if(distance < 15){
+         d_botShooter = 347.56 * distance * distance - 9612.27 * distance + 9045087;
+         d_topShooter = d_botShooter;
+       }
+       if(distance > 15){
+         d_botShooter = 264.08 * distance + 19691.12;
+         d_topShooter = d_botShooter;
+
+       }
+       
+    }
+   
+    
     Robot::m_subShooter.SpinUpWheels( d_topShooter, d_botShooter );
     Robot::m_subMagazine.intakeShootMode = 1;
 }
