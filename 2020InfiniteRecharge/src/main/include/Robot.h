@@ -42,6 +42,8 @@
 #include "commands/CmdAcquireTarget.h"
 #include "autocommands/AutoCmdTurn.h"
 #include "autocommands/AutoCmdGrp.h"
+#include "commands/CmdGrpHaltShooter.h"
+#include "commands/CmdGrpPrepShooter.h"
 
 #include "commands/CmdNumberSpin.h"
 #include "commands/CmdIntakeExtend.h"
