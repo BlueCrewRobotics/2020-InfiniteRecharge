@@ -40,6 +40,8 @@
 #include "commands/CmdTurnOnLimeLightLED.h"
 #include "commands/CmdTurnOffLimeLightLED.h"
 #include "commands/CmdAcquireTarget.h"
+#include "autocommands/AutoCmdTurn.h"
+#include "autocommands/AutoCmdGrp.h"
 
 #include "commands/CmdNumberSpin.h"
 #include "commands/CmdIntakeExtend.h"

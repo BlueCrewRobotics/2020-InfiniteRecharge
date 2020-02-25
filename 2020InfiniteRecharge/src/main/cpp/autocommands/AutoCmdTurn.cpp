@@ -9,36 +9,36 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "autocommands/AutoCmdDrive.h"
-
-#include "subsystems/SubDriveTrain.h"
+#include "autocommands/AutoCmdTurn.h"
 
 #include "Robot.h"
+#include "subsystems/SubDriveTrain.h"
 
-AutoCmdDrive::AutoCmdDrive(int autoType) {
+AutoCmdTurn::AutoCmdTurn(int autoType) {
   // Use Requires() here to declare subsystem dependencies
   this->m_iautoType = autoType;
-  Requires(&Robot::m_subDriveTrain);
+  Requires(&Robot::m_subsystem);
 }
 
 // Called just before this Command runs the first time
-void AutoCmdDrive::Initialize() {}
+void AutoCmdTurn::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void AutoCmdDrive::Execute() {
+void AutoCmdTurn::Execute() {
   if (m_iautoType == 0) {
-    Robot::m_subDriveTrain.AutoDrive(20, 20);
+    Robot::m_subDriveTrain.AutoDrive(-5, 5);
   }
-    
   
+  
+    
 }
 
-// Make this return true when this Command no longer needs to run execute()
-bool AutoCmdDrive::IsFinished() { return true; }
+// Make this return true when this Command no longer needs to run execute()o[]
+bool AutoCmdTurn::IsFinished() { return true; }
 
 // Called once after isFinished returns true
-void AutoCmdDrive::End() {}
+void AutoCmdTurn::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void AutoCmdDrive::Interrupted() {}
+void AutoCmdTurn::Interrupted() {}

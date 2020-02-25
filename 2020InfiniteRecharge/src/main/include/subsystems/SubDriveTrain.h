@@ -35,6 +35,8 @@ public:
   void AutoDrive(double leftrotations, double rightrotations);
   void ConfigMotionMagicCurve(int strength);
   void AutoRotate(double degrees);
+  int GetLeftMotorPosition();
+  int GetRightMotorPosition();
   // void Set(double speed) ;
 
   // private:

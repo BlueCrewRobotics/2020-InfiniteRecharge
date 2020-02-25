@@ -171,10 +171,10 @@ void SubDriveTrain::ResetEncoders() {
 }
 // Configures Motion Magic Acceleration and Velocity for Autonomous
 void SubDriveTrain::ConfigureAuto() {
-  leftDriveMotor->ConfigureMotionAcceleration(500, 10);
-  rightDriveMotor->ConfigureMotionAcceleration(500, 10);
-  leftDriveMotor->ConfigureMotionVelocity(500, 10);
-  rightDriveMotor->ConfigureMotionVelocity(500, 10);
+  leftDriveMotor->ConfigureMotionAcceleration(6000, 10);
+  rightDriveMotor->ConfigureMotionAcceleration(6000, 10);
+  leftDriveMotor->ConfigureMotionVelocity(6000, 10);
+  rightDriveMotor->ConfigureMotionVelocity(6000, 10);
 }
 
 // Drives forward or backward in autonomous using MotionMagic
@@ -194,4 +194,12 @@ void SubDriveTrain::ConfigMotionMagicCurve(int strength) {
 // Rotates robot to a specified degree
 void SubDriveTrain::AutoRotate(double degrees) {
   // turns degrees into encoder values to pass into motion magic
+}
+
+int SubDriveTrain::GetLeftMotorPosition() {
+  return leftDriveMotor->GetMotorPosition();
+}
+
+int SubDriveTrain::GetRightMotorPosition() {
+  return rightDriveMotor->GetMotorPosition();
 }

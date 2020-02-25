@@ -82,7 +82,7 @@ void Robot::AutonomousInit() {
 
   //m_autonomousCommand = m_chooser.GetSelected();
   m_subDriveTrain.ResetEncoders();
-  m_autonomousCommand = new AutoCmdDrive();
+  m_autonomousCommand = new AutoCmdGrp();
   if (m_autonomousCommand != nullptr) {
     m_autonomousCommand->Start();
   }

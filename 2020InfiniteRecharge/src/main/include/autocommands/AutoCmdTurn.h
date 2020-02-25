@@ -13,15 +13,14 @@
 
 #include <frc/commands/Command.h>
 
-
-class AutoCmdDrive : public frc::Command {
+class AutoCmdTurn : public frc::Command {
  public:
-  AutoCmdDrive(int autoType);
+  AutoCmdTurn(int autoType);
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
  private:
-  int m_iautoType;
+    int m_iautoType;
 };

@@ -32,7 +32,7 @@ class BC_TalonSRX : public virtual frc::SpeedController {
 		void ConfigureMotionVelocity(int velocity, int timeout);
 		void ConfigureMotionAcceleration(int acceleration, int timeout);
 		void ConfigureMotionCurveStrength(int curveStrength, int timeout);
-
+		int GetMotorPosition();
 
 		TalonSRX* ptr_talonSRX = nullptr;  
 	private:
