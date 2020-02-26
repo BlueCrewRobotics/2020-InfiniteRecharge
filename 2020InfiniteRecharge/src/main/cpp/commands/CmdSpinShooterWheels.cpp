@@ -30,20 +30,20 @@ void CmdSpinShooterWheels::Execute() {
     //double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
 
     // Velocity of the shooter wheels
-    double d_topShooter = 35000;
-    double d_botShooter = 35000;
+    double d_topShooter = 22500;
+    double d_botShooter = 22500;
 
     // Distance to the target in ft
     double distance = 15;
 
     if(Robot::m_subLimelight.GetTarget()){
        distance = Robot::m_subLimelight.GetDistanceToTarget();
-       if(distance < 15){
-         d_botShooter = 347.56 * distance * distance - 9612.27 * distance + 9045087;
+       if(distance < 12.75 ){
+         d_botShooter = 472.73 * distance * distance - 10906.06 * distance + 85044.47;
          d_topShooter = d_botShooter;
        }
-       if(distance > 15){
-         d_botShooter = 264.08 * distance + 19691.12;
+       if(distance > 12.75 ){
+         d_botShooter = 308.56 * distance + 18055.62;
          d_topShooter = d_botShooter;
 
        }
