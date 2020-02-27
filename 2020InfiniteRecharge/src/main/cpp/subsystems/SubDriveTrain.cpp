@@ -178,7 +178,7 @@ void SubDriveTrain::ConfigureAuto() {
 }
 
 // Drives forward or backward in autonomous using MotionMagic
-void SubDriveTrain::AutoDrive(double leftrotations, double rightrotations) { // This will be changed to distance and the fuction will convert it to rotations
+void SubDriveTrain::AutoDrive(double leftrotations, double rightrotations) { // This will be changed to distance and the function will convert it to rotations
   leftrotations = leftrotations * 4096; // Set up gear ratio here
   rightrotations = rightrotations * 4096 * -1; // Set up gear ratio here
   leftDriveMotor->SetMotionMagic(leftrotations);

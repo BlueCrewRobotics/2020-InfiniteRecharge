@@ -39,6 +39,8 @@ void Robot::RobotInit() {
   m_subDriveTrain.ConfigMotionMagicCurve(4);
   m_subDriveTrain.ConfigureAuto();
   m_subMagazine.Configure();
+  m_subLifter.ConfigureMotors();
+  m_subLimelight.SelectStreamMode(1);
 
 }
 
@@ -83,7 +85,7 @@ void Robot::AutonomousInit() {
 
   //m_autonomousCommand = m_chooser.GetSelected();
   m_subDriveTrain.ResetEncoders();
-  m_autonomousCommand = new AutoCmdGrp();
+  m_autonomousCommand = new AutoCmdDrive();
   if (m_autonomousCommand != nullptr) {
     m_autonomousCommand->Start();
   }
@@ -91,8 +93,8 @@ void Robot::AutonomousInit() {
 
 void Robot::AutonomousPeriodic() { 
   frc::Scheduler::GetInstance()->Run();
-  m_oi.PollController(); // DO I NEED THIS HERE?
-  m_oi.PollMagazine(); // DO I NEED THIS HERE?
+  //m_oi.PollController(); // DO I NEED THIS HERE?
+  //m_oi.PollMagazine(); // DO I NEED THIS HERE?
   //m_oi.PollController();
 
    }

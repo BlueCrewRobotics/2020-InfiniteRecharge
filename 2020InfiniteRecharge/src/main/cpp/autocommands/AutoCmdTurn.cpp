@@ -14,9 +14,8 @@
 #include "Robot.h"
 #include "subsystems/SubDriveTrain.h"
 
-AutoCmdTurn::AutoCmdTurn(int autoType) {
+AutoCmdTurn::AutoCmdTurn() {
   // Use Requires() here to declare subsystem dependencies
-  this->m_iautoType = autoType;
   Requires(&Robot::m_subsystem);
 }
 
@@ -25,10 +24,8 @@ void AutoCmdTurn::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void AutoCmdTurn::Execute() {
-  if (m_iautoType == 0) {
-    Robot::m_subDriveTrain.AutoDrive(-5, 5);
-  }
   
+    Robot::m_subDriveTrain.AutoDrive(-2, 2);
   
     
 }

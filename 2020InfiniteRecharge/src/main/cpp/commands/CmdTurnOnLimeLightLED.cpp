@@ -22,10 +22,12 @@ CmdTurnOnLimeLightLED::CmdTurnOnLimeLightLED() {
 void CmdTurnOnLimeLightLED::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdTurnOnLimeLightLED::Execute() {}
+void CmdTurnOnLimeLightLED::Execute() {
+  Robot::m_subLimelight.SetLEDState(3);
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdTurnOnLimeLightLED::IsFinished() { return false; }
+bool CmdTurnOnLimeLightLED::IsFinished() { return true; }
 
 // Called once after isFinished returns true
 void CmdTurnOnLimeLightLED::End() {}

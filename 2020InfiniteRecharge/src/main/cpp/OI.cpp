@@ -16,13 +16,13 @@ OI::OI() {
   // Process operator interface input here.
 
   // Drive Train buttons
-  //driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
+  driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
   
   
 
   // Shooter buttons
-  spinShooter->WhenPressed(new CmdSpinShooterWheels());
-  stopShooter->WhenPressed(new CmdStopShoot());
+  spinShooter->WhenPressed(new CmdGrpPrepShooter());
+  stopShooter->WhenPressed(new CmdGrpHaltShooter());
 
 
   // Intake buttons
@@ -38,8 +38,8 @@ OI::OI() {
 
   // Magazine buttons
   //driverController_button_lbump->WhenPressed(new CmdMagazineDump());
-  driverController_button_lbump->WhenPressed(new CmdEngageClimber());
-  driverController_button_rbump->WhenReleased(new CmdDisengageClimber());
+  //driverController_button_lbump->WhenPressed(new CmdEngageClimber());
+  //driverController_button_rbump->WhenPressed(new CmdDisengageClimber());
 
   switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
   switchToIntakeMode->WhenPressed(new CmdMagazineSwitchIntake());

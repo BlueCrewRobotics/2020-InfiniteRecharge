@@ -16,12 +16,11 @@
 
 class AutoCmdDrive : public frc::Command {
  public:
-  AutoCmdDrive(int autoType);
+  AutoCmdDrive();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
- private:
-  int m_iautoType;
+
 };

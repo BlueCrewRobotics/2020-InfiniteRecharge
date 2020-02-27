@@ -15,9 +15,8 @@
 
 #include "Robot.h"
 
-AutoCmdDrive::AutoCmdDrive(int autoType) {
+AutoCmdDrive::AutoCmdDrive() {
   // Use Requires() here to declare subsystem dependencies
-  this->m_iautoType = autoType;
   Requires(&Robot::m_subDriveTrain);
 }
 
@@ -26,11 +25,7 @@ void AutoCmdDrive::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void AutoCmdDrive::Execute() {
-  if (m_iautoType == 0) {
     Robot::m_subDriveTrain.AutoDrive(20, 20);
-  }
-    
-  
 }
 
 // Make this return true when this Command no longer needs to run execute()

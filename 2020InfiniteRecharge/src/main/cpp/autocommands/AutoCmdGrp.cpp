@@ -7,7 +7,7 @@
 
 AutoCmdGrp::AutoCmdGrp() {
   // CommandGroup::AddSequential(new CmdCargoTilt(true));
-  CommandGroup::AddSequential(new AutoCmdDrive(0));
-  CommandGroup::AddSequential(new AutoCmdTurn(0));
+  CommandGroup::AddSequential(new AutoCmdDrive());
+  CommandGroup::AddSequential(new AutoCmdTurn());
   
 }
