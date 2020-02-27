@@ -99,7 +99,7 @@ bool SubLimelight::GetTarget() {
    * 3 - Force LEDs on
    *
    * @param mode the mode to set for the LEDs
-   */
+   **/
   void SubLimelight::SetLEDState(int mode){
     tblLimelight->PutNumber("ledMode",mode);
 
