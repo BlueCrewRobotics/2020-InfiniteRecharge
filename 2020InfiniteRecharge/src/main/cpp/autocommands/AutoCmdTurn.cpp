@@ -24,7 +24,6 @@ void AutoCmdTurn::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void AutoCmdTurn::Execute() {
-  
     Robot::m_subDriveTrain.AutoDrive(-2, 2);
   
     
