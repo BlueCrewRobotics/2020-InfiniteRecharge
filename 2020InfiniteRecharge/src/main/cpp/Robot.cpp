@@ -25,6 +25,7 @@ SubIntake Robot::m_subIntake;
 SubNavX Robot::m_subNavX;
 SubLimelight Robot::m_subLimelight;
 SubMagazine Robot::m_subMagazine;
+SubLifter Robot::m_subLifter;
 
 void Robot::RobotInit() {
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);

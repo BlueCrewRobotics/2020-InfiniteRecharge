@@ -33,6 +33,8 @@
 #include "commands/CmdIndexToShooter.h"
 #include "commands/CmdMagazineIndexBall.h"
 #include "commands/CmdMagazineDump.h"
+#include "commands/CmdEngageClimber.h"
+#include "commands/CmdDisengageClimber.h"
 
 class OI {
  public:

@@ -44,6 +44,7 @@
 #include "autocommands/AutoCmdGrp.h"
 #include "commands/CmdGrpHaltShooter.h"
 #include "commands/CmdGrpPrepShooter.h"
+#include "subsystems/SubLifter.h"
 
 #include "commands/CmdNumberSpin.h"
 #include "commands/CmdIntakeExtend.h"
@@ -61,6 +62,7 @@ class Robot : public frc::TimedRobot {
   static SubNavX m_subNavX;
   static SubLimelight m_subLimelight;
   static SubMagazine m_subMagazine;
+  static SubLifter m_subLifter;
   
   
   void RobotInit() override;

@@ -24,7 +24,7 @@ void SubLifter::ConfigureMotors() {
 
     double kP = 0.1, kI = 1e-4, kD = 1, kIz = 0, kFF = 0, kMaxOutput = 1, kMinOutput = -1;
 
-    lifterEngageMotor.RestoreFactoryDefaults();
+    //lifterEngageMotor.RestoreFactoryDefaults();
     
     // set PID coefficients
     pidController.SetP(kP);
@@ -36,7 +36,8 @@ void SubLifter::ConfigureMotors() {
 }
 
 void SubLifter::EngageLifter() {
-    pidController.SetReference(1, rev::ControlType::kPosition); // 1 is rotations
+    pidController.SetReference(10, rev::ControlType::kPosition); // 1 is rotations
+    lifterEngageMotor.Set(-0.1);
 }
 
 void SubLifter::LifterUp() {
@@ -48,7 +49,8 @@ void SubLifter::LifterDown() {
 }
 
 void SubLifter::DisengageLifter() {
-    pidController.SetReference(0, rev::ControlType::kPosition); // 1 is rotations
+    pidController.SetReference(0, rev::ControlType::kPosition, ); // 1 is rotations
+    //lifterEngageMotor.Set(0);
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
