@@ -25,11 +25,15 @@ void AutoCmdDrive::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void AutoCmdDrive::Execute() {
+<<<<<<< HEAD
     Robot::m_subDriveTrain.AutoDrive(20, 20);
+=======
+  Robot::m_subDriveTrain.AutoDrive(3, 3);
+>>>>>>> parent of 7985dc0... Messed around with auto and magazine
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool AutoCmdDrive::IsFinished() { return true; }
+bool AutoCmdDrive::IsFinished() { return false; }
 
 // Called once after isFinished returns true
 void AutoCmdDrive::End() {}

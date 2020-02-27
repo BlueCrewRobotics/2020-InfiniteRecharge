@@ -22,5 +22,8 @@ class AutoCmdDrive : public frc::Command {
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 7985dc0... Messed around with auto and magazine
 };

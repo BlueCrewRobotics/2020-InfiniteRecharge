@@ -40,11 +40,14 @@
 #include "commands/CmdTurnOnLimeLightLED.h"
 #include "commands/CmdTurnOffLimeLightLED.h"
 #include "commands/CmdAcquireTarget.h"
+<<<<<<< HEAD
 #include "autocommands/AutoCmdTurn.h"
 #include "autocommands/AutoCmdGrp.h"
 #include "commands/CmdGrpHaltShooter.h"
 #include "commands/CmdGrpPrepShooter.h"
 #include "subsystems/SubLifter.h"
+=======
+>>>>>>> parent of 7985dc0... Messed around with auto and magazine
 
 #include "commands/CmdNumberSpin.h"
 #include "commands/CmdIntakeExtend.h"

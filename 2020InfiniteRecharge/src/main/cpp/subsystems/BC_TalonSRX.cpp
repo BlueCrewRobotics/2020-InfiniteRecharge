@@ -90,7 +90,3 @@ void BC_TalonSRX::ConfigureMotionAcceleration(int acceleration, int timeout) {
 void BC_TalonSRX::ConfigureMotionCurveStrength(int curveStrength, int timeout) {
 	ptr_talonSRX->ConfigMotionSCurveStrength(curveStrength, timeout);
 }
-
-int BC_TalonSRX::GetMotorPosition() {
-	return ptr_talonSRX->GetSelectedSensorPosition();
-}
