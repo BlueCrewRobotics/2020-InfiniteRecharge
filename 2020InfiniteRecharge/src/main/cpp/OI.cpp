@@ -21,7 +21,7 @@ OI::OI() {
   
 
   // Shooter buttons
-  spinShooter->WhenPressed(new CmdGrpPrepShooter());
+  spinShooter->WhileHeld(new CmdGrpPrepShooter());
   stopShooter->WhenPressed(new CmdGrpHaltShooter());
 
 

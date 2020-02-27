@@ -12,6 +12,9 @@
 #include "commands/CmdSpinShooterWheels.h"
 #include "subsystems/SubShooter.h"
 #include "Robot.h"
+#include <iostream>
+using namespace std;
+
 
 CmdSpinShooterWheels::CmdSpinShooterWheels() {
   // Use Requires() here to declare subsystem dependencies
@@ -30,13 +33,13 @@ void CmdSpinShooterWheels::Execute() {
     //double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
 
     // Velocity of the shooter wheels
-    double d_topShooter = 22500;
-    double d_botShooter = 22500;
+    double d_topShooter = 41000;
+    double d_botShooter = 41000;
 
     // Distance to the target in ft
-    double distance = 15;
+    /*double distance = 12.75;
 
-    if(Robot::m_subLimelight.GetTarget()){
+    if(Robot::m_subLimelight.GetTarget()==true){
        distance = Robot::m_subLimelight.GetDistanceToTarget();
        if(distance < 12.75 ){
          d_botShooter = 472.73 * distance * distance - 10906.06 * distance + 85044.47;
@@ -49,8 +52,8 @@ void CmdSpinShooterWheels::Execute() {
        }
        
     }
-   
-    
+   std::cout << distance << std::endl;
+    */
     Robot::m_subShooter.SpinUpWheels( d_topShooter, d_botShooter );
     Robot::m_subMagazine.intakeShootMode = 1;
 }

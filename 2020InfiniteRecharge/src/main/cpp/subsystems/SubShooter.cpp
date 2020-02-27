@@ -38,13 +38,13 @@ void SubShooter::Configure(){
 
     
     
-    topShooterMotor->Config_kF(0,SHOOTER_TOP_KF_0, 0);
-    topShooterMotor->Config_kP(0,SHOOTER_TOP_KP_0, 0);
+    topShooterMotor->Config_kF(0,0.021/*SHOOTER_TOP_KF_0*/, 0); //0.01704
+    topShooterMotor->Config_kP(0,0.0225/*SHOOTER_TOP_KP_0*/, 0); //0.023
     topShooterMotor->Config_kI(0,SHOOTER_TOP_KI_0, 0);
     topShooterMotor->Config_kD(0,SHOOTER_TOP_KD_0, 0);
 
-    bottomShooterMotor->Config_kF(0,SHOOTER_BTM_KF_0, 0);
-    bottomShooterMotor->Config_kP(0,SHOOTER_BTM_KP_0, 0);
+    bottomShooterMotor->Config_kF(0,0.02/*SHOOTER_BTM_KF_0*/, 0);
+    bottomShooterMotor->Config_kP(0,0.022/*SHOOTER_BTM_KP_0*/, 0);
     bottomShooterMotor->Config_kI(0,SHOOTER_BTM_KI_0, 0);
     bottomShooterMotor->Config_kD(0,SHOOTER_BTM_KD_0, 0);
 
