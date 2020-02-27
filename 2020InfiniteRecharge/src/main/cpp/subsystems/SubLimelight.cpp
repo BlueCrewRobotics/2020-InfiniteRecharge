@@ -48,9 +48,9 @@ bool SubLimelight::GetTarget() {
   */
   double SubLimelight::GetDistanceToTarget(){
     double d = 0.0; // inches
-    double h1 = 26.0; // inches
-    double h2 = 98.25; // inches
-    double a1 = 45.0; // degrees
+    double h1 = 21.0/12; // inches
+    double h2 = 98.25/12; // inches
+    double a1 = 0.0; // degrees
     double a2 = tblLimelight->GetNumber("ty",0.0);    
     
     d = (h2-h1) / tan(a1 + a2);
@@ -78,8 +78,8 @@ bool SubLimelight::GetTarget() {
   */
   double SubLimelight::GetCameraMountAngle(double distance){
     double d = distance;
-    double h1 = 26.0; // inches
-    double h2 = 98.25; // inches
+    double h1 = 21.0/12; // inches
+    double h2 = 98.25/12; // inches
     double a1 = 0.0; // degrees
     double a2 = tblLimelight->GetNumber("ty",0.0);
     
@@ -99,7 +99,7 @@ bool SubLimelight::GetTarget() {
    * 3 - Force LEDs on
    *
    * @param mode the mode to set for the LEDs
-   */
+   **/
   void SubLimelight::SetLEDState(int mode){
     tblLimelight->PutNumber("ledMode",mode);
 
