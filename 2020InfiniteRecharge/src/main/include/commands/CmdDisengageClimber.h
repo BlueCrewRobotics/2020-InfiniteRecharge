@@ -9,28 +9,16 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
 #pragma once
 
-#include <frc/commands/Subsystem.h>
-#include "rev/CANSparkMax.h"
+#include <frc/commands/Command.h>
 
-class SubLifter : public frc::Subsystem {
+class CmdDisengageClimber : public frc::Command {
  public:
-  SubLifter();
-  void InitDefaultCommand() override;
-  void ConfigureMotors();
-  void EngageLifter();
-  void LifterUp();
-  void LifterDown();
-  void DisengageLifter();
-
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
-
-  rev::CANSparkMax lifterEngageMotor{15, rev::CANSparkMax::MotorType::kBrushless}; // Change the zero to an address in robotmap
-  rev::CANPIDController pidController = lifterEngageMotor.GetPIDController();
-  rev::CANEncoder lifterEngageEncoder = lifterEngageMotor.GetEncoder();
-
+  CmdDisengageClimber();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
 };

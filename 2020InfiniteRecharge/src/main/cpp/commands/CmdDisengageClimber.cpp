@@ -9,28 +9,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+#include "commands/CmdDisengageClimber.h"
 
-#pragma once
+#include "Robot.h"
 
-#include <frc/commands/Subsystem.h>
-#include "rev/CANSparkMax.h"
+CmdDisengageClimber::CmdDisengageClimber() {
+  // Use Requires() here to declare subsystem dependencies
+  Requires(&Robot::m_subsystem);
+}
 
-class SubLifter : public frc::Subsystem {
- public:
-  SubLifter();
-  void InitDefaultCommand() override;
-  void ConfigureMotors();
-  void EngageLifter();
-  void LifterUp();
-  void LifterDown();
-  void DisengageLifter();
+// Called just before this Command runs the first time
+void CmdDisengageClimber::Initialize() {}
 
- private:
-  // It's desirable that everything possible under private except
-  // for methods that implement subsystem capabilities
+// Called repeatedly when this Command is scheduled to run
+void CmdDisengageClimber::Execute() {
+    Robot::m_subLifter.DisengageLifter();
+}
 
-  rev::CANSparkMax lifterEngageMotor{15, rev::CANSparkMax::MotorType::kBrushless}; // Change the zero to an address in robotmap
-  rev::CANPIDController pidController = lifterEngageMotor.GetPIDController();
-  rev::CANEncoder lifterEngageEncoder = lifterEngageMotor.GetEncoder();
+// Make this return true when this Command no longer needs to run execute()
+bool CmdDisengageClimber::IsFinished() { return true; }
 
-};
+// Called once after isFinished returns true
+void CmdDisengageClimber::End() {}
+
+// Called when another command which requires one or more of the same
+// subsystems is scheduled to run
+void CmdDisengageClimber::Interrupted() {}
