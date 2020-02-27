@@ -45,24 +45,24 @@ void DriveWithController::Execute()
 
 		
 			//double d_targetCenter = 0; // frc::SmartDashboard::GetNumber("targetCenter",160);
-			double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset(); // frc::SmartDashboard::GetNumber("targetAngle", 0);
-			double d_gain = 0.65;
+			////double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset(); // frc::SmartDashboard::GetNumber("targetAngle", 0);
+			////double d_gain = 0.65;
 
 		
 //		double d_targetCenter = nt::NetworkTableEntry::GetDouble("targetCenter");
 		
 		// Used to normalize from -1.0 to 1.0
 		//rotation = (d_gain*(((29.8-d_targetCenter)/29.8) - (d_targetAngle/29.8)));
-		rotation = (-1*(d_targetAngle/29.8))*d_gain;
+		////rotation = (-1*(d_targetAngle/29.8))*d_gain;
 		//std::cout << rotation << std::endl;
 
 
-		if(rotation > 0){
-			rotation = m_rotationTriggerCalLeft->GetCalibratedTrigger(rotation, 0.2, 0.01);
-		} 
-		if(rotation < 0){
-			rotation = m_rotationTriggerCalRight->GetCalibratedTrigger(rotation*-1, 0.2, 0.01);
-		}
+		////if(rotation > 0){
+		////	rotation = m_rotationTriggerCalLeft->GetCalibratedTrigger(rotation, 0.2, 0.01);
+		////} 
+		////if(rotation < 0){
+		////	rotation = m_rotationTriggerCalRight->GetCalibratedTrigger(rotation*-1, 0.2, 0.01);
+		////}
 		//double vtape_offset = frc::SmartDashboard::GetNumber("VTape_Offset", 0.0);
 		//double cameraWidth = frc::SmartDashboard::GetNumber("cameraWidth", 400);
 
