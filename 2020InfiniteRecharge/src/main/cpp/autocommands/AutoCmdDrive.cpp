@@ -25,11 +25,19 @@ void AutoCmdDrive::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void AutoCmdDrive::Execute() {
-    Robot::m_subDriveTrain.AutoDrive(20, 20);
+    Robot::m_subDriveTrain.AutoDrive(10, 10);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool AutoCmdDrive::IsFinished() { return true; }
+bool AutoCmdDrive::IsFinished() { 
+  if (Robot::m_subDriveTrain.GetLeftMotorPosition() >= 40,900 && Robot::m_subDriveTrain.GetLeftMotorPosition() <= 41020) {
+    if (Robot::m_subDriveTrain.GetRightMotorPosition() >= 40,900 && Robot::m_subDriveTrain.GetRightMotorPosition() <= 41020) {
+      return true;
+    }
+  } else {
+    return false;
+  }
+   }
 
 // Called once after isFinished returns true
 void AutoCmdDrive::End() {}

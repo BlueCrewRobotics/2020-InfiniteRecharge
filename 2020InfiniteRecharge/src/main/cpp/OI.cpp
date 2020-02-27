@@ -37,10 +37,10 @@ OI::OI() {
   auxController_button_a->WhileHeld(new CmdColorSpin());
 
   // Magazine buttons
-  //driverController_button_lbump->WhenPressed(new CmdMagazineDump());
+  driverController_button_lbump->WhenPressed(new CmdMagazineDump());
   //driverController_button_lbump->WhenPressed(new CmdEngageClimber());
   //driverController_button_rbump->WhenPressed(new CmdDisengageClimber());
-  driverController_button_rbump->WhenPressed(new AutoCmdGrp());
+  //driverController_button_rbump->WhenPressed(new AutoCmdGrp());
 
   switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
   switchToIntakeMode->WhenPressed(new CmdMagazineSwitchIntake());

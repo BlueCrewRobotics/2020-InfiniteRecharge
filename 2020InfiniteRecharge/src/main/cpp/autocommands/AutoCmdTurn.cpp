@@ -30,7 +30,15 @@ void AutoCmdTurn::Execute() {
 }
 
 // Make this return true when this Command no longer needs to run execute()o[]
-bool AutoCmdTurn::IsFinished() { return true; }
+bool AutoCmdTurn::IsFinished() { 
+  if (Robot::m_subDriveTrain.GetLeftMotorPosition() >= -8092 && Robot::m_subDriveTrain.GetLeftMotorPosition() <= -8292) {
+    if (Robot::m_subDriveTrain.GetRightMotorPosition() >= 8092 && Robot::m_subDriveTrain.GetRightMotorPosition() <= 8292) {
+      return true;
+    }
+  } else {
+    return false;
+  }
+}
 
 // Called once after isFinished returns true
 void AutoCmdTurn::End() {}
