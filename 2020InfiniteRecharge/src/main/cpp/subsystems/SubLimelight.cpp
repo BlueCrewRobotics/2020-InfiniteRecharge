@@ -78,8 +78,8 @@ bool SubLimelight::GetTarget() {
   */
   double SubLimelight::GetCameraMountAngle(double distance){
     double d = distance;
-    double h1 = 26.0; // inches
-    double h2 = 98.25; // inches
+    double h1 = 21.0/12; // inches
+    double h2 = 98.25/12; // inches
     double a1 = 0.0; // degrees
     double a2 = tblLimelight->GetNumber("ty",0.0);
     
