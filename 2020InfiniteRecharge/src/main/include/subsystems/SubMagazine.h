@@ -28,7 +28,8 @@ class SubMagazine : public frc::Subsystem {
   void Configure();
   void ResetEncoderPosition();
   void Test();
-
+  int GetMotorVelocity();
+  
   bool intakeShootMode = 0;
   bool sensors[5] = {false, false, false, false, false};
   int currentPosition = 0;

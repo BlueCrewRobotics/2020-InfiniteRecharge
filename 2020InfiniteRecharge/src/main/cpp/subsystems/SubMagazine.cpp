@@ -77,3 +77,7 @@ void SubMagazine::ResetEncoderPosition() {
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+
+int SubMagazine::GetMotorVelocity() {
+  return magazineMotor->GetSelectedSensorVelocity();
+}

@@ -21,4 +21,9 @@ class CmdMagazineIndexBall : public frc::Command {
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
+ private:
+  bool breakSensorLock = 0;
+  bool isFinished = 0;
+  int velocity;
+  bool isMoving = 0;
 };
