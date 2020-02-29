@@ -34,14 +34,14 @@ void DriveWithController::Initialize() {
 void DriveWithController::Execute() 
 {
 	double rotation = 0;
-	if(Robot::m_oi.driverController_button_a->Get() == 1){
+	////if(Robot::m_oi.driverController_button_a->Get() == 1){
 		//nt::NetworkTableEntry ntTargetCenter;
 		//auto ntinst = nt::NetworkTableInstance::GetDefault();
 		//auto table = ntinst.GetTable("visionTuning");
 		
 
 		
-		if(Robot::m_subLimelight.GetTarget() == 1.0){
+		////if(Robot::m_subLimelight.GetTarget() == 1.0){
 
 		
 			//double d_targetCenter = 0; // frc::SmartDashboard::GetNumber("targetCenter",160);
@@ -67,14 +67,14 @@ void DriveWithController::Execute()
 		//double cameraWidth = frc::SmartDashboard::GetNumber("cameraWidth", 400);
 
 		//rotation = (vtape_offset/2)/cameraWidth;
-		}
-	} else {
+		////}
+	////} else {
 	  if( Robot::m_subDriveTrain.leftDriveMotor->GetGear() == false) {
 		  rotation = Robot::m_oi.driverController->GetRawAxis(AXIS_LX)*1;         
 	  }else{
 		rotation = Robot::m_oi.driverController->GetRawAxis(AXIS_LX)*1;
 	  }
-	}
+	////}
 
 
 	if (Robot::m_oi.driverController_button_b->Get()==1 /*|| Robot::m_oi.driverController_button_x->Get()==1*/){

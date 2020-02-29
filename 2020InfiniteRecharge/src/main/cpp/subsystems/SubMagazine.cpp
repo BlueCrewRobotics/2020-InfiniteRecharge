@@ -31,8 +31,8 @@ void SubMagazine::Configure() {
   magazineMotor->Config_kD(0, 0, 0);
 
   // Configure the cruise velocity and the acceleration
-  magazineMotor->ConfigMotionCruiseVelocity(1000, 0);
-  magazineMotor->ConfigMotionAcceleration(1000, 0);
+  magazineMotor->ConfigMotionCruiseVelocity(3000, 0);
+  magazineMotor->ConfigMotionAcceleration(6000, 0);
 
   magazineMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
   magazineMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 1);
