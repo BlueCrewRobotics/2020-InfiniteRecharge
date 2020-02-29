@@ -71,25 +71,25 @@ void SubShooter::Configure(){
     bottomShooterMotor->ConfigPeakCurrentDuration(DURATION_CURRENT_LIMIT, 0);
 
     // Setup Turret Motor
-    turretMotor->Config_kF(0,TURRET_KF_0, 0);
-    turretMotor->Config_kF(0,TURRET_KP_0, 0);
-    turretMotor->Config_kF(0,TURRET_KI_0, 0);
-    turretMotor->Config_kF(0,TURRET_KD_0, 0);
+    turretMotor->Config_kF(0,0.0 /*TURRET_KF_0*/, 0);
+    turretMotor->Config_kF(0,5.0 /*TURRET_KP_0*/, 0);
+    turretMotor->Config_kF(0,0.0 /*TURRET_KI_0*/, 0);
+    turretMotor->Config_kF(0,0.0 /*TURRET_KD_0*/, 0);
 
-    turretMotor->ConfigMotionAcceleration(TURRET_ACCELERATION,0);
-    turretMotor->ConfigMotionCruiseVelocity(TURRET_CRUISE_VELOCITY,0);
+    turretMotor->ConfigMotionAcceleration(10 /*TURRET_ACCELERATION*/,0);
+    turretMotor->ConfigMotionCruiseVelocity(10 /*TURRET_CRUISE_VELOCITY*/,0);
 
     // Set the talon soft limits and enable limits
-    turretMotor->ConfigForwardSoftLimitThreshold(TURRET_LEFT_SOFT_LIMIT, 0);
-    turretMotor->ConfigReverseSoftLimitThreshold(TURRET_RIGHT_SOFT_LIMIT, 0);
-    turretMotor->ConfigForwardSoftLimitEnable(false /*TURRET_SOFT_LIMITS_ENABLE*/, 0);
-    turretMotor->ConfigReverseSoftLimitEnable(false /*TURRET_SOFT_LIMITS_ENABLE*/, 0);
+    turretMotor->ConfigForwardSoftLimitThreshold(100 /*TURRET_LEFT_SOFT_LIMIT*/, 0);
+    turretMotor->ConfigReverseSoftLimitThreshold(1000 /*TURRET_RIGHT_SOFT_LIMIT*/, 0);
+    turretMotor->ConfigForwardSoftLimitEnable(true /*TURRET_SOFT_LIMITS_ENABLE*/, 0);
+    turretMotor->ConfigReverseSoftLimitEnable(true /*TURRET_SOFT_LIMITS_ENABLE*/, 0);
 
     // Configure the hard limit switches of the talon
     turretMotor->ConfigReverseLimitSwitchSource(LimitSwitchSource_FeedbackConnector, LimitSwitchNormal_NormallyOpen, 0);
     turretMotor->ConfigForwardLimitSwitchSource(LimitSwitchSource_FeedbackConnector, LimitSwitchNormal_NormallyOpen, 0);
 
-    turretMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::PulseWidthEncodedPosition, 0, 0);
+    turretMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
   
     
     turretMotor->SetSensorPhase(true);
@@ -140,10 +140,34 @@ void SubShooter::SpinUpWheels(double topSpeed, double bottomSpeed){
 void SubShooter::RotateTurret(double position){
   
   double y;
-  y = TURRET_MAX_ENCODER * position + TURRET_ZERO_POSITION;
 
-  turretMotor->Set(ControlMode::Position, y);
+  if(TURRET_MIN_ENCODER < position < TURRET_MAX_ENCODER){
+
+        //y = TURRET_MAX_ENCODER * position + TURRET_ZERO_POSITION;
+
+      turretMotor->Set(ControlMode::Position, y);
+  }
+
+  // Check that turret is within operating parameters
+  if(position < TURRET_MIN_ENCODER){
+      y = TURRET_MIN_ENCODER;
+  }
+  if(position > TURRET_MAX_ENCODER){
+      y = TURRET_MAX_ENCODER;
+  }
+
 }
+
+/**
+ *
+ * Get the current sensor position of the turret.
+ * 
+ **/
+
+double SubShooter::GetTurretLocation(){
+  return turretMotor->GetSelectedSensorPosition();
+}
+
 
 
 // Put methods for controlling this subsystem

@@ -24,6 +24,7 @@ class SubShooter : public frc::Subsystem {
   void Shoot(double topSpeed, double bottomSpeed);
   void SpinUpWheels(double topSpeed, double bottomSpeed);
   void RotateTurret(double position);
+  double GetTurretLocation();
 
  private:
   // It's desirable that everything possible under private except

@@ -26,23 +26,26 @@ void CmdAcquireTarget::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void CmdAcquireTarget::Execute() {
 
-    double position;
+    double targetPosition;
+    double turretPostion;
 		double d_gain = 0.65;
 
-    
     // Check to see if limelight has a target
     if(Robot::m_subLimelight.GetTarget()==true){
 
-		double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset(); 
+      
+		  double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset(); 
 
-		//rotation = (d_gain*(((30-d_targetCenter)/30) - (d_targetAngle/30)));
-		position = (-1*(d_targetAngle/29.8))*d_gain;
+		  //rotation = (d_gain*(((30-d_targetCenter)/30) - (d_targetAngle/30)));
+		  targetPosition = (-1*(d_targetAngle/29.8))*d_gain;
+    }
 
-
-    Robot::m_subShooter.RotateTurret(position);
+/*
+      position = TURRET_MAX_ENCODER * position + TURRET_ZERO_POSITION;
+      Robot::m_subShooter.RotateTurret(position);
     
     
-    Robot::m_subMagazine.intakeShootMode = 1;
+      Robot::m_subMagazine.intakeShootMode = 1;
     }
     // If limelight doesn't have a target send turret to default locations
     // If this is the case the driver must turn the robot toward the target to acquire the target
@@ -52,7 +55,7 @@ void CmdAcquireTarget::Execute() {
       Robot::m_subShooter.RotateTurret(position);
     }
     
-    
+ */   
 }
 
 // Make this return true when this Command no longer needs to run execute()
