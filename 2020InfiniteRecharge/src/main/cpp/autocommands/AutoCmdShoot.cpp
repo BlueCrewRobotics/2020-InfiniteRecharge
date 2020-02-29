@@ -9,30 +9,32 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdMagazineDump.h"
+#include "autocommands/AutoCmdShoot.h"
 
 #include "Robot.h"
 
-CmdMagazineDump::CmdMagazineDump() {
+AutoCmdShoot::AutoCmdShoot() {
   // Use Requires() here to declare subsystem dependencies
   Requires(&Robot::m_subsystem);
 }
 
 // Called just before this Command runs the first time
-void CmdMagazineDump::Initialize() {}
+void AutoCmdShoot::Initialize() {
+    SetTimeout(2);
+}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdMagazineDump::Execute() {
-  // Dumps all balls in the magazine out the intake
-    Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition - 1);
+void AutoCmdShoot::Execute() {
+    Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 4);
+    Robot::m_subMagazine.ballCount = 0;
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdMagazineDump::IsFinished() { return true; }
+bool AutoCmdShoot::IsFinished() { return true; }
 
 // Called once after isFinished returns true
-void CmdMagazineDump::End() {}
+void AutoCmdShoot::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdMagazineDump::Interrupted() {}
+void AutoCmdShoot::Interrupted() {}

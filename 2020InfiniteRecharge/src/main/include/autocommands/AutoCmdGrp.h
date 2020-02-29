@@ -8,6 +8,9 @@
 #include "commands/CmdIndexToShooter.h"
 #include "autocommands/AutoCmdDrive.h"
 #include "autocommands/AutoCmdTurn.h"
+#include "commands/CmdGrpPrepShooter.h"
+#include "commands/CmdGrpHaltShooter.h"
+#include "autocommands/AutoCmdShoot.h"
 
 class AutoCmdGrp : public frc::CommandGroup {
 public:

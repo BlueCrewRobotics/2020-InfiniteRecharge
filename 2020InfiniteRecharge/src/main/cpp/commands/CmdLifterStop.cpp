@@ -9,30 +9,29 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdMagazineDump.h"
+#include "commands/CmdLifterStop.h"
 
 #include "Robot.h"
 
-CmdMagazineDump::CmdMagazineDump() {
+CmdLifterStop::CmdLifterStop() {
   // Use Requires() here to declare subsystem dependencies
   Requires(&Robot::m_subsystem);
 }
 
 // Called just before this Command runs the first time
-void CmdMagazineDump::Initialize() {}
+void CmdLifterStop::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdMagazineDump::Execute() {
-  // Dumps all balls in the magazine out the intake
-    Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition - 1);
+void CmdLifterStop::Execute() {
+    Robot::m_subLifter.LifterStop();
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdMagazineDump::IsFinished() { return true; }
+bool CmdLifterStop::IsFinished() { return true; }
 
 // Called once after isFinished returns true
-void CmdMagazineDump::End() {}
+void CmdLifterStop::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdMagazineDump::Interrupted() {}
+void CmdLifterStop::Interrupted() {}

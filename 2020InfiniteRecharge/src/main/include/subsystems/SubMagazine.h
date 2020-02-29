@@ -29,11 +29,11 @@ class SubMagazine : public frc::Subsystem {
   void ResetEncoderPosition();
   void Test();
   int GetMotorVelocity();
-  
-  bool intakeShootMode = 0;
+
+  bool intakeShootMode = 1;
   bool sensors[5] = {false, false, false, false, false};
   int currentPosition = 0;
-  int ballCount = 0;
+  int ballCount = 3;
   
  private:
   // It's desirable that everything possible under private except

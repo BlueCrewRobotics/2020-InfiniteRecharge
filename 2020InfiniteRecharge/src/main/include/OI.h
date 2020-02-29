@@ -35,6 +35,9 @@
 #include "commands/CmdMagazineDump.h"
 #include "commands/CmdEngageClimber.h"
 #include "commands/CmdDisengageClimber.h"
+#include "commands/CmdLifterUp.h"
+#include "commands/CmdLifterStop.h"
+#include "commands/CmdLifterDown.h"
 
 class OI {
  public:

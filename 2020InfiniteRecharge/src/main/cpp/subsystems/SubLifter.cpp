@@ -13,6 +13,7 @@
 
 #include "RobotMap.h"
 
+
 SubLifter::SubLifter() : frc::Subsystem("SubLifter") {}
 
 void SubLifter::InitDefaultCommand() {
@@ -27,31 +28,57 @@ void SubLifter::ConfigureMotors() {
     double kD = 0;
     double kIz = 0;
     double kFF = 0;
-    double kMaxOutput = 0.4;
-    double kMinOutput = -0.4;
+    double kMaxOutput = 0.3;
+    double kMinOutput = -0.3;
 
     //lifterEngageMotor.RestoreFactoryDefaults();
     // set PID coefficients
-    //lifterEngageMotor.SetClosedLoopRampRate(1);
+    lifterEngageMotor.SetClosedLoopRampRate(0.5);
     pidController.SetP(kP);
     pidController.SetI(kI);
     pidController.SetD(kD);
     pidController.SetIZone(kIz);
     pidController.SetFF(kFF);
     pidController.SetOutputRange(kMinOutput, kMaxOutput);
+
+    climberMotor->ConfigForwardSoftLimitThreshold(0, 0); // 0 is the real value
+    climberMotor->ConfigReverseSoftLimitThreshold(-14200, 0); // -14270 is the real value
+    climberMotor->ConfigForwardSoftLimitEnable(true, 0);
+    climberMotor->ConfigReverseSoftLimitEnable(true, 0);
+
+    climberMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
+
+    //climberMotor->Config_kF(0,0, 0); 
+    //climberMotor->Config_kP(0,0.5, 0); 
+    //climberMotor->Config_kI(0,0, 0);
+    //climberMotor->Config_kD(0,0, 0); 
+
+    climberMotor->SelectProfileSlot(0, 0);
+    climberMotor->ConfigNominalOutputForward(0, 0);
+    climberMotor->ConfigNominalOutputReverse(0, 0);
+    climberMotor->ConfigPeakOutputForward(1, 0);
+    climberMotor->ConfigPeakOutputReverse(-1, 0);
+
+
+
+
 }
 
 void SubLifter::EngageLifter() {
-    pidController.SetReference(-200, rev::ControlType::kPosition); // THIS NEED TO GO OVER -260
+    pidController.SetReference(-260, rev::ControlType::kPosition); // THIS NEED TO GO OVER -260
     //lifterEngageMotor.Set(0.1);
 }
 
 void SubLifter::LifterUp() {
-
+    climberMotor->Set(ControlMode::PercentOutput, -0.75);
 }
 
 void SubLifter::LifterDown() {
+    climberMotor->Set(ControlMode::PercentOutput, 0.5);
+}
 
+void SubLifter::LifterStop() {
+    climberMotor->Set(ControlMode::PercentOutput, 0);
 }
 
 void SubLifter::DisengageLifter() {

@@ -41,6 +41,7 @@ void Robot::RobotInit() {
   m_subMagazine.Configure();
   m_subLifter.ConfigureMotors();
   m_subLimelight.SelectStreamMode(1);
+  m_subLimelight.SetLEDState(1);
 
 }
 
@@ -84,6 +85,7 @@ void Robot::AutonomousInit() {
   // }
 
   //m_autonomousCommand = m_chooser.GetSelected();
+  //m_subLimelight.SetLEDState(1);
   m_subDriveTrain.ResetEncoders();
   m_autonomousCommand = new AutoCmdGrp();
   if (m_autonomousCommand != nullptr) {
@@ -108,6 +110,7 @@ void Robot::TeleopInit() {
     m_autonomousCommand->Cancel();
     m_autonomousCommand = nullptr;
   }
+  m_subLimelight.SetLEDState(1);
   Robot::m_subMagazine.ResetEncoderPosition();;
   Robot::m_subMagazine.MoveToPosition(0);
   
@@ -117,7 +120,10 @@ void Robot::TeleopPeriodic() {
   frc::Scheduler::GetInstance()->Run();
   //m_oi.PollController();
   m_subColorWheel.gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
+    frc::SmartDashboard::PutNumber("ballCount",Robot::m_subMagazine.ballCount);
   //m_subMagazine.Test();
+  //m_subLimelight.SetLEDState(1);
+ 
   m_subMagazine.UpdateSensors();
   m_oi.PollController();
   m_oi.PollMagazine();

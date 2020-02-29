@@ -19,6 +19,12 @@ OI::OI() {
   //driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
   
   
+  auxController_button_select->WhenPressed(new CmdDisengageClimber());
+  auxController_button_start->WhenPressed(new CmdEngageClimber());
+  auxController_button_lbump->WhenPressed(new CmdLifterUp());
+  auxController_button_lbump->WhenReleased(new CmdLifterStop());
+  auxController_button_rbump->WhenPressed(new CmdLifterDown());
+  auxController_button_rbump->WhenReleased(new CmdLifterStop());
 
   // Shooter buttons
   spinShooter->WhileHeld(new CmdGrpPrepShooter());
@@ -33,11 +39,12 @@ OI::OI() {
 
 
   // Color Wheel Buttons
-  auxController_button_b->WhileHeld(new CmdNumberSpin());
-  auxController_button_a->WhileHeld(new CmdColorSpin());
+  //auxController_button_b->WhileHeld(new CmdNumberSpin());
+  //auxController_button_a->WhileHeld(new CmdColorSpin());
+  auxController_button_y->WhenPressed(new CmdMagazineIndexBall());
 
   // Magazine buttons
-  driverController_button_lbump->WhenPressed(new CmdMagazineDump());
+  auxController_button_a->WhenPressed(new CmdMagazineDump());
   //driverController_button_lbump->WhenPressed(new CmdEngageClimber());
   //driverController_button_rbump->WhenPressed(new CmdDisengageClimber());
   //driverController_button_rbump->WhenPressed(new AutoCmdGrp());
@@ -74,6 +81,8 @@ void OI::PollController() {
 
 // Checks break sensor and changes internal buttons to control Magazine
 void OI::PollMagazine() {
+
+
 
   if (driverController_button_a->Get() == 1) {
     Robot::m_subMagazine.intakeShootMode = 1;
