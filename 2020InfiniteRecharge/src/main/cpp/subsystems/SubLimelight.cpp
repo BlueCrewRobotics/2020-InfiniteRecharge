@@ -20,7 +20,9 @@ void SubLimelight::InitDefaultCommand() {
   // SetDefaultCommand(new MySpecialCommand());
 }
 
-// Get whether or not limelight has a target
+/**
+ * Get whether or not limelight has a target
+ */
 bool SubLimelight::GetTarget() {
   if(tblLimelight->GetNumber("tv",0.0) < 1.0){
     return false;
@@ -29,13 +31,16 @@ bool SubLimelight::GetTarget() {
   
 }
 
-  // Get horizontal Offset from Crosshair to target
+  /**
+     Get horizontal Offset from Crosshair to target
+   */
   double SubLimelight::GetHorizontalOffset(){
     return tblLimelight->GetNumber("tx",0.0);
 
   }
   
-  /* Get the distance from the target
+  /**
+     Get the distance from the target
      
      d = (h2-h1) / tan(a1+a2)
 
@@ -45,7 +50,7 @@ bool SubLimelight::GetTarget() {
      a1 = the angle of the camera with respect to ground
      a2 = the angle of the target with respect to the camera ( limelight will give this angle "ty" from network tables)
 
-  */
+    */
   double SubLimelight::GetDistanceToTarget(){
     double d = 0.0; // inches
     double h1 = 21.0/12; // inches
@@ -59,13 +64,16 @@ bool SubLimelight::GetTarget() {
 
   }
  
-   // Get the skew of the target
+   /**
+      Get the skew of the target
+    */
   double SubLimelight::GetSkew(){
     return tblLimelight->GetNumber("ts",0.0);
 
   }
   
-  /* Get the camera mounting angle THIS IS WRONG! NEEDS WORK ON EQUATION!
+  /**
+     Get the camera mounting angle THIS IS WRONG! NEEDS WORK ON EQUATION!
      
      d = (h2-h1) / tan(a1+a2)
 
@@ -75,7 +83,7 @@ bool SubLimelight::GetTarget() {
      a1 = the angle of the camera with respect to ground
      a2 = the angle of the target with respect to the camera ( limelight will give this angle "ty" from network tables)
 
-  */
+   */
   double SubLimelight::GetCameraMountAngle(double distance){
     double d = distance;
     double h1 = 21.0/12; // inches
@@ -91,67 +99,63 @@ bool SubLimelight::GetTarget() {
   }
 
   /**
-   * Set the Limelight LED state.
-   * 
-   * 0 - Use the LED Mode set in the current pipeline
-   * 1 - Force LEDS off
-   * 2 - Force LEDs to blink
-   * 3 - Force LEDs on
-   *
-   * @param mode the mode to set for the LEDs
-   **/
+     Set the Limelight LED state.
+        
+    0 - Use the LED Mode set in the current pipeline
+    1 - Force LEDS off
+    2 - Force LEDs to blink
+    3 - Force LEDs on
+   
+    @param mode the mode to set for the LEDs
+   */
   void SubLimelight::SetLEDState(int mode){
     tblLimelight->PutNumber("ledMode",mode);
 
   }
 
-  /**
-   * Set the Limelight camera mode.
-   * 
-   * 0 - Use Vision processing
-   * 1 - Use Limeligt as Driver Camera (Increases exposure, disables vision processing)
-   *
-   * @param mode the mode to set for the Camera
-   */
+  /** Set the Limelight camera mode.
+    
+    0 - Use Vision processing
+    1 - Use Limeligt as Driver Camera (Increases exposure, disables vision processing)
+   
+    @param mode the mode to set for the Camera
+  */
   void SubLimelight::SetCameraMode(int mode){
     tblLimelight->PutNumber("camMode",mode);
 
   }
   
-  /**
-   * Select the vision pipline to use for targeting.
-   * 
-   * 0 - 9 Vision pipeline to use
-   * 
-   * @param pipeline the pipeline to select for the vision targeting
-   */
+  /** Select the vision pipline to use for targeting.
+    
+    0 - 9 Vision pipeline to use
+    
+    @param pipeline the pipeline to select for the vision targeting
+  */
   void SubLimelight::SelectPipeline(int pipeline){
     tblLimelight->PutNumber("pipeline",pipeline);
 
   }
 
-  /**
-   * Select limelight's streaming mode.
-   * 
-   * 0 - Standard Side-by-Side stream if a webcam is attached to limelight.
-   * 1 - PiP Main - The secondary camera stream is placed in the lower-right corner of the primary camera stream
-   * 2 - PiP Secondary - The primary camera stream is placed in the lower-right corner of the secondary camera stream
-   * 
-   * @param mode the streaming mode selected
-   */
+  /** Select limelight's streaming mode.
+    
+    0 - Standard Side-by-Side stream if a webcam is attached to limelight.
+    1 - PiP Main - The secondary camera stream is placed in the lower-right corner of the primary camera stream
+    2 - PiP Secondary - The primary camera stream is placed in the lower-right corner of the secondary camera stream
+    
+    @param mode the streaming mode selected
+  */
   void SubLimelight::SelectStreamMode(int mode){
     tblLimelight->PutNumber("stream",mode);
 
   }
 
-  /**
-   * Select limelight's snapshot mode.
-   * 
-   * 0 - Stop taking snapshots.
-   * 1 - Take two snapshots per second
-   * 
-   * @param mode the streaming mode selected
-   */
+  /** Select limelight's snapshot mode.
+    
+    0 - Stop taking snapshots.
+    1 - Take two snapshots per second
+    
+    @param mode the streaming mode selected
+  */
   void SubLimelight::SelectSnapshotMode(int mode){
     tblLimelight->PutNumber("snapshot",mode);
 

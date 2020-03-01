@@ -44,6 +44,7 @@ class OI {
   OI();
   void PollController();
   void PollMagazine();
+  void PollAutonomous();
 
   //void PollController();
   bool m_bSelector = false;
@@ -96,6 +97,11 @@ class OI {
     frc::InternalButton *shootBall = new frc::InternalButton();
     frc::InternalButton *switchToIntakeMode = new frc::InternalButton();
     frc::InternalButton *switchToShooterMode = new frc::InternalButton();
+
+    frc::InternalButton *ib_autoPrepShooter = new frc::InternalButton();
+    frc::InternalButton *ib_autoShoot = new frc::InternalButton();
+    
+
 
     private:
         bool testShootLock = false;

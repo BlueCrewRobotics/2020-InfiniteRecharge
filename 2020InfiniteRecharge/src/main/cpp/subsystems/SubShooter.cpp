@@ -117,6 +117,7 @@ void SubShooter::Configure(){
 
 void SubShooter::Shoot(double topSpeed, double bottomSpeed) {
   // This might need to be changed on the final robot
+  // This function can go away.  This is done in the magazine code
  
   //topShooterMotor->Set(ControlMode::PercentOutput, topSpeed);
   //bottomShooterMotor->Set(ControlMode::PercentOutput, bottomSpeed);
@@ -125,9 +126,27 @@ void SubShooter::Shoot(double topSpeed, double bottomSpeed) {
   //bottomShooterMotor->Set(ControlMode::Velocity, bottomSpeed);
 }
 
+/*
+  Spins up the wheels on the shooter in velocity closed loop.
+  Parameters to pass the function are in velocity counts/100ms
+*/
 void SubShooter::SpinUpWheels(double topSpeed, double bottomSpeed){
   topShooterMotor->Set(ControlMode::Velocity, topSpeed);
   bottomShooterMotor->Set(ControlMode::Velocity, bottomSpeed);
+}
+/*
+  Checks to see if the wheels on the shooter are up to speed.
+  Returns true if wheels are up to speed or false if not at speed.
+*/
+bool SubShooter::WheelsAtSpeed(){
+  int top = topShooterMotor->GetClosedLoopError();
+  int bot = bottomShooterMotor->GetClosedLoopError();
+
+  if(top < 1000 && bot < 1000){
+    return true;
+  }
+  return false;
+
 }
 
 /**

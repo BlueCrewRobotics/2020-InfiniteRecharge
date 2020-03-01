@@ -23,6 +23,7 @@ class SubShooter : public frc::Subsystem {
   void Configure();
   void Shoot(double topSpeed, double bottomSpeed);
   void SpinUpWheels(double topSpeed, double bottomSpeed);
+  bool WheelsAtSpeed();
   void RotateTurret(double position);
   double GetTurretLocation();
 

@@ -55,6 +55,12 @@ OI::OI() {
   shootBall->WhenPressed(new CmdIndexToShooter());
 
 
+  // These are used in the autonomous phase of play
+  ib_autoPrepShooter->WhenPressed(new CmdGrpPrepShooter());
+  ib_autoPrepShooter->WhenReleased(new CmdGrpHaltShooter());
+  ib_autoShoot->WhenPressed(new CmdIndexToShooter());
+
+
 }
 
 void OI::PollController() {
@@ -116,9 +122,27 @@ void OI::PollMagazine() {
     }
     }
   }
+}
 
-
-
-
+// This function is run during the Autonomous Periodic function of the Robot Code
+void OI::PollAutonomous(){
+        
+  // Spin up shooter and stops shooter in autonomous mode
+  if(Robot::m_subMagazine.ballCount > 0) {  // m_subMagazine.ballCount should be a private variable accessed by a function like Get... and should be set like Set...
+    // Spin up shooter in auto mode
+    ib_autoPrepShooter->SetPressed(true);
+    // Check if the wheels are up to speed on the shooter
+    if(Robot::m_subShooter.WheelsAtSpeed() == true){
+      // If the wheels are up to speed shot the ball
+      ib_autoShoot->SetPressed(true);
+    } else{
+      // If the wheels are not up to speed wait until they are up to speed
+      ib_autoShoot->SetPressed(false);
+    }
+    
+  } else {
+    // Shutdown the shooter
+    ib_autoPrepShooter->SetPressed(false);
+  }
 
 }
