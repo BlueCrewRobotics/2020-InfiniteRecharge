@@ -52,9 +52,9 @@ bool SubLimelight::GetTarget() {
 
     */
   double SubLimelight::GetDistanceToTarget(){
-    double d = 0.0; // inches
-    double h1 = 21.0/12; // inches
-    double h2 = 98.25/12; // inches
+    double d = 0.0; // feet
+    double h1 = 21.0/12; // feet
+    double h2 = 98.25/12; // feet
     double a1 = 0.0; // degrees
     double a2 = tblLimelight->GetNumber("ty",0.0);    
     
