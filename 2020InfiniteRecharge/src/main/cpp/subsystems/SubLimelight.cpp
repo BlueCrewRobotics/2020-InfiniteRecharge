@@ -73,7 +73,7 @@ bool SubLimelight::GetTarget() {
   }
   
   /**
-     Get the camera mounting angle THIS IS WRONG! NEEDS WORK ON EQUATION!
+     Get the camera mounting angle
      
      d = (h2-h1) / tan(a1+a2)
 
@@ -91,7 +91,7 @@ bool SubLimelight::GetTarget() {
     double a1 = 0.0; // degrees
     double a2 = tblLimelight->GetNumber("ty",0.0);
     
-    a1 = 1/tan((((h2-h1)/tan(a2))-d));
+    a1 = atan((h2-h1)/d)-a2;
     
     
     return a1;
