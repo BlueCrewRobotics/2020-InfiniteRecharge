@@ -30,8 +30,8 @@ void CmdMagazineIndexBall::Execute() {
         // Indexes ball into Magazine
     //if(Robot::m_subMagazine.ballCount <= 3) {
       Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
-      if(Robot::m_subMagazine.ballCount != 4) {
-        Robot::m_subMagazine.ballCount = Robot::m_subMagazine.ballCount + 1;  
+      if(Robot::m_subMagazine.GetBallCount() != 4) {
+        Robot::m_subMagazine.IncreaseBallCount(1);
       }
       
     /*} else if (Robot::m_subMagazine.ballCount == 3) {

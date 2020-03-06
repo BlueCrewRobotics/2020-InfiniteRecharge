@@ -120,7 +120,7 @@ void Robot::TeleopPeriodic() {
   frc::Scheduler::GetInstance()->Run();
   //m_oi.PollController();
   m_subColorWheel.gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
-    frc::SmartDashboard::PutNumber("ballCount",Robot::m_subMagazine.ballCount);
+    frc::SmartDashboard::PutNumber("ballCount",Robot::m_subMagazine.GetBallCount());
   //m_subMagazine.Test();
   //m_subLimelight.SetLEDState(1);
  

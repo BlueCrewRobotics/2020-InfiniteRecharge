@@ -45,9 +45,7 @@ OI::OI() {
 
   // Magazine buttons
   auxController_button_a->WhenPressed(new CmdMagazineDump());
-  //driverController_button_lbump->WhenPressed(new CmdEngageClimber());
-  //driverController_button_rbump->WhenPressed(new CmdDisengageClimber());
-  //driverController_button_rbump->WhenPressed(new AutoCmdGrp());
+
 
   switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
   switchToIntakeMode->WhenPressed(new CmdMagazineSwitchIntake());
@@ -92,14 +90,14 @@ void OI::PollMagazine() {
 
   if (driverController_button_a->Get() == 1) {
     Robot::m_subMagazine.intakeShootMode = 1;
-    if (Robot::m_subMagazine.ballCount > 0) {
+    if (Robot::m_subMagazine.GetBallCount() > 0) {
     switchToShooterMode->SetPressed(false);
     switchToIntakeMode->SetPressed(true);
     }
 
   } else if (driverController_button_y->Get() == 1) {
     Robot::m_subMagazine.intakeShootMode = 0;
-    if (Robot::m_subMagazine.ballCount > 0) {
+    if (Robot::m_subMagazine.GetBallCount() > 0) {
       switchToShooterMode->SetPressed(true);
       switchToIntakeMode->SetPressed(false);
     }
@@ -128,7 +126,7 @@ void OI::PollMagazine() {
 void OI::PollAutonomous(){
         
   // Spin up shooter and stops shooter in autonomous mode
-  if(Robot::m_subMagazine.ballCount > 0) {  // m_subMagazine.ballCount should be a private variable accessed by a function like Get... and should be set like Set...
+  if(Robot::m_subMagazine.GetBallCount() > 0) {  // m_subMagazine.ballCount should be a private variable accessed by a function like Get... and should be set like Set...
     // Spin up shooter in auto mode
     ib_autoPrepShooter->SetPressed(true);
     // Check if the wheels are up to speed on the shooter

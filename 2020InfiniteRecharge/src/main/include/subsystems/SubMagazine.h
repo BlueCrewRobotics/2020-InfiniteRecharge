@@ -29,11 +29,13 @@ class SubMagazine : public frc::Subsystem {
   void ResetEncoderPosition();
   void Test();
   int GetMotorVelocity();
+  int GetBallCount();
+  void IncreaseBallCount(int amount);
+  void DecreaseBallCount(int amount);
 
   bool intakeShootMode = 1;
   bool sensors[5] = {false, false, false, false, false};
   int currentPosition = 0;
-  int ballCount = 3;
   
  private:
   // It's desirable that everything possible under private except
@@ -41,6 +43,7 @@ class SubMagazine : public frc::Subsystem {
   
   int encoderPosition = 0;
   bool intakeBreakSensorLock = false;
+  int ballCount = 3;
 
   // Sets up break sensors
   frc::DigitalInput* m_ballDetector = new frc::DigitalInput(0);

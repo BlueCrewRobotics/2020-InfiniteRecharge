@@ -51,7 +51,7 @@ void SubMagazine::Configure() {
 
 // Moves the magazine to a specified servo position(blocks are equal to approx. 7 inches)
 void SubMagazine::MoveToPosition(int blocks) {
-  encoderPosition = blocks * -5700; 
+  encoderPosition = blocks * -6000; 
   //encoderPosition = encoderPosition + -4362;
   magazineMotor->Set(ControlMode::Position, encoderPosition);
   currentPosition = blocks;
@@ -80,4 +80,16 @@ void SubMagazine::ResetEncoderPosition() {
 
 int SubMagazine::GetMotorVelocity() {
   return magazineMotor->GetSelectedSensorVelocity();
+}
+
+int SubMagazine::GetBallCount() {
+  return ballCount;
+}
+
+void SubMagazine::IncreaseBallCount(int amount) {
+  ballCount = ballCount + amount;
+}
+
+void SubMagazine::DecreaseBallCount(int amount) {
+  ballCount = ballCount - amount;
 }

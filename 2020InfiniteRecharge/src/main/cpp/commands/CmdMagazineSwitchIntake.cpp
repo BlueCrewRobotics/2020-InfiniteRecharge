@@ -24,13 +24,13 @@ void CmdMagazineSwitchIntake::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void CmdMagazineSwitchIntake::Execute() {
   // Depending on the ball count it moves the balls from shooting mode to the front of the magazine so another ball can be indexed
-        if (Robot::m_subMagazine.ballCount == 4) {
+        if (Robot::m_subMagazine.GetBallCount() == 4) {
         // do nothing
-      } else if (Robot::m_subMagazine.ballCount == 3) {
+      } else if (Robot::m_subMagazine.GetBallCount() == 3) {
         Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
-      } else if (Robot::m_subMagazine.ballCount == 2) {
+      } else if (Robot::m_subMagazine.GetBallCount() == 2) {
         Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 2);
-      } else if (Robot::m_subMagazine.ballCount == 1){
+      } else if (Robot::m_subMagazine.GetBallCount() == 1){
         Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 3);
       }
 }

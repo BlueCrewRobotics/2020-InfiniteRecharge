@@ -28,8 +28,8 @@ void CmdIndexToShooter::Execute() {
 
 
     Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
-    if (Robot::m_subMagazine.ballCount > 0) {
-      Robot::m_subMagazine.ballCount = Robot::m_subMagazine.ballCount - 1;
+    if (Robot::m_subMagazine.GetBallCount() > 0) {
+      Robot::m_subMagazine.DecreaseBallCount(1);
     }
     
 

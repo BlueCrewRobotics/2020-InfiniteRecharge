@@ -26,7 +26,7 @@ void AutoCmdShoot::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void AutoCmdShoot::Execute() {
     Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 4);
-    Robot::m_subMagazine.ballCount = 0;
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
