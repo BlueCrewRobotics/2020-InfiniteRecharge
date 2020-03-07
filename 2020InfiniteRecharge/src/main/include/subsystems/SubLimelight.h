@@ -113,6 +113,17 @@ class SubLimelight : public frc::Subsystem {
   */
   void SelectSnapshotMode(int mode);
 
+  /** Get the Limelight distance value
+   * Returns the stored distance
+   */
+  double GetLimelightDistance();
+
+  /** Set the Limelight distance value
+   * 
+   * @param distance the distance to the target
+   */
+  void SetLimelightDistance(double distance);
+
  private:
   // It's desirable that everything possible under private except
   // for methods that implement subsystem capabilities
@@ -120,4 +131,6 @@ class SubLimelight : public frc::Subsystem {
   //nt::NetworkTableInstance::GetDefault().GetTable("limelight")->GetNumber("<variablename>",0.0);
 
   std::shared_ptr<NetworkTable> tblLimelight = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
+
+  double m_distance = 11.5;
 };

@@ -162,5 +162,23 @@ bool SubLimelight::GetTarget() {
     tblLimelight->PutNumber("snapshot",mode);
 
   }
+
+  /** Get the Limelight distance value
+   * Returns the stored distance
+   */
+  double SubLimelight::GetLimelightDistance(){
+    return m_distance;
+
+  }
+
+  /** Set the Limelight distance value
+   * 
+   * @param distance the distance to the target
+   */
+  void SubLimelight::SetLimelightDistance(double distance){
+    m_distance = distance;
+
+  }
+
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

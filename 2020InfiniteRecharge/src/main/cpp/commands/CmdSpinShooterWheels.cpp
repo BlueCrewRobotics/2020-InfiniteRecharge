@@ -37,7 +37,7 @@ void CmdSpinShooterWheels::Execute() {
     double d_botShooter = 25729;
 
     // Distance to the target in ft
-    double distance = 0;
+    double distance = Robot::m_subLimelight.GetLimelightDistance();
 
     // Apply correlation equations of target distance to wheels speed
     if(Robot::m_subLimelight.GetTarget()==true){
@@ -51,11 +51,29 @@ void CmdSpinShooterWheels::Execute() {
          d_topShooter = d_botShooter;
 
        }
-       // Add offsets for wheels slowing upon launch
-       d_botShooter = d_botShooter + 14000;
-       d_topShooter= d_topShooter + 14000;
-       
+       // Set the limelight distance incase we losde the target
+       Robot::m_subLimelight.SetLimelightDistance(distance);
+      
     }
+    // We don't have a target so use the last aquired limelight target
+    else{
+        distance = Robot::m_subLimelight.GetLimelightDistance();
+        if(distance < 11.5 ){
+          d_botShooter = 644.92 * distance * distance - 12548.17 * distance + 81259.57;
+          d_topShooter = d_botShooter;
+        }
+        if(distance > 11.5 ){
+          d_botShooter = 283.70 * distance + 16735;
+          d_topShooter = d_botShooter;
+
+        }
+    
+    }
+
+    // Add offsets for wheels slowing upon launch
+    d_botShooter = d_botShooter + 14000;
+    d_topShooter= d_topShooter + 14000;
+
    std::cout << "Distance= " << distance << std::endl;
    std::cout << "Angle= " << Robot::m_subLimelight.GetCameraMountAngle(10.083) << std::endl;
    std::cout << "WheelSpeed= " << d_botShooter << std::endl;
