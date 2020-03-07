@@ -78,7 +78,7 @@ bool SubLimelight::GetTarget() {
      
      d = (h2-h1) / tan(a1+a2)
 
-     d = distance from camera to target on horizontal plane
+     d = distance from camera to target on horizontal plane meaured with tape measure
      h1 = the height of the camera from the ground
      h2 = the height of the center of the target
      a1 = the angle of the camera with respect to ground
@@ -92,7 +92,8 @@ bool SubLimelight::GetTarget() {
     double a1 = 0.0; // degrees
     double a2 = tblLimelight->GetNumber("ty",0.0);
     
-    a1 = atan((h2-h1)/d)-(a2*3.1416/180);
+    a1 = (atan((h2-h1)/d)-(a2*3.1416/180))*180/3.1416;
+
     
     
     return a1;
