@@ -36,6 +36,10 @@ void CmdSpinShooterWheels::Execute() {
     double d_topShooter = 25729;
     double d_botShooter = 25729;
 
+    // Shooter offset for slowing wheels when shooting
+    double d_topShooterOffset = 14000;
+    double d_botShooterOffset = 14000;    
+
     // Distance to the target in ft
     double distance = Robot::m_subLimelight.GetLimelightDistance();
 
@@ -71,8 +75,8 @@ void CmdSpinShooterWheels::Execute() {
     }
 
     // Add offsets for wheels slowing upon launch
-    d_botShooter = d_botShooter + 14000;
-    d_topShooter= d_topShooter + 14000;
+    d_botShooter = d_botShooter + d_botShooterOffset;
+    d_topShooter= d_topShooter + d_topShooterOffset;
 
    std::cout << "Distance= " << distance << std::endl;
    std::cout << "Angle= " << Robot::m_subLimelight.GetCameraMountAngle(10.083) << std::endl;

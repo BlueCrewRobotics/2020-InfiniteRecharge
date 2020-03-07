@@ -27,17 +27,22 @@ void CmdAcquireTarget::Initialize() {
 void CmdAcquireTarget::Execute() {
 
     double targetPosition;
-    double turretPostion;
+    double turretPosition = Robot::m_subShooter.GetTurretLocation();
+    double turretRange = 50;
 		double d_gain = 0.65;
 
     // Check to see if limelight has a target
     if(Robot::m_subLimelight.GetTarget()==true){
 
-      
-		  double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset(); 
+      // Get the horizontal offset from the center
+		  double d_targetAngle = Robot::m_subLimelight.GetHorizontalOffset();
 
-		  //rotation = (d_gain*(((30-d_targetCenter)/30) - (d_targetAngle/30)));
+      // Normalize the position to the target
 		  targetPosition = (-1*(d_targetAngle/29.8))*d_gain;
+      // Calculate the new turret position based on the current location and the target
+      turretPosition = turretPosition + targetPosition * turretRange;
+      // Move the turret to the new location
+      Robot::m_subShooter.RotateTurret(turretPosition);
     }
 
 /*
