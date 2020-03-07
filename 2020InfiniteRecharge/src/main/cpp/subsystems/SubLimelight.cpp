@@ -12,6 +12,7 @@
 #include "subsystems/SubLimelight.h"
 
 #include "RobotMap.h"
+#include <math.h>
 
 SubLimelight::SubLimelight() : frc::Subsystem("SubLimelight") {}
 
@@ -53,12 +54,12 @@ bool SubLimelight::GetTarget() {
     */
   double SubLimelight::GetDistanceToTarget(){
     double d = 0.0; // feet
-    double h1 = 21.0/12; // feet
-    double h2 = 98.25/12; // feet
-    double a1 = 0.0; // degrees
+    double h1 = (26.5/12); // feet
+    double h2 = (98.25/12); // feet
+    double a1 = 13.46; // degrees
     double a2 = tblLimelight->GetNumber("ty",0.0);    
     
-    d = (h2-h1) / tan(a1 + a2);
+    d = (h2-h1) / (tan((a1 + a2)*3.1416/180));
 
     return d;
 
@@ -86,12 +87,12 @@ bool SubLimelight::GetTarget() {
    */
   double SubLimelight::GetCameraMountAngle(double distance){
     double d = distance;
-    double h1 = 21.0/12; // inches
-    double h2 = 98.25/12; // inches
+    double h1 = (26.5/12); // inches
+    double h2 = (98.25/12); // inches
     double a1 = 0.0; // degrees
     double a2 = tblLimelight->GetNumber("ty",0.0);
     
-    a1 = atan((h2-h1)/d)-a2;
+    a1 = atan((h2-h1)/d)-(a2*3.1416/180);
     
     
     return a1;
