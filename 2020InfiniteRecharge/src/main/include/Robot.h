@@ -45,6 +45,7 @@
 #include "commands/CmdGrpHaltShooter.h"
 #include "commands/CmdGrpPrepShooter.h"
 #include "subsystems/SubLifter.h"
+#include "commands/CmdTurretToHomePos.h"
 
 #include "commands/CmdNumberSpin.h"
 #include "commands/CmdIntakeExtend.h"

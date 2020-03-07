@@ -126,18 +126,18 @@ void OI::PollMagazine() {
 void OI::PollAutonomous(){
         
   // Spin up shooter and stops shooter in autonomous mode
-  if(Robot::m_subMagazine.GetBallCount() > 0) {  // m_subMagazine.ballCount should be a private variable accessed by a function like Get... and should be set like Set...
+  if(Robot::m_subMagazine.GetBallCount() > 0) {  
     // Spin up shooter in auto mode
     ib_autoPrepShooter->SetPressed(true);
     // Check if the wheels are up to speed on the shooter
     if(Robot::m_subShooter.WheelsAtSpeed() == true){
-      // If the wheels are up to speed shot the ball
+      // If the wheels are up to speed shoot the ball
       ib_autoShoot->SetPressed(true);
     } else{
       // If the wheels are not up to speed wait until they are up to speed
       ib_autoShoot->SetPressed(false);
     }
-    
+
   } else {
     // Shutdown the shooter
     ib_autoPrepShooter->SetPressed(false);

@@ -16,7 +16,7 @@
 CmdGrpHaltShooter::CmdGrpHaltShooter() {
   
   CommandGroup::AddSequential(new CmdTurnOffLimeLightLED());
-  //CommandGroup::AddSequential(new CmdAcquireTarget());
+  CommandGroup::AddSequential(new CmdTurretToHomePos());
   CommandGroup::AddSequential(new CmdStopShoot());
  
   

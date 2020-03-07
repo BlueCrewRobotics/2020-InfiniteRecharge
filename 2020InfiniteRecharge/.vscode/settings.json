@@ -75,6 +75,23 @@
     "unordered_map": "cpp",
     "utility": "cpp",
     "vector": "cpp",
-    "*.tcc": "cpp"
+    "*.tcc": "cpp",
+    "hash_map": "cpp",
+    "hash_set": "cpp",
+    "clocale": "cpp",
+    "condition_variable": "cpp",
+    "deque": "cpp",
+    "list": "cpp",
+    "unordered_set": "cpp",
+    "map": "cpp",
+    "memory_resource": "cpp",
+    "numeric": "cpp",
+    "random": "cpp",
+    "set": "cpp",
+    "fstream": "cpp",
+    "future": "cpp",
+    "iomanip": "cpp",
+    "thread": "cpp",
+    "cinttypes": "cpp"
   }
 }

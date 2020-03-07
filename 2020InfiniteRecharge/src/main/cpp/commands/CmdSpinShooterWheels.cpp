@@ -18,7 +18,7 @@ using namespace std;
 
 CmdSpinShooterWheels::CmdSpinShooterWheels() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subShooter);
+  //Requires(&Robot::m_subShooter);
 }
 
 // Called just before this Command runs the first time

@@ -16,7 +16,7 @@
 CmdGrpPrepShooter::CmdGrpPrepShooter() {
   
   CommandGroup::AddSequential(new CmdTurnOnLimeLightLED());
-  //CommandGroup::AddSequential(new CmdAcquireTarget());
+  CommandGroup::AddParallel(new CmdAcquireTarget());
   CommandGroup::AddSequential(new CmdSpinShooterWheels());
  
   

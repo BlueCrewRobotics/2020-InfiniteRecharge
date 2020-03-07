@@ -98,6 +98,7 @@ void Robot::AutonomousPeriodic() {
   //m_oi.PollController(); // DO I NEED THIS HERE?
   //m_oi.PollMagazine(); // DO I NEED THIS HERE?
   //m_oi.PollController();
+  m_oi.PollAutonomous();
 
    }
 

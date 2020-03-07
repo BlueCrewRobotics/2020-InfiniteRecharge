@@ -43,7 +43,7 @@ class SubMagazine : public frc::Subsystem {
   
   int encoderPosition = 0;
   bool intakeBreakSensorLock = false;
-  int ballCount = 3;
+  int ballCount = 4;
 
   // Sets up break sensors
   frc::DigitalInput* m_ballDetector = new frc::DigitalInput(0);
