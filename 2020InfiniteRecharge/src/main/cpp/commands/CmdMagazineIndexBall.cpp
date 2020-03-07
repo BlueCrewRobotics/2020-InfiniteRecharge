@@ -26,45 +26,19 @@ void CmdMagazineIndexBall::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void CmdMagazineIndexBall::Execute() {
-  //if(breakSensorLock == 0) {
+ 
         // Indexes ball into Magazine
-    //if(Robot::m_subMagazine.ballCount <= 3) {
+    if(Robot::m_subMagazine.GetBallCount() < 3) {
       Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
-      if(Robot::m_subMagazine.GetBallCount() != 4) {
+      if(Robot::m_subMagazine.GetBallCount() != 4  ) {
         Robot::m_subMagazine.IncreaseBallCount(1);
       }
-      
-    /*} else if (Robot::m_subMagazine.ballCount == 3) {
+    } else if (Robot::m_subMagazine.GetBallCount() == 3) {
       Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 0.5);
+      if(Robot::m_subMagazine.GetBallCount() != 4  ) {
+        Robot::m_subMagazine.IncreaseBallCount(1);
+      }
     }
-    
-    // Increases ballCount if ball count is less than 4(So we dont have more than 4 balls in the intake)
-    if(Robot::m_subMagazine.ballCount <= 4) {
-      Robot::m_subMagazine.ballCount = Robot::m_subMagazine.ballCount + 1;  
-      breakSensorLock = 1;
-    }
-  } else {
-    if(Robot::m_subMagazine.ballCount == 4) {
-      isFinished = 1;
-    } else if (Robot::m_subMagazine.ballCount < 4) {
-
-    
-    velocity = Robot::m_subMagazine.GetMotorVelocity();
-  if (velocity <= 5 && velocity >= -5) {
-    isMoving = false;
-  } else {
-    isMoving = true;
-  }
-
-  if(Robot::m_subMagazine.sensors[0] == true && isMoving == false) {
-    Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 0.1);
-  } else if(Robot::m_subMagazine.sensors[0] == false && isMoving == false) {
-    isFinished = 1;
-  }
-
-  }
-  }
-    */
 }
 
 // Make this return true when this Command no longer needs to run execute()

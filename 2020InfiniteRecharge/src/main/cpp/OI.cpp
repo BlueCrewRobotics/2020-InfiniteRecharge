@@ -90,14 +90,14 @@ void OI::PollMagazine() {
 
   if (driverController_button_a->Get() == 1) {
     Robot::m_subMagazine.intakeShootMode = 1;
-    if (Robot::m_subMagazine.GetBallCount() > 0) {
+    if (Robot::m_subMagazine.GetBallCount() >= 0) {
     switchToShooterMode->SetPressed(false);
     switchToIntakeMode->SetPressed(true);
     }
 
   } else if (driverController_button_y->Get() == 1) {
-    Robot::m_subMagazine.intakeShootMode = 0;
-    if (Robot::m_subMagazine.GetBallCount() > 0) {
+    
+    if (Robot::m_subMagazine.GetBallCount() >= 0) {
       switchToShooterMode->SetPressed(true);
       switchToIntakeMode->SetPressed(false);
     }
