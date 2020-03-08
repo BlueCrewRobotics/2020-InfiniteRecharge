@@ -42,8 +42,12 @@
 #include "commands/CmdAcquireTarget.h"
 #include "autocommands/AutoCmdTurn.h"
 #include "autocommands/AutoCmdGrp.h"
+#include "autocommands/AutoCmdDrive.h"
 #include "commands/CmdGrpHaltShooter.h"
 #include "commands/CmdGrpPrepShooter.h"
+#include "commands/CmdGrpIntake.h"
+#include "commands/CmdGrpStopIntake.h"
+
 #include "subsystems/SubLifter.h"
 #include "commands/CmdTurretToHomePos.h"
 

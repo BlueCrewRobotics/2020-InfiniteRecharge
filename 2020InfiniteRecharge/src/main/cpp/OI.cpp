@@ -32,11 +32,13 @@ OI::OI() {
 
 
   // Intake buttons
-  driverController_button_y->WhenPressed(new CmdIntake());
-  runIntake->WhenPressed(new CmdIntakeExtend());
-  runIntake->WhenReleased(new CmdIntakeRetract());
-  driverController_button_y->WhenReleased(new CmdStopIntake());
+  //driverController_button_y->WhenPressed(new CmdIntake());
+  //runIntake->WhenPressed(new CmdIntakeExtend());
+  //runIntake->WhenReleased(new CmdIntakeRetract());
+  //driverController_button_y->WhenReleased(new CmdStopIntake());
 
+  driverController_button_y->WhenPressed(new CmdGrpIntake());
+  driverController_button_y->WhenReleased(new CmdGrpStopIntake());
 
   // Color Wheel Buttons
   //auxController_button_b->WhileHeld(new CmdNumberSpin());
@@ -57,8 +59,7 @@ OI::OI() {
   ib_autoPrepShooter->WhenPressed(new CmdGrpPrepShooter());
   ib_autoPrepShooter->WhenReleased(new CmdGrpHaltShooter());
   ib_autoShoot->WhenPressed(new CmdIndexToShooter());
-
-
+  ib_autoDrive->WhenPressed(new AutoCmdDrive());
 }
 
 void OI::PollController() {
@@ -143,4 +144,24 @@ void OI::PollAutonomous(){
     ib_autoPrepShooter->SetPressed(false);
   }
 
+  // If all the ball are shot drive off starting line
+  if(Robot::m_subMagazine.GetBallCount() == 0){
+    ib_autoDrive->SetPressed(true);
+  }
 }
+
+// Increment the autonomous counter
+void OI::AutoCounterInc(){
+  m_autonomousCounter = m_autonomousCounter + 1;
+}
+
+// Decrement the autonomous counter
+void OI::AutoCounterDec(){
+  m_autonomousCounter = m_autonomousCounter - 1;
+}
+
+// Set the autonomous counter to a value
+void OI::AutoCounterSet(int value){
+  m_autonomousCounter = value;
+}
+
