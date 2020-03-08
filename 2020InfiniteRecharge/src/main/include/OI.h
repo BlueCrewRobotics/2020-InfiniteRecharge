@@ -45,6 +45,17 @@ class OI {
   void PollController();
   void PollMagazine();
   void PollAutonomous();
+  /** Increment the autonomous counter
+   */
+  void AutoCounterInc();
+  /** Increment the autonomous counter
+   */
+  void AutoCounterDec();
+  /** Set the autonomous counter
+   * 
+   * @param value to set the counter
+   */
+  void AutoCounterSet(int value);
 
   //void PollController();
   bool m_bSelector = false;
@@ -100,9 +111,11 @@ class OI {
 
     frc::InternalButton *ib_autoPrepShooter = new frc::InternalButton();
     frc::InternalButton *ib_autoShoot = new frc::InternalButton();
+    frc::InternalButton *ib_autoDrive = new frc::InternalButton();
     
 
 
     private:
         bool testShootLock = false;
+        int m_autonomousCounter = 0;
 };

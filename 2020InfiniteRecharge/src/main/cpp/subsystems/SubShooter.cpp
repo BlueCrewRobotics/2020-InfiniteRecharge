@@ -163,11 +163,11 @@ void SubShooter::RotateTurret(double position){
   double y = position;
 
   // Check that turret is within operating parameters
-  if(position < -1000){
-      y = -1000;
+  if(position < TURRET_MIN_ENCODER){
+      y = TURRET_MIN_ENCODER;
   }
-  if(position > 100){
-      y = 100;
+  if(position > TURRET_MAX_ENCODER){
+      y = TURRET_MAX_ENCODER;
   }
 
 
