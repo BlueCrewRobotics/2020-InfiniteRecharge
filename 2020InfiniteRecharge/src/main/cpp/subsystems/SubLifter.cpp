@@ -28,8 +28,8 @@ void SubLifter::ConfigureMotors() {
     double kD = 0;
     double kIz = 0;
     double kFF = 0;
-    double kMaxOutput = 0.3;
-    double kMinOutput = -0.3;
+    double kMaxOutput = 0.6;
+    double kMinOutput = -0.6;
 
     //lifterEngageMotor.RestoreFactoryDefaults();
     // set PID coefficients
@@ -74,7 +74,7 @@ void SubLifter::LifterUp() {
 }
 
 void SubLifter::LifterDown() {
-    climberMotor->Set(ControlMode::PercentOutput, 0.5);
+    climberMotor->Set(ControlMode::PercentOutput, 0.75);
 }
 
 void SubLifter::LifterStop() {

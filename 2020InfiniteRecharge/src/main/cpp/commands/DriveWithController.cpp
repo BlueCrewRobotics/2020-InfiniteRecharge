@@ -77,7 +77,7 @@ void DriveWithController::Execute()
 	////}
 
 
-	if (Robot::m_oi.driverController_button_b->Get()==1 /*|| Robot::m_oi.driverController_button_x->Get()==1*/){
+	if (Robot::m_oi.driverController_button_b->Get()==1 || Robot::m_oi.driverController_button_y->Get()==1){
 		Robot::m_subDriveTrain.leftDriveMotor->SetMaxSpeed(VELOCITY_SP_MAX_LL);
 		Robot::m_subDriveTrain.rightDriveMotor->SetMaxSpeed(VELOCITY_SP_MAX_LL);
 	}

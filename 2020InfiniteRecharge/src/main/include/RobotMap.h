@@ -70,7 +70,7 @@ constexpr int PEAK_CURRENT_LIMIT = 150;
 constexpr int DURATION_CURRENT_LIMIT = 30;
 
 // Ramp Times for drive starting and stopping
-constexpr double DRIVE_RAMP_TIME = 0.2;
+constexpr double DRIVE_RAMP_TIME = 0.05;
 
 // Maximum velocity in units/100ms
 constexpr int VELOCITY_MAX = 12000;
