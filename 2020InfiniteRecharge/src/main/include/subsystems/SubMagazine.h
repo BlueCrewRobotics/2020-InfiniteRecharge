@@ -32,6 +32,8 @@ class SubMagazine : public frc::Subsystem {
   int GetBallCount();
   void IncreaseBallCount(int amount);
   void DecreaseBallCount(int amount);
+  void Jog(double amount);
+
 
   bool intakeShootMode = 1;
   bool sensors[5] = {false, false, false, false, false};
