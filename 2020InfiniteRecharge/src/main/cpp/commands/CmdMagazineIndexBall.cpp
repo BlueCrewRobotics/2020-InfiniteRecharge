@@ -21,7 +21,6 @@ CmdMagazineIndexBall::CmdMagazineIndexBall() {
 // Called just before this Command runs the first time
 void CmdMagazineIndexBall::Initialize() {
   isFinished = 0;
-  breakSensorLock = 0;
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -29,12 +28,12 @@ void CmdMagazineIndexBall::Execute() {
  
         // Indexes ball into Magazine
     if(Robot::m_subMagazine.GetBallCount() < 3) {
-      Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
+      Robot::m_subMagazine.MoveToPosition(-6000);
       if(Robot::m_subMagazine.GetBallCount() != 4  ) {
         Robot::m_subMagazine.IncreaseBallCount(1);
       }
     } else if (Robot::m_subMagazine.GetBallCount() == 3) {
-      Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 0.5);
+      Robot::m_subMagazine.MoveToPosition(-3000);
       if(Robot::m_subMagazine.GetBallCount() != 4  ) {
         Robot::m_subMagazine.IncreaseBallCount(1);
       }

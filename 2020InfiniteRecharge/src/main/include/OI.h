@@ -38,6 +38,7 @@
 #include "commands/CmdLifterUp.h"
 #include "commands/CmdLifterStop.h"
 #include "commands/CmdLifterDown.h"
+#include "commands/CmdGrpIndexBall.h"
 
 class OI {
  public:

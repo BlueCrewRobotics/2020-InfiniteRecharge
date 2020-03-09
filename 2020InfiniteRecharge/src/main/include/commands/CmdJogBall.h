@@ -13,16 +13,16 @@
 
 #include <frc/commands/Command.h>
 
-class CmdMagazineIndexBall : public frc::Command {
+class CmdJogBall : public frc::Command {
  public:
-  CmdMagazineIndexBall();
+  CmdJogBall();
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;
   void End() override;
   void Interrupted() override;
  private:
-  bool isFinished = 0;
-  int velocity;
-  bool isMoving = 0;
+  bool isMoving = false;
+  int velocity = 0;
+  bool isFinished = false;
 };

@@ -23,7 +23,7 @@ class SubMagazine : public frc::Subsystem {
  public:
   SubMagazine();
   void InitDefaultCommand() override;
-  void MoveToPosition(int blocks);
+  void MoveToPosition(int position);
   void UpdateSensors();
   void Configure();
   void ResetEncoderPosition();
@@ -45,7 +45,7 @@ class SubMagazine : public frc::Subsystem {
   
   int encoderPosition = 0;
   bool intakeBreakSensorLock = false;
-  int ballCount = 0;
+  int ballCount = 3;
 
   // Sets up break sensors
   frc::DigitalInput* m_ballDetector = new frc::DigitalInput(0);

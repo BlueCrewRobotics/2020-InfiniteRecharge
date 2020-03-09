@@ -9,20 +9,14 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#pragma once
+#include "commands/CmdGrpIndexBall.h"
 
-#include <frc/commands/Command.h>
+#include "Robot.h"
 
-class CmdMagazineIndexBall : public frc::Command {
- public:
-  CmdMagazineIndexBall();
-  void Initialize() override;
-  void Execute() override;
-  bool IsFinished() override;
-  void End() override;
-  void Interrupted() override;
- private:
-  bool isFinished = 0;
-  int velocity;
-  bool isMoving = 0;
-};
+CmdGrpIndexBall::CmdGrpIndexBall() {
+  
+  CommandGroup::AddSequential(new CmdMagazineIndexBall());
+  CommandGroup::AddSequential(new CmdJogBall());
+ 
+  
+}

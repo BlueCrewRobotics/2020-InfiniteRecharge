@@ -54,6 +54,7 @@
 #include "commands/CmdNumberSpin.h"
 #include "commands/CmdIntakeExtend.h"
 #include "commands/CmdIntakeRetract.h"
+#include "commands/CmdJogBall.h"
 
 class Robot : public frc::TimedRobot {
  public:

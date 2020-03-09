@@ -11,18 +11,9 @@
 
 #pragma once
 
-#include <frc/commands/Command.h>
+#include <frc/commands/CommandGroup.h>
 
-class CmdMagazineIndexBall : public frc::Command {
+class CmdGrpIndexBall : public frc::CommandGroup {
  public:
-  CmdMagazineIndexBall();
-  void Initialize() override;
-  void Execute() override;
-  bool IsFinished() override;
-  void End() override;
-  void Interrupted() override;
- private:
-  bool isFinished = 0;
-  int velocity;
-  bool isMoving = 0;
+  CmdGrpIndexBall();
 };

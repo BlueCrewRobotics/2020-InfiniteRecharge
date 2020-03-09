@@ -50,11 +50,12 @@ void SubMagazine::Configure() {
 }
 
 // Moves the magazine to a specified servo position(blocks are equal to approx. 7 inches)
-void SubMagazine::MoveToPosition(int blocks) {
-  encoderPosition = blocks * -6000; 
+void SubMagazine::MoveToPosition(int position) {
+  //encoderPosition = blocks * -6000; 
   //encoderPosition = encoderPosition + -4362;
-  magazineMotor->Set(ControlMode::Position, encoderPosition);
-  currentPosition = blocks;
+  double currentPos = magazineMotor->GetSelectedSensorPosition(0);
+  magazineMotor->Set(ControlMode::Position, (currentPos + position));
+  
 }
 
 // Used for testing 

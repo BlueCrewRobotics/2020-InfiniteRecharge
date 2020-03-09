@@ -9,38 +9,52 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdMagazineSwitchShooter.h"
+#include "commands/CmdJogBall.h"
 
 #include "Robot.h"
 
-CmdMagazineSwitchShooter::CmdMagazineSwitchShooter() {
+CmdJogBall::CmdJogBall() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subMagazine);
+  Requires(&Robot::m_subsystem);
 }
 
 // Called just before this Command runs the first time
-void CmdMagazineSwitchShooter::Initialize() {}
+void CmdJogBall::Initialize() {
+  isFinished = false;
+}
 
 // Called repeatedly when this Command is scheduled to run
-void CmdMagazineSwitchShooter::Execute() {
-  // Moves the balls from their intake position to underneith the shooter to prepare to be indexed into the shooter
-        if (Robot::m_subMagazine.GetBallCount() == 4) {
-        // do nothing
-      } else if (Robot::m_subMagazine.GetBallCount() == 3) {
-        Robot::m_subMagazine.MoveToPosition(6000);
-      } else if (Robot::m_subMagazine.GetBallCount() == 2) {
-        Robot::m_subMagazine.MoveToPosition(12000);
-      } else if (Robot::m_subMagazine.GetBallCount() == 1) {
-        Robot::m_subMagazine.MoveToPosition(18000);
+void CmdJogBall::Execute() {
+  velocity = Robot::m_subMagazine.GetMotorVelocity();
+  if (velocity <= 2 && velocity >= -2) {
+    isMoving = false;
+  } else {
+    isMoving = true;
+  }
+
+  if (isMoving == true) {
+    // do nothing
+  } else if (isMoving == false) {
+    if (Robot::m_subMagazine.GetBallCount() <= 3) {
+      if(Robot::m_subMagazine.sensors[0] == true) {
+        Robot::m_subMagazine.Jog(-1000);
+      } else {
+        isFinished = true;
       }
+    } else {
+      // Do nothing
+    }
+  }
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdMagazineSwitchShooter::IsFinished() { return true; }
+bool CmdJogBall::IsFinished() { 
+  return isFinished; 
+  }
 
 // Called once after isFinished returns true
-void CmdMagazineSwitchShooter::End() {}
+void CmdJogBall::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdMagazineSwitchShooter::Interrupted() {}
+void CmdJogBall::Interrupted() {}

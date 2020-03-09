@@ -27,11 +27,11 @@ void CmdMagazineSwitchIntake::Execute() {
         if (Robot::m_subMagazine.GetBallCount() == 4) {
         // do nothing
       } else if (Robot::m_subMagazine.GetBallCount() == 3) {
-        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 1);
+        Robot::m_subMagazine.MoveToPosition(-6000);
       } else if (Robot::m_subMagazine.GetBallCount() == 2) {
-        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 2);
+        Robot::m_subMagazine.MoveToPosition(-12000);
       } else if (Robot::m_subMagazine.GetBallCount() == 1){
-        Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 3);
+        Robot::m_subMagazine.MoveToPosition(-18000);
       }
 }
 

@@ -51,7 +51,7 @@ OI::OI() {
 
   switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
   switchToIntakeMode->WhenPressed(new CmdMagazineSwitchIntake());
-  indexMagazine->WhenPressed(new CmdMagazineIndexBall());
+  indexMagazine->WhenPressed(new CmdGrpIndexBall());
   shootBall->WhenPressed(new CmdIndexToShooter());
 
 
