@@ -80,6 +80,7 @@ void SubMagazine::ResetEncoderPosition() {
 // here. Call these from Commands.
 
 int SubMagazine::GetMotorVelocity() {
+  // *** LUCIEN *** Use GetClosedLoopError instead of velocity when it is close to 0 it is done moving
   return magazineMotor->GetSelectedSensorVelocity();
 }
 
