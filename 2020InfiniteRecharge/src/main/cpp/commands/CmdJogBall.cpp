@@ -20,31 +20,32 @@ CmdJogBall::CmdJogBall() {
 
 // Called just before this Command runs the first time
 void CmdJogBall::Initialize() {
+  
   isFinished = false;
 }
 
 // Called repeatedly when this Command is scheduled to run
 void CmdJogBall::Execute() {
-  velocity = Robot::m_subMagazine.GetMotorVelocity();
-  if (velocity <= 2 && velocity >= -2) {
-    isMoving = false;
-  } else {
-    isMoving = true;
-  }
+  //error = Robot::m_subMagazine.GetMotorError();
+  //if (error <= 50 && error >= -50) {
+  //  isMoving = false;
+  //} else {
+  //  isMoving = true;
+  //}
 
-  if (isMoving == true) {
+  //if (isMoving == true) {
     // do nothing
-  } else if (isMoving == false) {
-    if (Robot::m_subMagazine.GetBallCount() <= 3) {
+  //} else if (isMoving == false) {
+  //  if (Robot::m_subMagazine.GetBallCount() <= 3) {
       if(Robot::m_subMagazine.sensors[0] == true) {
-        Robot::m_subMagazine.Jog(-1000);
+        Robot::m_subMagazine.Jog(-2000);
       } else {
         isFinished = true;
       }
-    } else {
+    //} else {
       // Do nothing
-    }
-  }
+    //}
+  //}
 }
 
 // Make this return true when this Command no longer needs to run execute()

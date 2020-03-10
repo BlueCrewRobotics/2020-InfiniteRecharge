@@ -26,13 +26,13 @@ void SubMagazine::InitDefaultCommand() {
 void SubMagazine::Configure() {
   // Configure the setting for the PID etc.
   magazineMotor->Config_kF(0, 0, 0);
-  magazineMotor->Config_kP(0, 0.2, 0);
+  magazineMotor->Config_kP(0, 0.26, 0);
   magazineMotor->Config_kI(0, 0, 0);
   magazineMotor->Config_kD(0, 0, 0);
 
   // Configure the cruise velocity and the acceleration
-  magazineMotor->ConfigMotionCruiseVelocity(3000, 0);
-  magazineMotor->ConfigMotionAcceleration(6000, 0);
+  magazineMotor->ConfigMotionCruiseVelocity(5000, 0);
+  magazineMotor->ConfigMotionAcceleration(15000, 0);
 
   magazineMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
   magazineMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 1);
@@ -79,8 +79,8 @@ void SubMagazine::ResetEncoderPosition() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
-int SubMagazine::GetMotorVelocity() {
-  return magazineMotor->GetSelectedSensorVelocity();
+int SubMagazine::GetMotorError() {
+  return magazineMotor->GetClosedLoopError();
 }
 
 int SubMagazine::GetBallCount() {

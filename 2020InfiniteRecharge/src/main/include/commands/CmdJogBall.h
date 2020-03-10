@@ -23,6 +23,6 @@ class CmdJogBall : public frc::Command {
   void Interrupted() override;
  private:
   bool isMoving = false;
-  int velocity = 0;
+  int error = 0;
   bool isFinished = false;
 };

@@ -37,8 +37,8 @@ void CmdSpinShooterWheels::Execute() {
     double d_botShooter = 25729;
 
     // Shooter offset for slowing wheels when shooting
-    double d_topShooterOffset = 14000;
-    double d_botShooterOffset = 14000;    
+    double d_topShooterOffset = 13000;
+    double d_botShooterOffset = 13000;    
 
     // Distance to the target in ft
     double distance = Robot::m_subLimelight.GetLimelightDistance();

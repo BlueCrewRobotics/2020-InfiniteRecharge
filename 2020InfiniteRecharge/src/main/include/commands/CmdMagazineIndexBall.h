@@ -23,6 +23,7 @@ class CmdMagazineIndexBall : public frc::Command {
   void Interrupted() override;
  private:
   bool isFinished = 0;
-  int velocity;
+  int error;
   bool isMoving = 0;
+  bool Lock = 0;
 };

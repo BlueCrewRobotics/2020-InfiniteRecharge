@@ -21,28 +21,39 @@ CmdMagazineIndexBall::CmdMagazineIndexBall() {
 // Called just before this Command runs the first time
 void CmdMagazineIndexBall::Initialize() {
   isFinished = 0;
+  Lock = 0;
 }
 
 // Called repeatedly when this Command is scheduled to run
 void CmdMagazineIndexBall::Execute() {
- 
+    if (Lock == 0) {
         // Indexes ball into Magazine
-    if(Robot::m_subMagazine.GetBallCount() < 3) {
+    //if(Robot::m_subMagazine.GetBallCount() < 3) {
       Robot::m_subMagazine.MoveToPosition(-6000);
       if(Robot::m_subMagazine.GetBallCount() != 4  ) {
         Robot::m_subMagazine.IncreaseBallCount(1);
       }
-    } else if (Robot::m_subMagazine.GetBallCount() == 3) {
+    /*} else if (Robot::m_subMagazine.GetBallCount() == 3) {
       Robot::m_subMagazine.MoveToPosition(-3000);
       if(Robot::m_subMagazine.GetBallCount() != 4  ) {
         Robot::m_subMagazine.IncreaseBallCount(1);
-      }
+      }*/
+    
+    Lock = 1;
     }
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool CmdMagazineIndexBall::IsFinished() { 
-  return true;
+  //if (Lock == 1) {
+    //error = Robot::m_subMagazine.GetMotorError();
+    //if (error >= -50 && error <= 50) {
+    //  return true;
+    //} else {
+    //  return false;
+    //}
+  //}
+  
 
 
   }

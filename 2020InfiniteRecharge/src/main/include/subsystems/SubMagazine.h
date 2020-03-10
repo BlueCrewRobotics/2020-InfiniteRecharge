@@ -28,7 +28,7 @@ class SubMagazine : public frc::Subsystem {
   void Configure();
   void ResetEncoderPosition();
   void Test();
-  int GetMotorVelocity();
+  int GetMotorError();
   int GetBallCount();
   void IncreaseBallCount(int amount);
   void DecreaseBallCount(int amount);
