@@ -79,14 +79,8 @@ void SubMagazine::ResetEncoderPosition() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
-<<<<<<< HEAD
 int SubMagazine::GetMotorError() {
   return magazineMotor->GetClosedLoopError();
-=======
-int SubMagazine::GetMotorVelocity() {
-  // *** LUCIEN *** Use GetClosedLoopError instead of velocity when it is close to 0 it is done moving
-  return magazineMotor->GetSelectedSensorVelocity();
->>>>>>> 8f383e600e13c7df6e6fd65c676a399920731344
 }
 
 int SubMagazine::GetBallCount() {
@@ -104,4 +98,8 @@ void SubMagazine::DecreaseBallCount(int amount) {
 void SubMagazine::Jog(double amount){
   double position = magazineMotor->GetSelectedSensorPosition(0);
   magazineMotor->Set(ControlMode::Position,(position + amount));
+}
+
+void SubMagazine::SetBallCount(int value){
+  ballCount = value;
 }
