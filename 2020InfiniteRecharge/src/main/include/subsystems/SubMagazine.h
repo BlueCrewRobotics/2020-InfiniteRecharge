@@ -32,6 +32,7 @@ class SubMagazine : public frc::Subsystem {
   int GetBallCount();
   void IncreaseBallCount(int amount);
   void DecreaseBallCount(int amount);
+  void SetBallCount(int value);
   void Jog(double amount);
 
 

@@ -99,3 +99,7 @@ void SubMagazine::Jog(double amount){
   double position = magazineMotor->GetSelectedSensorPosition(0);
   magazineMotor->Set(ControlMode::Position,(position + amount));
 }
+
+void SubMagazine::SetBallCount(int value){
+  ballCount = value;
+}
