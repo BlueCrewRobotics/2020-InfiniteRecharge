@@ -53,7 +53,7 @@ bool CmdMagazineIndexBall::IsFinished() {
     //  return false;
     //}
   //}
-  
+  return true;
 
 
   }
