@@ -20,27 +20,27 @@ CmdMagazineIndexBall::CmdMagazineIndexBall() {
 
 // Called just before this Command runs the first time
 void CmdMagazineIndexBall::Initialize() {
-  isFinished = 0;
-  Lock = 0;
+  //isFinished = 0;
+  //Lock = 0;
 }
 
 // Called repeatedly when this Command is scheduled to run
 void CmdMagazineIndexBall::Execute() {
-    if (Lock == 0) { // LOCK IS NOT BEING USED HERE AND NEEDS TO BE REMOVED SINCE ITS FROM OLD CODE
+    //if (Lock == 0) { // LOCK IS NOT BEING USED HERE AND NEEDS TO BE REMOVED SINCE ITS FROM OLD CODE
         // Indexes ball into Magazine
     //if(Robot::m_subMagazine.GetBallCount() < 3) {
       Robot::m_subMagazine.MoveToPosition(-6000);
-      if(Robot::m_subMagazine.GetBallCount() != 4  ) {
-        Robot::m_subMagazine.IncreaseBallCount(1);
-      }
+      //if(Robot::m_subMagazine.GetBallCount() != 4  ) {
+      //  Robot::m_subMagazine.IncreaseBallCount(1);
+      //}
     /*} else if (Robot::m_subMagazine.GetBallCount() == 3) {
       Robot::m_subMagazine.MoveToPosition(-3000);
       if(Robot::m_subMagazine.GetBallCount() != 4  ) {
         Robot::m_subMagazine.IncreaseBallCount(1);
       }*/
     
-    Lock = 1;
-    }
+    //Lock = 1;
+    //}
 }
 
 // Make this return true when this Command no longer needs to run execute()

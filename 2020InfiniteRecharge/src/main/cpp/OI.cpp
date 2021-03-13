@@ -16,7 +16,7 @@ OI::OI() {
   // Process operator interface input here.
 
   // Drive Train buttons
-  //driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
+  driverController_button_rbump->ToggleWhenPressed(new CmdSwitchGear());
   
   
   auxController_button_select->WhenPressed(new CmdDisengageClimber());
@@ -25,11 +25,7 @@ OI::OI() {
   auxController_button_lbump->WhenReleased(new CmdLifterStop());
   auxController_button_rbump->WhenPressed(new CmdLifterDown());
   auxController_button_rbump->WhenReleased(new CmdLifterStop());
-
-  // Shooter buttons
-  spinShooter->WhileHeld(new CmdGrpPrepShooter());
-  stopShooter->WhenPressed(new CmdGrpHaltShooter());
-
+  auxController_button_y->WhenPressed(new CmdMagazineIndexBall());
 
   // Intake buttons
   //driverController_button_y->WhenPressed(new CmdIntake());
@@ -37,13 +33,13 @@ OI::OI() {
   //runIntake->WhenReleased(new CmdIntakeRetract());
   //driverController_button_y->WhenReleased(new CmdStopIntake());
 
-  driverController_button_y->WhenPressed(new CmdGrpIntake());
-  driverController_button_y->WhenReleased(new CmdGrpStopIntake());
+  //driverController_button_y->WhenPressed(new CmdGrpIntake());
+  //driverController_button_y->WhenReleased(new CmdGrpStopIntake());
 
   // Color Wheel Buttons
   //auxController_button_b->WhileHeld(new CmdNumberSpin());
   //auxController_button_a->WhileHeld(new CmdColorSpin());
-  auxController_button_y->WhenPressed(new CmdMagazineIndexBall());
+
 
   // Magazine buttons
   //auxController_button_a->WhenPressed(new CmdMagazineDump());
@@ -51,8 +47,17 @@ OI::OI() {
 
   //switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
   //switchToIntakeMode->WhenPressed(new CmdMagazineSwitchIntake());
+
+  // Intake button
+  runIntake->WhenPressed(new CmdGrpIntake()); // CAM ADDED
+  runIntake->WhenReleased(new CmdGrpStopIntake()); // CAM ADDED
   indexMagazine->WhenPressed(new CmdGrpIndexBall());
+
+  // Shooter buttons
+  spinShooter->WhileHeld(new CmdGrpPrepShooter());
+  stopShooter->WhenPressed(new CmdGrpHaltShooter());
   shootBall->WhenPressed(new CmdMagazineIndexBall()); // LUCIEN JUST ADDED THIS
+
 
 
   // These are used in the autonomous phase of play
@@ -64,17 +69,31 @@ OI::OI() {
 
 void OI::PollController() {
   
-  // Extends and retracts intake
+
+  // Extends intake, retracts intake and indexes magazine
   if(driverController_button_y->Get() == 1) {
     runIntake->SetPressed(true);
-  } else {
+    if (Robot::m_subMagazine.GetSensor() == true) {
+      indexMagazine->SetPressed(true);
+    }
+    else {
+      indexMagazine->SetPressed(false);
+    }
+  } 
+  else {
     runIntake->SetPressed(false);
   }
-    
-    // Spins shooter and stops shooter
+
+  // Spins shooter and stops shooter and shoots ball
   if(driverController_button_a->Get() == 1) {
     spinShooter->SetPressed(true);
     stopShooter->SetPressed(false);
+      if (driverController_button_x->Get() == 1) {
+        shootBall->SetPressed(true);
+      }   
+      else {
+        shootBall->SetPressed(false);
+      }
   } else {
     spinShooter->SetPressed(false);
     stopShooter->SetPressed(true);
@@ -88,7 +107,7 @@ void OI::PollController() {
 void OI::PollMagazine() {
 
 
-
+/* Cam Removed
   if (driverController_button_a->Get() == 1) {
     Robot::m_subMagazine.intakeShootMode = 1;
     if (Robot::m_subMagazine.GetBallCount() >= 0) {
@@ -104,15 +123,17 @@ void OI::PollMagazine() {
     }
     
   }
+*/
 
-
-  //if (Robot::m_subMagazine.intakeShootMode == 0) { // LUCIEN REMOVED THIS AND THE ELSE STATEMENT AFTERWARDS
+  //if (Robot::m_subMagazine.intakeShootMode == 0) { // LUCIEN REMOVED THIS AND THE ELSE STATEMENT
+/* Cam relocated to poll magazine
     if (Robot::m_subMagazine.GetSensor() == true) {
       indexMagazine->SetPressed(true);
     } else {
       indexMagazine->SetPressed(false);
     }
-
+*/
+/* Cam relocated in poll controller
   //} else {
     if (driverController_button_a->Get() == 1) {
       if (driverController_button_x->Get() == 1) {
@@ -121,7 +142,7 @@ void OI::PollMagazine() {
       shootBall->SetPressed(false);
     }
     }
-  //}
+*/  //}
 }
 
 // This function is run during the Autonomous Periodic function of the Robot Code
