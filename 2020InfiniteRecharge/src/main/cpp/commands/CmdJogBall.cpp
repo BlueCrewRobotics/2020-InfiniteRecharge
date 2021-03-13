@@ -15,7 +15,7 @@
 
 CmdJogBall::CmdJogBall() {
   // Use Requires() here to declare subsystem dependencies
-  Requires(&Robot::m_subsystem);
+  Requires(&Robot::m_subMagazine);
 }
 
 // Called just before this Command runs the first time
@@ -37,8 +37,8 @@ void CmdJogBall::Execute() {
     // do nothing
   //} else if (isMoving == false) {
   //  if (Robot::m_subMagazine.GetBallCount() <= 3) {
-      if(Robot::m_subMagazine.sensors[0] == true) {
-        Robot::m_subMagazine.Jog(-2000);
+      if(Robot::m_subMagazine.GetSensor() == false) {
+        Robot::m_subMagazine.Jog(-1000);
       } else {
         isFinished = true;
       }

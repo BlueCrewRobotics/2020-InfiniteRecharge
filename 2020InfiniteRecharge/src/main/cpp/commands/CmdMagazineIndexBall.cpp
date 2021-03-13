@@ -26,7 +26,7 @@ void CmdMagazineIndexBall::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void CmdMagazineIndexBall::Execute() {
-    if (Lock == 0) {
+    if (Lock == 0) { // LOCK IS NOT BEING USED HERE AND NEEDS TO BE REMOVED SINCE ITS FROM OLD CODE
         // Indexes ball into Magazine
     //if(Robot::m_subMagazine.GetBallCount() < 3) {
       Robot::m_subMagazine.MoveToPosition(-6000);

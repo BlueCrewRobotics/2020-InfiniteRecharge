@@ -16,7 +16,7 @@
 CmdGrpIndexBall::CmdGrpIndexBall() {
   
   CommandGroup::AddSequential(new CmdMagazineIndexBall());
-  //CommandGroup::AddSequential(new CmdJogBall());
+  CommandGroup::AddSequential(new CmdJogBall());
  
   
 }

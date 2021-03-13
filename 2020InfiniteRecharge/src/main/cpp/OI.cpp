@@ -46,13 +46,13 @@ OI::OI() {
   auxController_button_y->WhenPressed(new CmdMagazineIndexBall());
 
   // Magazine buttons
-  auxController_button_a->WhenPressed(new CmdMagazineDump());
+  //auxController_button_a->WhenPressed(new CmdMagazineDump());
 
 
-  switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
-  switchToIntakeMode->WhenPressed(new CmdMagazineSwitchIntake());
+  //switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
+  //switchToIntakeMode->WhenPressed(new CmdMagazineSwitchIntake());
   indexMagazine->WhenPressed(new CmdGrpIndexBall());
-  shootBall->WhenPressed(new CmdIndexToShooter());
+  shootBall->WhenPressed(new CmdMagazineIndexBall()); // LUCIEN JUST ADDED THIS
 
 
   // These are used in the autonomous phase of play
@@ -105,14 +105,15 @@ void OI::PollMagazine() {
     
   }
 
-  if (Robot::m_subMagazine.intakeShootMode == 0) {
-    if (Robot::m_subMagazine.sensors[0] == true) {
+
+  //if (Robot::m_subMagazine.intakeShootMode == 0) { // LUCIEN REMOVED THIS AND THE ELSE STATEMENT AFTERWARDS
+    if (Robot::m_subMagazine.GetSensor() == true) {
       indexMagazine->SetPressed(true);
     } else {
       indexMagazine->SetPressed(false);
     }
 
-  } else {
+  //} else {
     if (driverController_button_a->Get() == 1) {
       if (driverController_button_x->Get() == 1) {
       shootBall->SetPressed(true);
@@ -120,7 +121,7 @@ void OI::PollMagazine() {
       shootBall->SetPressed(false);
     }
     }
-  }
+  //}
 }
 
 // This function is run during the Autonomous Periodic function of the Robot Code

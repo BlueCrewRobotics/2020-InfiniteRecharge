@@ -127,7 +127,7 @@ void Robot::TeleopPeriodic() {
   //m_subMagazine.Test();
   //m_subLimelight.SetLEDState(1);
  
-  m_subMagazine.UpdateSensors();
+  //m_subMagazine.UpdateSensors();
   m_oi.PollController();
   m_oi.PollMagazine();
    }

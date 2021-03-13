@@ -13,7 +13,7 @@
 
 
 #include "commands/CmdSwitchGear.h"
-#include "commands/CmdIndexToShooter.h"
+//#include "commands/CmdIndexToShooter.h"
 #include "commands/CmdStopShoot.h"
 #include "frc/buttons/JoystickButton.h"
 #include "frc/Joystick.h"
@@ -28,11 +28,11 @@
 #include "commands/CmdIntakeRetract.h"
 #include "commands/CmdColorSpin.h"
 #include "commands/CmdNumberSpin.h"
-#include "commands/CmdMagazineSwitchShooter.h"
-#include "commands/CmdMagazineSwitchIntake.h"
+//#include "commands/CmdMagazineSwitchShooter.h"
+//#include "commands/CmdMagazineSwitchIntake.h"
 #include "commands/CmdIndexToShooter.h"
 #include "commands/CmdMagazineIndexBall.h"
-#include "commands/CmdMagazineDump.h"
+//#include "commands/CmdMagazineDump.h"
 #include "commands/CmdEngageClimber.h"
 #include "commands/CmdDisengageClimber.h"
 #include "commands/CmdLifterUp.h"

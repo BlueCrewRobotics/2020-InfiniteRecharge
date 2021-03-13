@@ -65,11 +65,18 @@ void SubMagazine::Test() {
 }
 
 // Updates break sensor
-void SubMagazine::UpdateSensors() {
-  sensors[0] = m_ballDetector->Get();
-  sensors[0] = !sensors[0];
+//void SubMagazine::UpdateSensors() {
+//  sensors[0] = m_ballDetector->Get();
+//  sensors[0] = !sensors[0];}
+  
+
+// Get break sensor
+bool SubMagazine::GetSensor() {
+  return m_ballDetector->Get();
+  
   
 }
+
 // Resets encoder position of the magazine
 void SubMagazine::ResetEncoderPosition() {
   magazineMotor->SetSelectedSensorPosition(0,0,0);

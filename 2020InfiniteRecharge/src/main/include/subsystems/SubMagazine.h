@@ -24,7 +24,8 @@ class SubMagazine : public frc::Subsystem {
   SubMagazine();
   void InitDefaultCommand() override;
   void MoveToPosition(int position);
-  void UpdateSensors();
+  //void UpdateSensors();
+  bool GetSensor();
   void Configure();
   void ResetEncoderPosition();
   void Test();
