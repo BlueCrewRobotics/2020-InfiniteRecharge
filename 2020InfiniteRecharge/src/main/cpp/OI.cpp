@@ -68,17 +68,17 @@ OI::OI() {
 }
 
 void OI::PollController() {
-  
-
-  // Extends intake, retracts intake and indexes magazine
-  if(driverController_button_y->Get() == 1) {
-    runIntake->SetPressed(true);
-    if (Robot::m_subMagazine.GetSensor() == true) {
+  if (Robot::m_subMagazine.GetSensor() == false) {
       indexMagazine->SetPressed(true);
     }
     else {
       indexMagazine->SetPressed(false);
     }
+
+  // Extends intake, retracts intake and indexes magazine
+  if(driverController_button_y->Get() == 1) {
+    runIntake->SetPressed(true);
+
   } 
   else {
     runIntake->SetPressed(false);

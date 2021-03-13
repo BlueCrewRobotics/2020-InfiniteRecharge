@@ -61,7 +61,7 @@ void Robot::RobotPeriodic() {}
  * robot is disabled.
  */
 void Robot::DisabledInit() {
-  m_subMagazine.SetBallCount(3);
+  //m_subMagazine.SetBallCount(3);
 }
 
 void Robot::DisabledPeriodic() { frc::Scheduler::GetInstance()->Run(); }
@@ -115,7 +115,7 @@ void Robot::TeleopInit() {
   }
   m_subLimelight.SetLEDState(1);
   Robot::m_subMagazine.ResetEncoderPosition();;
-  Robot::m_subMagazine.MoveToPosition(0);
+  Robot::m_subMagazine.MoveToPosition(0); 
   
 }
 

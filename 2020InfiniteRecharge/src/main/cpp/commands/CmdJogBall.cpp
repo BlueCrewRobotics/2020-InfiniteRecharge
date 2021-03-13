@@ -37,7 +37,7 @@ void CmdJogBall::Execute() {
     // do nothing
   //} else if (isMoving == false) {
   //  if (Robot::m_subMagazine.GetBallCount() <= 3) {
-      if(Robot::m_subMagazine.GetSensor() == false) {
+      if(Robot::m_subMagazine.GetSensor() == true) {
         Robot::m_subMagazine.Jog(-1000);
       } else {
         isFinished = true;

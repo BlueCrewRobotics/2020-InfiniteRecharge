@@ -25,7 +25,7 @@ void AutoCmdShoot::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoCmdShoot::Execute() {
-    Robot::m_subMagazine.MoveToPosition(Robot::m_subMagazine.currentPosition + 4);
+    Robot::m_subMagazine.AddToPosition(Robot::m_subMagazine.currentPosition + 4);
 
 }
 

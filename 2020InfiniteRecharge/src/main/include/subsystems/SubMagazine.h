@@ -23,6 +23,7 @@ class SubMagazine : public frc::Subsystem {
  public:
   SubMagazine();
   void InitDefaultCommand() override;
+  void AddToPosition(int position);
   void MoveToPosition(int position);
   //void UpdateSensors();
   bool GetSensor();

@@ -27,7 +27,7 @@ void CmdIndexToShooter::Initialize() {
 void CmdIndexToShooter::Execute() {
 
 
-    Robot::m_subMagazine.MoveToPosition(-6000);
+    Robot::m_subMagazine.AddToPosition(-6000);
     if (Robot::m_subMagazine.GetBallCount() > 0) {
       Robot::m_subMagazine.DecreaseBallCount(1);
     }
