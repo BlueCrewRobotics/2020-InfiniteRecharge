@@ -147,29 +147,37 @@ void OI::PollMagazine() {
 
 // This function is run during the Autonomous Periodic function of the Robot Code
 void OI::PollAutonomous(){
-        
-  // Spin up shooter and stops shooter in autonomous mode
-  if(Robot::m_subMagazine.GetBallCount() > 0) {  
-    // Spin up shooter in auto mode
-    ib_autoPrepShooter->SetPressed(true);
-    // Check if the wheels are up to speed on the shooter
-    if(Robot::m_subShooter.WheelsAtSpeed() == true){
-      // If the wheels are up to speed shoot the ball
-      ib_autoShoot->SetPressed(true);
-    } else{
-      // If the wheels are not up to speed wait until they are up to speed
-      ib_autoShoot->SetPressed(false);
-    }
+    int ballsShot=0;
 
-  } else {
-    // Shutdown the shooter
-    ib_autoPrepShooter->SetPressed(false);
-  }
+   if (Robot::m_Timer.Get() > 3) 
+   {
 
-  // If all the ball are shot drive off starting line
-  if(Robot::m_subMagazine.GetBallCount() == 0){
-    ib_autoDrive->SetPressed(true);
-  }
+      // Spin up shooter and stops shooter in autonomous mode
+      if(Robot::m_subMagazine.GetBallCount() > 0) {  
+        // Spin up shooter in auto mode
+        ib_autoPrepShooter->SetPressed(true);
+        // Check if the wheels are up to speed on the shooter
+        if(Robot::m_subShooter.WheelsAtSpeed() == true && Robot::m_subLimelight.GetTarget()==true && Robot::m_Timer.Get()+(2*ballsShot)){
+          // If the wheels are up to speed shoot the ball
+          ib_autoShoot->SetPressed(true);
+          ballsShot=ballsShot+1;
+        } else{
+          // If the wheels are not up to speed wait until they are up to speed
+          ib_autoShoot->SetPressed(false);
+        }
+
+      } else {
+        // Shutdown the shooter
+        ib_autoPrepShooter->SetPressed(false);
+      }
+
+      // If all the ball are shot drive off starting line
+      if(Robot::m_subMagazine.GetBallCount() == 0){
+        ib_autoDrive->SetPressed(true);
+      }
+   }
+
+
 }
 
 // Increment the autonomous counter

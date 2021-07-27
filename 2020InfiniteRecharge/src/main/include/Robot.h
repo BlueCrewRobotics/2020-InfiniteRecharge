@@ -17,6 +17,7 @@
 #include <frc/commands/Command.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include <frc/DriverStation.h>
+#include <frc/Timer.h>
 
 #include "OI.h"
 #include "commands/ExampleCommand.h"
@@ -69,6 +70,7 @@ class Robot : public frc::TimedRobot {
   static SubLimelight m_subLimelight;
   static SubMagazine m_subMagazine;
   static SubLifter m_subLifter;
+  static Timer m_Timer;
   
   
   void RobotInit() override;

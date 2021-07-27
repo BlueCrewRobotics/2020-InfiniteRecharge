@@ -28,8 +28,8 @@ void SubLifter::ConfigureMotors() {
     double kD = 0;
     double kIz = 0;
     double kFF = 0;
-    double kMaxOutput = 0.6;
-    double kMinOutput = -0.6;
+    double kMaxOutput = 0.8; // CHANGE THESE TO CHANGE HOW FAST IT GOES UP MAYBE I DONT KNOW???
+    double kMinOutput = -0.8; // THIS TOO
 
     //lifterEngageMotor.RestoreFactoryDefaults();
     // set PID coefficients
@@ -70,11 +70,11 @@ void SubLifter::EngageLifter() {
 }
 
 void SubLifter::LifterUp() {
-    climberMotor->Set(ControlMode::PercentOutput, -0.75);
+    climberMotor->Set(ControlMode::PercentOutput, -0.9); // Change this to change percent output moving the lifter up (must be negative)
 }
 
 void SubLifter::LifterDown() {
-    climberMotor->Set(ControlMode::PercentOutput, 0.75);
+    climberMotor->Set(ControlMode::PercentOutput, 0.9); // Change this to change percent output moving the lifter down (must be positive)
 }
 
 void SubLifter::LifterStop() {

@@ -26,6 +26,7 @@ SubNavX Robot::m_subNavX;
 SubLimelight Robot::m_subLimelight;
 SubMagazine Robot::m_subMagazine;
 SubLifter Robot::m_subLifter;
+Timer Robot::m_Timer;
 
 void Robot::RobotInit() {
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
@@ -85,14 +86,19 @@ void Robot::AutonomousInit() {
   // } else {
   //   m_autonomousCommand = &m_defaultAuto;
   // }
+  
+  m_Timer.Reset();
+  m_Timer.Start();
+  m_subMagazine.SetBallCount(3);
 
   //m_autonomousCommand = m_chooser.GetSelected();
   //m_subLimelight.SetLEDState(1);
   m_subDriveTrain.ResetEncoders();
-  m_autonomousCommand = new AutoCmdGrp();
+  
+  /*m_autonomousCommand = new AutoCmdGrp();
   if (m_autonomousCommand != nullptr) {
     m_autonomousCommand->Start();
-  }
+  }*/
 }
 
 void Robot::AutonomousPeriodic() { 

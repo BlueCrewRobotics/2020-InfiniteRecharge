@@ -26,8 +26,8 @@ void CmdIntake::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void CmdIntake::Execute() {
-    // Runs intake at 50% and changes intakeShootMode
-    Robot::m_subIntake.RunIntake(1);
+    // Runs intake at 100% and changes intakeShootMode
+    Robot::m_subIntake.RunIntake(0.8);
     Robot::m_subMagazine.intakeShootMode = 0;
   
   
