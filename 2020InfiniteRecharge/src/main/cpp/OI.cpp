@@ -61,7 +61,7 @@ OI::OI() {
 
 
   // These are used in the autonomous phase of play
-  ib_autoPrepShooter->WhenPressed(new CmdGrpPrepShooter());
+  ib_autoPrepShooter->WhileHeld(new CmdGrpPrepShooter());
   ib_autoPrepShooter->WhenReleased(new CmdGrpHaltShooter());
   ib_autoShoot->WhenPressed(new CmdIndexToShooter());
   ib_autoDrive->WhenPressed(new AutoCmdDrive());
@@ -147,7 +147,7 @@ void OI::PollMagazine() {
 
 // This function is run during the Autonomous Periodic function of the Robot Code
 void OI::PollAutonomous(){
-    int ballsShot=0;
+   ib_autoDrive->SetPressed(false);
 
    if (Robot::m_Timer.Get() > 3) 
    {
@@ -157,24 +157,31 @@ void OI::PollAutonomous(){
         // Spin up shooter in auto mode
         ib_autoPrepShooter->SetPressed(true);
         // Check if the wheels are up to speed on the shooter
-        if(Robot::m_subShooter.WheelsAtSpeed() == true && Robot::m_subLimelight.GetTarget()==true && Robot::m_Timer.Get()+(2*ballsShot)){
+        if(Robot::m_subShooter.WheelsAtSpeed() == true && Robot::m_subLimelight.GetTarget()==true ){
           // If the wheels are up to speed shoot the ball
-          ib_autoShoot->SetPressed(true);
-          ballsShot=ballsShot+1;
+          if(Robot::m_subMagazine.GetBallCount() == 3 && Robot::m_Timer.Get() > 4) {
+            ib_autoShoot->SetPressed(false);
+            ib_autoShoot->SetPressed(true);
+          } else if(Robot::m_subMagazine.GetBallCount() == 2 && Robot::m_Timer.Get() > 5) {
+            ib_autoShoot->SetPressed(false);
+            ib_autoShoot->SetPressed(true);
+          } else if(Robot::m_subMagazine.GetBallCount() == 1 && Robot::m_Timer.Get() > 6) {
+            ib_autoShoot->SetPressed(false);
+            ib_autoShoot->SetPressed(true);
+          }
+          
+
         } else{
           // If the wheels are not up to speed wait until they are up to speed
           ib_autoShoot->SetPressed(false);
         }
 
-      } else {
+      } else if(Robot::m_Timer.Get() > 9){
         // Shutdown the shooter
         ib_autoPrepShooter->SetPressed(false);
-      }
-
-      // If all the ball are shot drive off starting line
-      if(Robot::m_subMagazine.GetBallCount() == 0){
         ib_autoDrive->SetPressed(true);
       }
+
    }
 
 

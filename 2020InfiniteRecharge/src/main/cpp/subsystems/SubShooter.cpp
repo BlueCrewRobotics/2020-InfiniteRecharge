@@ -144,7 +144,7 @@ bool SubShooter::WheelsAtSpeed(){
   int top = topShooterMotor->GetClosedLoopError();
   int bot = bottomShooterMotor->GetClosedLoopError();
 
-  if((top < 1000 && top > -1000) && (bot < 1000 && bot > -1000)){
+  if((top < 1000 ) && (bot < 1000)){
     return true;
   }
   return false;

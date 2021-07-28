@@ -62,7 +62,7 @@ void Robot::RobotPeriodic() {}
  * robot is disabled.
  */
 void Robot::DisabledInit() {
-  //m_subMagazine.SetBallCount(3);
+  m_subMagazine.SetBallCount(3);
 }
 
 void Robot::DisabledPeriodic() { frc::Scheduler::GetInstance()->Run(); }
