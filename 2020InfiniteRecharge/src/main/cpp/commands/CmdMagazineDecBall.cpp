@@ -9,47 +9,58 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/CmdIndexToShooter.h"
-#include "subsystems/SubShooter.h"
+#include "commands/CmdMagazineDecBall.h"
+
 #include "Robot.h"
 
-CmdIndexToShooter::CmdIndexToShooter() {
+CmdMagazineDecBall::CmdMagazineDecBall() {
   // Use Requires() here to declare subsystem dependencies
   Requires(&Robot::m_subMagazine);
 }
 
 // Called just before this Command runs the first time
-void CmdIndexToShooter::Initialize() {
-
+void CmdMagazineDecBall::Initialize() {
+  //isFinished = 0;
+  //Lock = 0;
 }
 
 // Called repeatedly when this Command is scheduled to run
-void CmdIndexToShooter::Execute() {
-
-
-    Robot::m_subMagazine.AddToPosition(-5750);
-    if (Robot::m_subMagazine.GetBallCount() > 0) {
-      Robot::m_subMagazine.DecreaseBallCount(1);
-    }
+void CmdMagazineDecBall::Execute() {
+    //if (Lock == 0) { // LOCK IS NOT BEING USED HERE AND NEEDS TO BE REMOVED SINCE ITS FROM OLD CODE
+        // Indexes ball into Magazine
+    //if(Robot::m_subMagazine.GetBallCount() < 3) {
+      Robot::m_subMagazine.AddToPosition(5750);
+      //if(Robot::m_subMagazine.GetBallCount() != 4  ) {
+      //  Robot::m_subMagazine.IncreaseBallCount(1);
+      //}
+    /*} else if (Robot::m_subMagazine.GetBallCount() == 3) {
+      Robot::m_subMagazine.MoveToPosition(-3000);
+      if(Robot::m_subMagazine.GetBallCount() != 4  ) {
+        Robot::m_subMagazine.IncreaseBallCount(1);
+      }*/
     
-
-
-    //double d_topShooter = frc::SmartDashboard::GetNumber("Shooter/topSpeed",40.0);
-    //double d_botShooter = frc::SmartDashboard::GetNumber("Shooter/botSpeed",40.0);
-    //double d_topShooter = 40;
-    //double d_botShooter = 40;
-    //Robot::m_subShooter.Shoot( d_topShooter, d_botShooter );
+    //Lock = 1;
+    //}
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool CmdIndexToShooter::IsFinished() { 
-    return true;
-    
-     }
+bool CmdMagazineDecBall::IsFinished() { 
+  //if (Lock == 1) {
+    //error = Robot::m_subMagazine.GetMotorError();
+    //if (error >= -50 && error <= 50) {
+    //  return true;
+    //} else {
+    //  return false;
+    //}
+  //}
+  return true;
+
+
+  }
 
 // Called once after isFinished returns true
-void CmdIndexToShooter::End() {}
+void CmdMagazineDecBall::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void CmdIndexToShooter::Interrupted() {}
+void CmdMagazineDecBall::Interrupted() {}

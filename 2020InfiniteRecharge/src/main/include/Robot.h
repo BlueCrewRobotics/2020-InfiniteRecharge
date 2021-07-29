@@ -48,6 +48,7 @@
 #include "commands/CmdGrpPrepShooter.h"
 #include "commands/CmdGrpIntake.h"
 #include "commands/CmdGrpStopIntake.h"
+#include "commands/CmdMagazineDecBall.h"
 
 #include "subsystems/SubLifter.h"
 #include "commands/CmdTurretToHomePos.h"

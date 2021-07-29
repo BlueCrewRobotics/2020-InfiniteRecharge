@@ -29,7 +29,7 @@ void CmdMagazineIndexBall::Execute() {
     //if (Lock == 0) { // LOCK IS NOT BEING USED HERE AND NEEDS TO BE REMOVED SINCE ITS FROM OLD CODE
         // Indexes ball into Magazine
     //if(Robot::m_subMagazine.GetBallCount() < 3) {
-      Robot::m_subMagazine.AddToPosition(-6000);
+      Robot::m_subMagazine.AddToPosition(-5750);
       //if(Robot::m_subMagazine.GetBallCount() != 4  ) {
       //  Robot::m_subMagazine.IncreaseBallCount(1);
       //}

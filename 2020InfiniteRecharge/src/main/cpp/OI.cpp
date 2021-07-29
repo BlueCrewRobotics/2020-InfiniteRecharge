@@ -42,7 +42,7 @@ OI::OI() {
 
 
   // Magazine buttons
-  //auxController_button_a->WhenPressed(new CmdMagazineDump());
+  auxController_button_a->WhileHeld(new CmdMagazineDecBall());
 
 
   //switchToShooterMode->WhenPressed(new CmdMagazineSwitchShooter());
