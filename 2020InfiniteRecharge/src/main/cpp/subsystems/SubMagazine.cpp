@@ -82,6 +82,11 @@ bool SubMagazine::GetSensor() {
   
 }
 
+bool SubMagazine::GetSensorBackup() {
+  return m_ballDetectorBackup->Get();
+
+}
+
 // Resets encoder position of the magazine
 void SubMagazine::ResetEncoderPosition() {
   magazineMotor->SetSelectedSensorPosition(0,0,0);

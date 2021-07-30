@@ -27,6 +27,7 @@ class SubMagazine : public frc::Subsystem {
   void MoveToPosition(int position);
   //void UpdateSensors();
   bool GetSensor();
+  bool GetSensorBackup();
   void Configure();
   void ResetEncoderPosition();
   void Test();
@@ -52,7 +53,7 @@ class SubMagazine : public frc::Subsystem {
 
   // Sets up break sensors
   frc::DigitalInput* m_ballDetector = new frc::DigitalInput(0);
-  
+  frc::DigitalInput* m_ballDetectorBackup = new frc::DigitalInput(1);
 
   //BC_Switch* m_ballDetector = new BC_Switch(BALL_DETECTOR);
   //BC_Switch* m_ballPosition1 = new BC_Switch(BALL_POS_1);

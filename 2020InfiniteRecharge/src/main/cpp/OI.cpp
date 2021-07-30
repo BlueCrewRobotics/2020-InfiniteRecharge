@@ -68,8 +68,8 @@ OI::OI() {
 }
 
 void OI::PollController() {
-  if (Robot::m_subMagazine.GetSensor() == false) {
-      indexMagazine->SetPressed(true);
+  if (Robot::m_subMagazine.GetSensor() == false && Robot::m_subMagazine.GetSensorBackup() == false) {
+      indexMagazine->SetPressed(true); 
     }
     else {
       indexMagazine->SetPressed(false);
